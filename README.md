@@ -25,6 +25,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 20/03 : refactoring de toutes les images + creation d'un Loader global
 - 20/03 : avancée sur le catalogue coté back
 - 21/03 : refactor code backend et sass + ErrorPage Component + Footer fini
+- 22/03 : massive PR refactor le projet en backend et frontend distincts
 
 ### ToDo's/Bug's
 
