@@ -1,7 +1,7 @@
 {
   "name": "restaurant-zaytoon-backend",
   "version": "1.0.0",
-  "description": "backend for tfe",
+  "description": "Backend for TFE",
   "main": "server.js",
   "dependencies": {
     "cors": "^2.8.5",
