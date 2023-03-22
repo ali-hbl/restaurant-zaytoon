@@ -3,7 +3,7 @@
 /* MENU */
 .menu {
   padding: 4rem 0;
-  background: url(../../backend/images/our-menu.png) left top no-repeat, url(../../backend/images/our-menu-bg.jpg);
+  background: url(../../../public/images/our-menu.png) left top no-repeat, url(../../../public/images/our-menu-bg.jpg);
 
   .menu-header {
     @include main.header-styles;

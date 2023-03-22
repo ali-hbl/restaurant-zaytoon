@@ -26,7 +26,7 @@ const Catalogue = () => {
                 .map((item) => (
                   <div className="box" key={item.id}>
                     <div className="box-image">
-                      <img src={item.image_url} alt={item.title} />
+                      <img src={process.env.REACT_APP_BACKEND_URL + item.image_url} alt={item.title} />
                     </div>
                     <div className="catalogue-content">
                       <h3>{item.name}</h3>

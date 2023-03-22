@@ -1,10 +1,9 @@
 import './styles.scss';
-import logo from '../../backend/images/logo.png';
 import Catalogue from '../Catalogue/Catalogue';
 import Menu from '../Menu/Menu';
-import Team from '../Team/Team';
+// import Team from '../Team/Team';
 import Reservations from '../Reservations/Reservations';
-import News from '../News/News';
+// import News from '../News/News';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
@@ -31,7 +30,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="slide slide-1">
                     <div className="content">
-                      <img src={logo} alt="Slideshow" />
+                    <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
@@ -45,7 +44,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="slide slide-2">
                     <div className="content">
-                      <img src={logo} alt="Slideshow" />
+                      <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
@@ -59,7 +58,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="slide slide-3">
                     <div className="content">
-                      <img src={logo} alt="Slideshow" />
+                    <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
@@ -76,9 +75,9 @@ const Home = () => {
       </main>
       <Catalogue />
       <Menu />
-      <Team />
+      {/* <Team />  */}
       <Reservations />
-      <News />
+      {/* <News />  */}
     </>
   );
 };

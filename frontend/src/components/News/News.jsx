@@ -1,9 +1,3 @@
-import news1 from '../../backend/images/news1.jpg';
-import news2 from '../../backend/images/news2.jpg';
-import news3 from '../../backend/images/news3.jpg';
-import newsBg1 from '../../backend/images/newsBg1.png';
-import newsBg2 from '../../backend/images/newsBg2.png';
-import newsBg3 from '../../backend/images/newsBg3.png';
 import './styles.scss';
 
 const News = () => {
@@ -14,7 +8,7 @@ const News = () => {
       <div className="news-container">
         <div className="news-box">
           <div className="news-image">
-            <img src={news1} alt="News" />
+            <img src={process.env.REACT_APP_BACKEND_URL + 'news1.png'} alt="News" />
           </div>
 
           <div className="news-content">
@@ -24,13 +18,13 @@ const News = () => {
               similique voluptatum officia eveniet repellat.
             </p>
             <a href="/">Plus d'infos</a>
-            <img src={newsBg1} alt="News background" />
+            <img src={process.env.REACT_APP_BACKEND_URL + 'newsBg1.png'} alt="News background" />
           </div>
         </div>
 
         <div className="news-box">
           <div className="news-image">
-            <img src={news2} alt="News" />
+            <img src={process.env.REACT_APP_BACKEND_URL + 'news1.png'} alt="News" />
           </div>
 
           <div className="news-content">
@@ -40,13 +34,13 @@ const News = () => {
               similique voluptatum officia eveniet repellat.
             </p>
             <a href="/">Plus d'infos</a>
-            <img src={newsBg2} alt="News background" />
+            <img src={process.env.REACT_APP_BACKEND_URL + 'newsBg2.png'} alt="News background" />
           </div>
         </div>
 
         <div className="news-box">
           <div className="news-image">
-            <img src={news3} alt="News" />
+            <img src={process.env.REACT_APP_BACKEND_URL + 'news3.png'} alt="News" />
           </div>
 
           <div className="news-content">
@@ -56,7 +50,7 @@ const News = () => {
               similique voluptatum officia eveniet repellat.
             </p>
             <a href="/">Plus d'infos</a>
-            <img src={newsBg3} alt="News background" />
+            <img src={process.env.REACT_APP_BACKEND_URL + 'newsBg3.png'} alt="News background" />
           </div>
         </div>
       </div>

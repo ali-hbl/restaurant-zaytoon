@@ -1,7 +1,4 @@
 import React from 'react';
-import chef1 from '../../backend/images/chef1.jpg';
-import chef2 from '../../backend/images/chef2.jpg';
-import chef3 from '../../backend/images/chef3.jpg';
 import { FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import './styles.scss';
 
@@ -13,7 +10,7 @@ const Team = () => {
       <div className="our-chef">
         <div className="chef-card">
           <div className="chef-card-image">
-            <img src={chef1} alt="Chef" />
+            <img src={process.env.REACT_APP_BACKEND_URL + 'chef1.jpg'} alt="Chef" />
           </div>
 
           <div className="chef-info">
@@ -38,7 +35,7 @@ const Team = () => {
 
         <div className="chef-card">
           <div className="chef-card-image">
-            <img src={chef2} alt="Chef" />
+          <img src={process.env.REACT_APP_BACKEND_URL + 'chef2.jpg'} alt="Chef" />
           </div>
 
           <div className="chef-info">
@@ -63,7 +60,7 @@ const Team = () => {
 
         <div className="chef-card">
           <div className="chef-card-image">
-            <img src={chef3} alt="Chef" />
+          <img src={process.env.REACT_APP_BACKEND_URL + 'chef3.jpg'} alt="Chef" />
           </div>
 
           <div className="chef-info">

@@ -3,7 +3,6 @@ import { RxHamburgerMenu, RxMagnifyingGlass, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
 import { CgLogIn, CgLogOff } from 'react-icons/cg';
 import { NavLink } from 'react-router-dom';
-import logo from '../../backend/images/logo.png';
 import './styles.scss';
 
 const NavBar = () => {
@@ -23,7 +22,7 @@ const NavBar = () => {
     <header>
       <div className="logo">
         <NavLink to="/" style={navStyle}>
-          <img src={logo} alt="Ô Zaytoon" />
+          <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Ô Zaytoon" />
         </NavLink>
       </div>
 
