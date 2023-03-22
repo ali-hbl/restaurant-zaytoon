@@ -1,0 +1,75 @@
+@use '../../App.scss' as main;
+
+/* RESERVATIONS */
+.reservation {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+  h1 {
+    color: main.$color-white;
+    text-align: center;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+  }
+
+  .reservation-image {
+    width: 55%;
+    background: url(../../backend/images/bookTable.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-top: 9rem;
+  }
+
+  .reservation-form {
+    background: main.$color-soft-black;
+    width: 45%;
+    padding: 9rem 7%;
+
+    .form-holder {
+      @include main.flex-center;
+      gap: 3rem;
+      width: 100%;
+
+      input,
+      option,
+      select {
+        color-scheme: dark;
+        display: block;
+        margin: 2rem 0;
+        width: 100%;
+        background: transparent;
+        border-bottom: 0.1rem solid main.$color-light-pink;
+        color: main.$color-light-pink;
+        font-size: 1.8rem;
+        font-weight: 300;
+      }
+    }
+
+    .reservation-button {
+      @include main.flex-center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .reservation {
+    h1 {
+      font-size: 3.7rem;
+    }
+
+    .reservation-image {
+      width: 0;
+    }
+
+    .reservation-form {
+      padding-top: 3rem;
+      width: 100%;
+
+      .form-holder {
+        display: block;
+      }
+    }
+  }
+}

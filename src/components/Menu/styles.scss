@@ -1,0 +1,80 @@
+@use '../../App.scss' as main;
+
+/* MENU */
+.menu {
+  padding: 4rem 0;
+  background: url(../../backend/images/our-menu.png) left top no-repeat, url(../../backend/images/our-menu-bg.jpg);
+
+  .menu-header {
+    @include main.header-styles;
+    color: main.$color-light-pink;
+  }
+
+  .menu-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: end;
+    align-items: center;
+    gap: 2rem 0;
+
+    .item {
+      width: 70%;
+
+      .item-name {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 3rem;
+          color: main.$color-light-pink;
+          font-weight: 350;
+        }
+      }
+
+      .item-menu {
+        h3 {
+          display: inline-block;
+          font-size: 2rem;
+          color: main.$color-light-pink;
+          font-weight: 200;
+        }
+
+        span {
+          width: 37%;
+          display: inline-block;
+          border: 1px dotted main.$color-light-pink;
+
+          @media (max-width: 991px) {
+            width: 15%;
+          }
+        }
+
+        ul {
+          display: block;
+          font-size: 1.5rem;
+          list-style: none;
+          padding: 0.8rem 0;
+          font-weight: 200;
+
+          li {
+            color: main.$color-soft-grey;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 2fr));
+    }
+  }
+
+  @media (max-width: 991px) {
+    // padding: 8rem 10%;
+    margin-top: 5rem;
+    height: 100vh;
+  }
+
+  @media (max-width: 768px) {
+    height: 100%;
+  }
+}

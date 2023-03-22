@@ -1,0 +1,30 @@
+@use '../../App.scss' as main;
+
+/* ERROR PAGE */
+.error-page {
+  padding: 9% 2rem;
+
+  .header {
+    @include main.header-styles;
+    font-size: 4rem;
+    font-weight: bold;
+
+    @media (max-width: 768px) {
+      font-size: 3.5rem;
+      margin-top: 2rem;
+    }
+  }
+
+  a {
+    @include main.flex-center;
+    font-size: 2.3rem;
+
+    &:hover {
+      color: darken(main.$color-brown, 5%);
+    }
+  }
+
+  @media (max-width: 991px) {
+    height: 60vh;
+  }
+}

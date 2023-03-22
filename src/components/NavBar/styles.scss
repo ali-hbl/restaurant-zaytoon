@@ -1,0 +1,117 @@
+@use '../../App.scss' as main;
+
+/* NAVBAR */
+a {
+  color: main.$color-light-brown;
+  font-size: 1.7rem;
+  padding: 0.5rem 1.5rem;
+  border: 0.1rem solid transparent;
+
+  @media (max-width: 991px) {
+    font-size: 1.34rem;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: main.$color-black;
+  padding: 0.3rem 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+
+  .logo {
+    img {
+      height: auto;
+
+      @media (max-width: 768px) {
+        height: 7rem;
+      }
+
+      @media (max-width: 991px) {
+        height: 7rem;
+      }
+    }
+
+    a {
+      @extend a;
+    }
+  }
+
+  nav {
+    a {
+      @extend a;
+
+      &.active,
+      &:hover {
+        color: main.$color-white;
+        border: 0.1rem solid rgba(205, 170, 124, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        display: block;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background-color: main.$color-black;
+      }
+    }
+
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: #eee;
+      border-top: 0.1rem solid rgba(205, 170, 124, 0.2);
+      border-bottom: 0.1rem solid rgba(205, 170, 124, 0.2);
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 1rem 2rem;
+  }
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+
+  i {
+    @include main.flex-center;
+    color: main.$color-white;
+    background: main.$color-light-brown;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4.5rem;
+    text-align: center;
+    font-size: 2rem;
+
+    &:hover {
+      color: main.$color-white;
+      background: main.$color-dark-brown;
+    }
+
+    &#menu {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
