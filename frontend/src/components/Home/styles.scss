@@ -1,0 +1,74 @@
+@use '../../App.scss' as main;
+
+/* HOME */
+.home {
+  .home-slider {
+    .slide {
+      height: 90vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &-1 {
+        background: url(../../../public/images/slideshow-1.png);
+      }
+
+      &-2 {
+        background: url(../../../public/images/slideshow-2.png);
+      }
+
+      &-3 {
+        background: url(../../../public/images/slideshow-3.png);
+      }
+
+      &-1,
+      &-2,
+      &-3 {
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        height: 80vh;
+      }
+
+      .content {
+        text-align: center;
+        padding-left: 9rem;
+
+        @media (max-width: 768px) {
+          padding: 0;
+        }
+
+        h1 {
+          color: main.$color-white;
+          font-size: 7rem;
+
+          @media (max-width: 768px) {
+            font-size: 6rem;
+          }
+        }
+
+        h3 {
+          color: main.$color-yellow;
+          font-size: 3rem;
+          font-weight: 300;
+        }
+
+        p {
+          color: #e6e7e7;
+          padding: 0.5rem 0;
+          font-size: 1.8rem;
+          letter-spacing: 1px;
+          line-height: 1.5;
+          font-weight: 200;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  @include main.btn-styles;
+}

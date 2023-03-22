@@ -25,10 +25,13 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 20/03 : refactoring de toutes les images + creation d'un Loader global
 - 20/03 : avancée sur le catalogue coté back
 - 21/03 : refactor code backend et sass + ErrorPage Component + Footer fini
+- 22/03 : massive PR refactor le projet en backend et frontend distincts
+- 22/03 : page SignUp + modal SignIn
 
 ### ToDo's/Bug's
 
-- TODO formulaires d'inscription/connexion + authentification FireBase => recupere le code deja fait
+- TODO formulaires d'inscription/connexion + authentification FireBase => lier id au userId backend
+- TODO Login : mot de passe oublié via firebase + autorisations user a voir marvel
 
 - TODO: Home + Catalogue Lazy loading des components? Check udemy course => stocker les items du catalogue dans le localstorage
   pour eviter de trop fetch?
@@ -38,11 +41,10 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO récuperer formulaires, tooltip et toastify et les utiliser
 
-- TODO NavBar : passe en mobile -> cache le hamburger menu -> revient en deskopt -> plus de Navbar
+- TODO NavBar : passe en mobile -> cache le hamburger menu -> revient en desktop -> plus de Navbar
 - TODO NavBar : passage en responsive (mobile/tablet) ouvre automatiquement le hamburger menu
 
-- TODO Menu (Carte) : rajouter vrais titres de plats + leurs prix a la fin de la dotter border
-- TODO Menu (Carte) : en mobile le centrage est trop à droite
+- TODO Sign Up: en mobile le centrage est trop à droite
 
 - TODO Reservations : Gérer tout le formulaire avec useForm hook
 

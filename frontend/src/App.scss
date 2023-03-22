@@ -1,0 +1,132 @@
+/* GLOBAL STYLING */
+
+// Primary colors
+$color-black: #000;
+$color-white: #fff;
+
+$color-green: #64822b;
+$color-yellow: #e9e672;
+$color-orange: #c06515;
+$color-red: #d6463b;
+$color-light-brown: #af8563;
+
+$box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+
+// Secondary colors
+$color-beige: #cdaa7c;
+$color-light-pink: #e5e5e5;
+$color-soft-grey: #b9b9b6;
+$color-grey: #919598;
+$color-dark-grey: #443b38;
+$color-brown: #624238;
+$color-dark-brown: #2e2b2b;
+$color-soft-black: #181818;
+
+* {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+// Alignment
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Text styling
+@mixin header-styles {
+  color: $color-black;
+  text-align: center;
+  font-size: 4.5rem;
+  letter-spacing: 1.3px;
+  font-weight: 300;
+  padding: 1rem 0;
+}
+
+@mixin sub-header-styles {
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-grey;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+// Form Inputs
+@mixin form-inputs {
+  input:not([type='submit']) {
+    font-size: 1.7rem;
+    font-weight: 300;
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $color-light-pink;
+    color: $color-light-pink;
+
+    &::placeholder {
+      color: $color-soft-grey;
+    }
+  }
+}
+
+// Buttons styling
+@mixin btn-styles {
+  position: relative;
+  color: $color-white;
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  margin-top: 1rem;
+  font-size: 1.7rem;
+  border: 0.1rem solid rgb(245 244 243 / 20%);
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 5px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: $color-orange;
+    transition: 0.5s;
+    z-index: -1;
+  }
+
+  &:hover:before {
+    left: 0;
+  }
+}
+
+/* Custom scroll bar  */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-dark-grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-beige;
+}
