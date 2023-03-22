@@ -66,6 +66,26 @@ html {
   margin-bottom: 1.5rem;
 }
 
+// Form Inputs
+@mixin form-inputs {
+  input:not([type='submit']) {
+    font-size: 1.7rem;
+    font-weight: 300;
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $color-light-pink;
+    color: $color-light-pink;
+
+    &::placeholder {
+      color: $color-soft-grey;
+    }
+  }
+}
+
 // Buttons styling
 @mixin btn-styles {
   position: relative;

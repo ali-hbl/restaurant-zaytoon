@@ -1,0 +1,50 @@
+@use '../../App.scss' as main;
+
+/* INSCRIPTION*/
+.sign-up {
+  padding-bottom: 4rem;
+  background: url(../../../public/images/our-menu.png) left top no-repeat, url(../../../public/images/our-menu-bg.jpg);
+
+  .sign-up-header {
+    @include main.flex-center;
+    color: main.$color-light-pink;
+    font-size: 4.5rem;
+    letter-spacing: 1.3px;
+    font-weight: 300;
+    padding: 1rem 0;
+  }
+
+  .sign-up-container {
+    width: 30%;
+    margin: 0 auto;
+
+    form {
+      @include main.flex-center;
+      @include main.form-inputs;
+      flex-direction: column;
+    }
+
+    p {
+      color: main.$color-red;
+      font-size: 1.7rem;
+      font-weight: 100;
+      padding: 0.5rem 0;
+    }
+
+    button {
+      padding: 0.3rem 3rem;
+    }
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 2fr));
+    }
+  }
+
+  @media (max-width: 991px) {
+    height: 100vh;
+  }
+
+  @media (max-width: 768px) {
+    height: 100%;
+  }
+}

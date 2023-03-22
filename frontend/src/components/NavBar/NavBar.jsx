@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../../context/userContext';
 import { RxHamburgerMenu, RxMagnifyingGlass, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
 import { CgLogIn, CgLogOff } from 'react-icons/cg';
@@ -7,6 +8,7 @@ import './styles.scss';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(true);
+  const { toggleModal } = useContext(UserContext);
 
   const navStyle = ({ isActive }) => {
     return {
@@ -34,14 +36,14 @@ const NavBar = () => {
           <NavLink to="/catalogue" style={navStyle}>
             Catalogue
           </NavLink>
-          <NavLink to="/menu" style={navStyle}>
-            La Carte
-          </NavLink>
           <NavLink to="/order" style={navStyle}>
             Commander
           </NavLink>
           <NavLink to="/reservations" style={navStyle}>
             Réservations
+          </NavLink>
+          <NavLink to="/sign-up" style={navStyle}>
+            S'inscrire
           </NavLink>
           <NavLink to="/contact" style={navStyle}>
             Contact
@@ -51,7 +53,10 @@ const NavBar = () => {
 
       <div className="icons">
         <i className="icon-login">
-          <CgLogIn />
+          <CgLogIn onClick={() => toggleModal('signIn')} />
+        </i>
+        <i className="icon-logout">
+          <CgLogOff onClick={() => toggleModal('logOut')} />
         </i>
         <i className="icon-search">
           <RxMagnifyingGlass />

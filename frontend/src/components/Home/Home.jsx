@@ -1,6 +1,6 @@
 import './styles.scss';
 import Catalogue from '../Catalogue/Catalogue';
-import Menu from '../Menu/Menu';
+import Inscription from '../SingUp/SignUp';
 // import Team from '../Team/Team';
 import Reservations from '../Reservations/Reservations';
 // import News from '../News/News';
@@ -30,7 +30,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="slide slide-1">
                     <div className="content">
-                    <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
+                      <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
@@ -58,7 +58,7 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="slide slide-3">
                     <div className="content">
-                    <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
+                      <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
@@ -74,7 +74,7 @@ const Home = () => {
         </div>
       </main>
       <Catalogue />
-      <Menu />
+      <Inscription />
       {/* <Team />  */}
       <Reservations />
       {/* <News />  */}
