@@ -11,11 +11,11 @@ const SignUp = () => {
     e.preventDefault();
 
     // Password validation
-    if ((pwdRef.value.length || repeatPwdRef.value.length) < 6) {
+    if ((pwdRef.current.value.length || repeatPwdRef.current.value.length) < 6) {
       setValidation('6 caractères minimum.');
     }
 
-    if (pwdRef.value !== repeatPwdRef.value) {
+    if (pwdRef.current.value !== repeatPwdRef.current.value) {
       setValidation('Les mots de passe ne sont pas identiques.');
     }
   };
@@ -58,7 +58,9 @@ const SignUp = () => {
 
           <p>{validation}</p>
 
-          <button className="btn" type='submit'>S'inscrire</button>
+          <button className="btn" type="submit">
+            S'inscrire
+          </button>
         </form>
       </div>
     </div>

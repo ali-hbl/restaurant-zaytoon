@@ -70,7 +70,7 @@
 
       button {
         color: main.$color-white;
-        background-color: main.$color-green;
+        background-color: main.$color-orange;
         width: 100%;
         font-size: 1.7rem;
         padding: 0.5rem 3rem;
@@ -80,7 +80,7 @@
         cursor: pointer;
 
         &:hover {
-          background-color: darken(main.$color-green, 5%);
+          background-color: darken(main.$color-red, 5%);
         }
       }
     }
