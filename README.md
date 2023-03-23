@@ -30,7 +30,10 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO formulaires d'inscription/connexion + authentification FireBase => lier id au userId backend
+- TODO toast Welcome et Bienvenue
+- TODO btn navbar en fonction de currentUser context
+- TODO link id firebase a id table sql nodeJs
+- TODO routes privées order + reservations pour User connecter
 - TODO Login : mot de passe oublié via firebase + autorisations user a voir marvel
 
 - TODO: Home + Catalogue Lazy loading des components? Check udemy course => stocker les items du catalogue dans le localstorage

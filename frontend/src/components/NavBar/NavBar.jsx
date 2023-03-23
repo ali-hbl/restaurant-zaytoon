@@ -3,12 +3,16 @@ import { UserContext } from '../../context/userContext';
 import { RxHamburgerMenu, RxMagnifyingGlass, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
 import { CgLogIn, CgLogOff } from 'react-icons/cg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+
 import './styles.scss';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(true);
   const { toggleModal } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const navStyle = ({ isActive }) => {
     return {
@@ -18,6 +22,15 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate('/');
+    } catch (error) {
+      alert('Nous ne pouvons pas vous déconnecter, veuillez réessayer svp.');
+    }
   };
 
   return (
@@ -56,7 +69,7 @@ const NavBar = () => {
           <CgLogIn onClick={() => toggleModal('signIn')} />
         </i>
         <i className="icon-logout">
-          <CgLogOff onClick={() => toggleModal('logOut')} />
+          <CgLogOff onClick={() => handleLogout} />
         </i>
         <i className="icon-search">
           <RxMagnifyingGlass />

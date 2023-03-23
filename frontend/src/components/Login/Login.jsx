@@ -1,9 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import { UserContext } from '../../context/userContext';
+import { useNavigate } from 'react-router-dom';
 import './styles.scss';
 
 const Login = () => {
-  const { loginModal, toggleModal } = useContext(UserContext);
+  const [validation, setValidation] = useState('');
+  const { loginModal, toggleModal, signIn } = useContext(UserContext);
+  const emailRef = useRef();
+  const loginPwdRef = useRef();
+  const formRef = useRef();
+  const navigate = useNavigate();
+
+  const handleForm = async (e) => {
+    e.preventDefault();
+
+    try {
+      await signIn(emailRef.current.value, loginPwdRef.current.value);
+
+      setValidation(''); // clear inputs and redirect
+      toggleModal('close');
+
+      //TODO: toast avec message de retour
+      navigate('/');
+
+      console.log('bienvenu user');
+    } catch (error) {
+      setValidation('Adresse email et/ou mot de passe incorrect.');
+    }
+  };
 
   return (
     <>
@@ -16,26 +40,32 @@ const Login = () => {
               <button onClick={() => toggleModal('close')}>&#x2715;</button>
             </div>
 
-            <form>
+            <form onSubmit={handleForm} ref={formRef}>
               <input
+                ref={emailRef}
                 type="email"
                 name="email"
-                id="signUpEmail"
+                id="signInEmail"
                 placeholder="Adresse email"
                 className="input-form"
                 required
               />
 
               <input
+                ref={loginPwdRef}
                 type="password"
                 name="pwd"
-                id="signUpPwd"
+                id="signInPwd"
                 placeholder="Mot de passe"
                 className="input-form"
                 required
               />
 
-              <button className="btn-login" type='submit'>Se connecter</button>
+              <button className="btn-login" type="submit">
+                Se connecter
+              </button>
+
+              <p>{validation}</p>
 
               <p>Mot de passe oublié?</p>
             </form>

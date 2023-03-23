@@ -1,23 +1,41 @@
 import { useState, useRef } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 import './styles.scss';
 
 const SignUp = () => {
   const [validation, setValidation] = useState('');
+  const formRef = useRef();
   const emailRef = useRef();
   const pwdRef = useRef();
   const repeatPwdRef = useRef();
+  const navigate = useNavigate();
 
-  const handleForm = (e) => {
+  // Handle Form
+  const handleForm = async (e) => {
     e.preventDefault();
 
-    // Password validation
-    if ((pwdRef.current.value.length || repeatPwdRef.current.value.length) < 6) {
-      setValidation('6 caractères minimum.');
-    }
+    if ((pwdRef.current.value.length || repeatPwdRef.current.value.length) < 6) setValidation('6 caractères minimum.');
 
-    if (pwdRef.current.value !== repeatPwdRef.current.value) {
-      setValidation('Les mots de passe ne sont pas identiques.');
-    }
+    if (pwdRef.current.value !== repeatPwdRef.current.value) setValidation('Les mots de passe ne sont pas identiques.');
+
+    // sign up the user
+    createUserWithEmailAndPassword(auth, emailRef.current.value, pwdRef.current.value)
+      .then(() => {
+        // clear inputs and redirect
+        setValidation('');
+        navigate('/');
+      })
+      .catch((error) => {
+        if (error.code === 'auth/invalid-email') {
+          setValidation("Format d'email invalide.");
+        }
+
+        if (error.code === 'auth/email-already-in-use') {
+          setValidation('Adresse email déjà utilisée.');
+        }
+      });
   };
 
   return (
@@ -25,7 +43,7 @@ const SignUp = () => {
       <h1 className="sign-up-header">Inscrivez-vous</h1>
 
       <div className="sign-up-container">
-        <form onSubmit={handleForm}>
+        <form onSubmit={handleForm} ref={formRef}>
           <input
             ref={emailRef}
             type="email"
@@ -35,7 +53,6 @@ const SignUp = () => {
             className="input-form"
             required
           />
-
           <input
             ref={pwdRef}
             type="password"
@@ -45,7 +62,6 @@ const SignUp = () => {
             className="input-form"
             required
           />
-
           <input
             ref={repeatPwdRef}
             type="password"
@@ -55,7 +71,6 @@ const SignUp = () => {
             className="input-form"
             required
           />
-
           <p>{validation}</p>
 
           <button className="btn" type="submit">
