@@ -1,4 +1,4 @@
-import './styles.scss';
+// import { useState, useEffect } from 'react';
 import Catalogue from '../Catalogue/Catalogue';
 import Inscription from '../SingUp/SignUp';
 // import Team from '../Team/Team';
@@ -6,13 +6,50 @@ import Reservations from '../Reservations/Reservations';
 // import News from '../News/News';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
+// import { getAuth, onAuthStateChanged } from 'firebase/auth';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'swiper/swiper-bundle.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './styles.scss';
 
 const Home = () => {
+  // const [currentUser, setCurrentUser] = useState(null);
+  // const [showWelcomeMsg, setShowWelcomeMsg] = useState(false);
+
+  // useEffect(() => {
+  //   const auth = getAuth();
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     setCurrentUser(user);
+  //   });
+
+  //   return unsubscribe;
+  // });
+
+  // // Show notification
+  // if (!showWelcomeMsg) {
+  //   setShowWelcomeMsg(true);
+
+  //   toast.warn(`Bienvenue!`, {
+  //     className: 'notification',
+  //     position: 'top-right',
+  //     autoClose: 2500,
+  //     hideProgressBar: true,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: false,
+  //     progress: undefined,
+  //     theme: 'colored',
+  //     icon: false,
+  //     bodyClassName: 'toastify-color-welcome',
+  //   });
+  // }
+
   return (
     <>
       <main>
-        <div className="home" id="home">
+        <div className="home">
+          {/* {currentUser && <ToastContainer />} */}
+
           <div className="home-slider">
             <div className="wrapper">
               <Swiper

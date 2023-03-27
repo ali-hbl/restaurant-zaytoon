@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
 
 const SignUp = () => {
@@ -23,27 +25,49 @@ const SignUp = () => {
     // sign up the user
     createUserWithEmailAndPassword(auth, emailRef.current.value, pwdRef.current.value)
       .then(() => {
-        // clear inputs and redirect
+        // clear inputs, show notification and redirect
         setValidation('');
-        navigate('/');
+
+        toast.warn(`Bienvenue!`, {
+          className: 'notification',
+          position: 'top-right',
+          autoClose: 2500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: 'colored',
+          icon: false,
+          bodyClassName: 'toastify-color-welcome',
+        });
+
+        setTimeout(() => {
+          navigate('/');
+        }, 2500);
       })
       .catch((error) => {
-        if (error.code === 'auth/invalid-email') {
-          setValidation("Format d'email invalide.");
-        }
-
-        if (error.code === 'auth/email-already-in-use') {
-          setValidation('Adresse email déjà utilisée.');
-        }
+        if (error.code === 'auth/invalid-email') setValidation("Format d'email invalide.");
+        if (error.code === 'auth/email-already-in-use') setValidation('Adresse email déjà utilisée.');
       });
   };
 
   return (
     <div className="sign-up">
+      <ToastContainer />
+
       <h1 className="sign-up-header">Inscrivez-vous</h1>
 
       <div className="sign-up-container">
         <form onSubmit={handleForm} ref={formRef}>
+          <input
+            type="text"
+            name="username"
+            id="signUpUsername"
+            placeholder="Nom d'utilisateur"
+            className="input-form"
+            required
+          />
           <input
             ref={emailRef}
             type="email"
@@ -72,7 +96,6 @@ const SignUp = () => {
             required
           />
           <p>{validation}</p>
-
           <button className="btn" type="submit">
             S'inscrire
           </button>

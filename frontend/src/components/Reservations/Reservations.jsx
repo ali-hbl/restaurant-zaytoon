@@ -1,15 +1,14 @@
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../context/userContext';
+// import { useContext } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { UserContext } from '../../context/userContext';
 import './styles.scss';
 
 const Reservations = () => {
-  const { currentUser } = useContext(UserContext);
-  const navigate = useNavigate();
-
+  // const { currentUser } = useContext(UserContext);
+  // const navigate = useNavigate();
+// 
   // FIXME: Route privée
-  if (!currentUser) navigate('/');
-
+  // if (!currentUser) navigate('/');
   return (
     <div className="reservation">
       <div className="reservation-image"></div>
