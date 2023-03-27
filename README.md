@@ -27,27 +27,25 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 21/03 : refactor code backend et sass + ErrorPage Component + Footer fini
 - 22/03 : massive PR refactor le projet en backend et frontend distincts
 - 22/03 : page SignUp + modal SignIn
+- 27/03 : ResetPassword component complet (firebase+UI)
 
 ### ToDo's/Bug's
 
-- TODO toast Welcome et Bienvenue
-- TODO btn navbar en fonction de currentUser context
 - TODO link id firebase a id table sql nodeJs
 - TODO routes privées order + reservations pour User connecter
-- TODO Login : mot de passe oublié via firebase + autorisations user a voir marvel
 
 - TODO: Home + Catalogue Lazy loading des components? Check udemy course => stocker les items du catalogue dans le localstorage
   pour eviter de trop fetch?
 
-- TODO: Catalogue : rajouter boissons dans le catalogue + checker les prix (houmous a 4e et crevettes a 14e ?)
-- TODO: Catalogue : Plats en carrousel style hawaiien
+- TODO: Catalogue : rajouter boissons dans le catalogue + verifier les prix
+- TODO: Catalogue : Plats en carrousel style hawaiien?
 
 - TODO récuperer formulaires, tooltip et toastify et les utiliser
 
 - TODO NavBar : passe en mobile -> cache le hamburger menu -> revient en desktop -> plus de Navbar
 - TODO NavBar : passage en responsive (mobile/tablet) ouvre automatiquement le hamburger menu
 
-- TODO Sign Up: en mobile le centrage est trop à droite
+- TODO Sign Up: en mobile le centrage est trop à droite?
 
 - TODO Reservations : Gérer tout le formulaire avec useForm hook
 

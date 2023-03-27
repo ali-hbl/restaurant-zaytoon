@@ -27,28 +27,29 @@ const NavBar = () => {
     setShowMenu(!showMenu);
   };
 
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.error(`Déconnexion en cours...`, {
+          className: 'notification',
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: 'dark',
+          icon: false,
+          bodyClassName: 'toastify-color-welcome',
+        });
 
-      toast.error(`Déconnexion en cours...`, {
-        className: 'notification',
-        position: 'top-right',
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: 'colored',
-        icon: false,
-        bodyClassName: 'toastify-color-welcome',
+        navigate('/');
+      })
+
+      .catch(() => {
+        alert("Nous n'avons pas réussi à vous déconnecter, veuillez réessayer svp.");
       });
-
-      navigate('/');
-    } catch (error) {
-      alert("Nous n'avons pas réussi à vous déconnecter, veuillez réessayer svp.");
-    }
   };
 
   return (

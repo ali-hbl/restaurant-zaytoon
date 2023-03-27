@@ -61,11 +61,15 @@
         margin-bottom: 1.5rem;
       }
 
-      p {
+      a {
         text-align: center;
         margin-top: 1.7rem;
         margin-bottom: -2rem;
         font-size: 1.6rem;
+
+        &:hover {
+          color: darken(main.$color-red, 5%);
+        }
       }
 
       button {
@@ -80,7 +84,7 @@
         cursor: pointer;
 
         &:hover {
-          background-color: darken(main.$color-red, 5%);
+          background-color: darken(main.$color-orange, 5%);
         }
       }
     }

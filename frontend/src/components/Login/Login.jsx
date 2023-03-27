@@ -1,13 +1,13 @@
 import React, { useContext, useState, useRef } from 'react';
 import { UserContext } from '../../context/userContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
 
 const Login = () => {
-  const [validation, setValidation] = useState('');
   const { loginModal, toggleModal, signIn } = useContext(UserContext);
+  const [validation, setValidation] = useState('');
   const emailRef = useRef();
   const loginPwdRef = useRef();
   const formRef = useRef();
@@ -23,16 +23,16 @@ const Login = () => {
       setValidation('');
       toggleModal('close');
 
-      toast.warn(`Rebonjour!`, {
+      toast.error(`Rebonjour!`, {
         className: 'notification',
         position: 'top-right',
-        autoClose: 2500,
+        autoClose: 1500,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: 'colored',
+        theme: 'dark',
         icon: false,
         bodyClassName: 'toastify-color-welcome',
       });
@@ -77,13 +77,13 @@ const Login = () => {
                 required
               />
 
-              <button className="btn-login" type="submit">
-                Se connecter
-              </button>
+              <button type="submit">Se connecter</button>
 
               <p>{validation}</p>
 
-              <p>Mot de passe oublié?</p>
+              <Link to="/reset-password" onClick={() => toggleModal('close')}>
+                Mot de passe oublié?
+              </Link>
             </form>
           </div>
         </div>

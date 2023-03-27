@@ -6,6 +6,7 @@ import Catalogue from './components/Catalogue/Catalogue';
 import SignUp from './components/SingUp/SignUp';
 import Login from './components/Login/Login';
 import Contact from './components/Contact/Contact';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 import Footer from './components/Footer/Footer';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/catalogue" element={<Catalogue />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

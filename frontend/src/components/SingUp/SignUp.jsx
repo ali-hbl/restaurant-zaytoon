@@ -29,23 +29,23 @@ const SignUp = () => {
         // clear inputs, show notification and redirect
         setValidation('');
 
-        toast.warn(`Bienvenue ${usernameRef.current.value}!`, {
+        toast.error(`Bienvenue ${usernameRef.current.value}!`, {
           className: 'notification',
           position: 'top-right',
-          autoClose: 2500,
-          hideProgressBar: true,
+          autoClose: 1500,
+          hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: false,
           progress: undefined,
-          theme: 'colored',
+          theme: 'dark',
           icon: false,
           bodyClassName: 'toastify-color-welcome',
         });
 
         setTimeout(() => {
           navigate('/');
-        }, 2500);
+        }, 1500);
       })
       .catch((error) => {
         if (error.code === 'auth/invalid-email') setValidation("Format d'email invalide.");
