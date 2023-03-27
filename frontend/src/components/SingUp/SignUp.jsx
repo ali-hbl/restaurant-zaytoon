@@ -9,6 +9,7 @@ import './styles.scss';
 const SignUp = () => {
   const [validation, setValidation] = useState('');
   const formRef = useRef();
+  const usernameRef = useRef();
   const emailRef = useRef();
   const pwdRef = useRef();
   const repeatPwdRef = useRef();
@@ -18,8 +19,8 @@ const SignUp = () => {
   const handleForm = async (e) => {
     e.preventDefault();
 
+    // form validations
     if ((pwdRef.current.value.length || repeatPwdRef.current.value.length) < 6) setValidation('6 caractères minimum.');
-
     if (pwdRef.current.value !== repeatPwdRef.current.value) setValidation('Les mots de passe ne sont pas identiques.');
 
     // sign up the user
@@ -28,7 +29,7 @@ const SignUp = () => {
         // clear inputs, show notification and redirect
         setValidation('');
 
-        toast.warn(`Bienvenue!`, {
+        toast.warn(`Bienvenue ${usernameRef.current.value}!`, {
           className: 'notification',
           position: 'top-right',
           autoClose: 2500,
@@ -61,6 +62,7 @@ const SignUp = () => {
       <div className="sign-up-container">
         <form onSubmit={handleForm} ref={formRef}>
           <input
+            ref={usernameRef}
             type="text"
             name="username"
             id="signUpUsername"

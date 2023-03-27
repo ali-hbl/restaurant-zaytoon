@@ -39,6 +39,10 @@ html {
   overflow-x: hidden;
 }
 
+.notification {
+  font-size: 1.6rem;
+}
+
 // Alignment
 @mixin flex-center {
   display: flex;

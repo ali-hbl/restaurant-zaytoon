@@ -1,6 +1,8 @@
 import React, { useContext, useState, useRef } from 'react';
 import { UserContext } from '../../context/userContext';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
 
 const Login = () => {
@@ -17,13 +19,25 @@ const Login = () => {
     try {
       await signIn(emailRef.current.value, loginPwdRef.current.value);
 
-      setValidation(''); // clear inputs and redirect
+      // clear inputs, show notification and redirect
+      setValidation('');
       toggleModal('close');
 
-      //TODO: toast avec message de retour
-      navigate('/');
+      toast.warn(`Rebonjour!`, {
+        className: 'notification',
+        position: 'top-right',
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: 'colored',
+        icon: false,
+        bodyClassName: 'toastify-color-welcome',
+      });
 
-      console.log('bienvenu user');
+      navigate('/');
     } catch (error) {
       setValidation('Adresse email et/ou mot de passe incorrect.');
     }
@@ -31,6 +45,8 @@ const Login = () => {
 
   return (
     <>
+      <ToastContainer />
+
       {loginModal && (
         <div className="modal">
           <div className="modal-overlay" onClick={() => toggleModal('close')}></div>
