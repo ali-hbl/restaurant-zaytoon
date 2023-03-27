@@ -1,4 +1,3 @@
-import './styles.scss';
 import Catalogue from '../Catalogue/Catalogue';
 import Inscription from '../SingUp/SignUp';
 // import Team from '../Team/Team';
@@ -7,12 +6,14 @@ import Reservations from '../Reservations/Reservations';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './styles.scss';
 
 const Home = () => {
   return (
     <>
       <main>
-        <div className="home" id="home">
+        <div className="home">
           <div className="home-slider">
             <div className="wrapper">
               <Swiper

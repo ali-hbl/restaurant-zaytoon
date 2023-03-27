@@ -3,12 +3,19 @@ import { UserContext } from '../../context/userContext';
 import { RxHamburgerMenu, RxMagnifyingGlass, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
 import { CgLogIn, CgLogOff } from 'react-icons/cg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+import { ToastContainer, toast } from 'react-toastify';
+import { Tooltip } from 'react-tooltip';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-tooltip/dist/react-tooltip.css';
 import './styles.scss';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(true);
-  const { toggleModal } = useContext(UserContext);
+  const { toggleModal, currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const navStyle = ({ isActive }) => {
     return {
@@ -20,8 +27,35 @@ const NavBar = () => {
     setShowMenu(!showMenu);
   };
 
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.error(`Déconnexion en cours...`, {
+          className: 'notification',
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: 'dark',
+          icon: false,
+          bodyClassName: 'toastify-color-welcome',
+        });
+
+        navigate('/');
+      })
+
+      .catch(() => {
+        alert("Nous n'avons pas réussi à vous déconnecter, veuillez réessayer svp.");
+      });
+  };
+
   return (
     <header>
+      <ToastContainer />
+
       <div className="logo">
         <NavLink to="/" style={navStyle}>
           <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Ô Zaytoon" />
@@ -52,12 +86,17 @@ const NavBar = () => {
       )}
 
       <div className="icons">
-        <i className="icon-login">
-          <CgLogIn onClick={() => toggleModal('signIn')} />
-        </i>
-        <i className="icon-logout">
-          <CgLogOff onClick={() => toggleModal('logOut')} />
-        </i>
+        {currentUser ? (
+          <i className="icon-logout" data-tooltip-id="logout-tooltip" data-tooltip-content="Déconnexion">
+            <Tooltip id="logout-tooltip" place="left" className="tooltip" />
+            <CgLogOff onClick={handleLogout} />
+          </i>
+        ) : (
+          <i className="icon-login" data-tooltip-id="login-tooltip" data-tooltip-content="Se connecter">
+            <Tooltip id="login-tooltip" place="left" className="tooltip" />
+            <CgLogIn onClick={() => toggleModal('signIn')} />
+          </i>
+        )}
         <i className="icon-search">
           <RxMagnifyingGlass />
         </i>

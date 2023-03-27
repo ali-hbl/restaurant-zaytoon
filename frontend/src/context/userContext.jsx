@@ -1,14 +1,36 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 
 export const UserContext = createContext();
 
 export const UserContextProvider = (props) => {
   const [loginModal, setLoginModal] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
+  const [loadingData, setLoadingData] = useState(true);
+
+  const signIn = (email, pwd) => {
+    signInWithEmailAndPassword(auth, email, pwd);
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setCurrentUser(currentUser);
+      setLoadingData(false);
+    });
+
+    // clean up function
+    return unsubscribe;
+  }, []);
 
   const toggleModal = (modal) => {
     if (modal === 'signIn') setLoginModal(true);
     if (modal === 'close') setLoginModal(false);
   };
 
-  return <UserContext.Provider value={{ loginModal, toggleModal }}>{props.children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ loginModal, toggleModal, currentUser, signIn }}>
+      {!loadingData && props.children}
+    </UserContext.Provider>
+  );
 };

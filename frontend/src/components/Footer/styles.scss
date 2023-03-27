@@ -40,7 +40,7 @@ footer {
       ul {
         margin: 0 auto;
         list-style: none;
-        text-align-last: left;
+        text-align: left;
 
         li {
           color: main.$color-soft-grey;
@@ -51,6 +51,24 @@ footer {
             text-decoration: underline;
           }
         }
+
+        @media (max-width: 991px) {
+          text-align: center;
+        }
+
+        @media (max-width: 768px) {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 991px) {
+        margin: 0.7rem 0;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        margin: 0.7rem 0;
+        text-align: center;
       }
     }
   }

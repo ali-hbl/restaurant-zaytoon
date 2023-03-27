@@ -1,6 +1,10 @@
 @use '../../App.scss' as main;
 
 /* NAVBAR */
+.tooltip {
+  font-size: 1.6rem;
+}
+
 a {
   color: main.$color-light-brown;
   font-size: 1.7rem;

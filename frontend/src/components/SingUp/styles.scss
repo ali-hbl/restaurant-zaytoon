@@ -1,8 +1,8 @@
 @use '../../App.scss' as main;
 
-/* INSCRIPTION*/
+/* INSCRIPTION */
 .sign-up {
-  padding-bottom: 4rem;
+  padding: 0 9% 7rem;
   background: url(../../../public/images/our-menu.png) left top no-repeat, url(../../../public/images/our-menu-bg.jpg);
 
   .sign-up-header {
@@ -29,6 +29,7 @@
       font-size: 1.7rem;
       font-weight: 100;
       padding: 0.5rem 0;
+      margin-top: -1.3rem;
     }
 
     button {
@@ -36,7 +37,11 @@
     }
 
     @media (max-width: 991px) {
-      grid-template-columns: repeat(auto-fit, minmax(30rem, 2fr));
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 60%;
     }
   }
 

@@ -1,9 +1,5 @@
 const connection = require('../db');
 
-// format Date for createAd field
-const date = new Date();
-const createdAt = `${date.toISOString().split('T')[0]} ${date.toTimeString().split(' ')[0]}`; // convert Date
-
 // GET by ID
 const getUserById = (req, res) => {
   const id = req.params.id;
@@ -18,10 +14,13 @@ const getUserById = (req, res) => {
 // POST
 const postUser = (req, res) => {
   const data = req.body;
+  // console.log(req);
 
   connection.query(
-    'INSERT INTO `users`(`username`, `password`, `email`, `phone`, `created_at`) VALUES (?, ?, ?, ?, ?)',
-    [data.username, data.password, data.email, data.phone, createdAt],
+    // 'INSERT INTO `users`(`id`, `username`, `password`, `email`, `phone`, `created_at`) VALUES (?, ?, ?, ?, ?, ?)',
+    'INSERT INTO `users`(`id`, `username`, `password`, `email`, `phone`, `created_at`) VALUES (?, ?, ?, ?, ?)',
+    [req.user.uid, data.username, data.password, data.email, data.phone],
+    // [req.user.uid, data.username, data.password, data.email, data.phone, createdAt],
 
     function (err, results) {
       if (err) return res.json({ success: false, message: err });
