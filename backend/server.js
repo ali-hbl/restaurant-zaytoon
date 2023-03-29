@@ -5,10 +5,8 @@ const PORT = 9999;
 
 const usersRoute = require('./routes/usersRoute');
 const catalogueRoute = require('./routes/catalogueRoute');
-
-// TODO:
-// const ordersRoutes = require('./routes/orders');
-// const reservationRoutes = require('./routes/reservations');
+// const ordersRoutes = require('./routes/orders'); TODO
+// const reservationRoutes = require('./routes/reservations'); TODO
 
 app.use(express.json());
 app.use(cors());

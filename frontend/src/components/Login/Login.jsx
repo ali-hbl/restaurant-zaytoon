@@ -24,16 +24,16 @@ const Login = () => {
       toggleModal('close');
 
       toast.error(`Rebonjour!`, {
-        className: 'notification',
         position: 'top-right',
         autoClose: 1500,
-        hideProgressBar: true,
+        hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: false,
         progress: undefined,
         theme: 'dark',
         icon: false,
+        className: 'notification',
         bodyClassName: 'toastify-color-welcome',
       });
 

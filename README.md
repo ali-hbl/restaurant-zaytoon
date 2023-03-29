@@ -28,14 +28,13 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 22/03 : massive PR refactor le projet en backend et frontend distincts
 - 22/03 : page SignUp + modal SignIn
 - 27/03 : ResetPassword component complet (firebase+UI)
+- 29/03 : envoyer firebase id a la database sql sur sign up
+- 29/03 : page de profil et routes privées
+- 29/03 : refactor home page catalogue (requete par 3)
 
 ### ToDo's/Bug's
 
-- TODO link id firebase a id table sql nodeJs
-- TODO routes privées order + reservations pour User connecter
-
-- TODO: Home + Catalogue Lazy loading des components? Check udemy course => stocker les items du catalogue dans le localstorage
-  pour eviter de trop fetch?
+- TODO: navbar en iPad pas belle + logo et titre sur slider non plus
 
 - TODO: Catalogue : rajouter boissons dans le catalogue + verifier les prix
 - TODO: Catalogue : Plats en carrousel style hawaiien?
