@@ -31,29 +31,30 @@ const NavBar = () => {
     navigate('/profile');
   };
 
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        toast.error(`Déconnexion en cours...`, {
-          className: 'notification',
-          position: 'top-right',
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: false,
-          progress: undefined,
-          theme: 'dark',
-          icon: false,
-          bodyClassName: 'toastify-color-welcome',
-        });
+  const handleLogout = async () => {
+    try {
+      // logout, show notification and redirect
+      await signOut(auth);
 
-        navigate('/');
-      })
-
-      .catch(() => {
-        alert("Nous n'avons pas réussi à vous déconnecter, veuillez réessayer svp.");
+      toast.error(`Déconnexion en cours...`, {
+        className: 'notification',
+        position: 'top-right',
+        autoClose: 750,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: 'dark',
+        icon: false,
+        bodyClassName: 'toastify-color-welcome',
       });
+
+      navigate('/');
+    } catch (error) {
+      alert("Nous n'avons pas réussi à vous déconnecter, veuillez réessayer svp.");
+      console.error(error);
+    }
   };
 
   return (

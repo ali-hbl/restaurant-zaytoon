@@ -26,8 +26,8 @@ const Login = () => {
       toast.error(`Rebonjour!`, {
         className: 'notification',
         position: 'top-right',
-        autoClose: 1500,
-        hideProgressBar: true,
+        autoClose: 750,
+        hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: false,
