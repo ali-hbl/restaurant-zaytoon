@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Firebase config
+config/restaurant-zaytoon-firebase-adminsdk-gb54k-7c3f431fff.json
+
 # dependencies
 /node_modules
 /.pnp

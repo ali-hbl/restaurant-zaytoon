@@ -28,10 +28,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 22/03 : massive PR refactor le projet en backend et frontend distincts
 - 22/03 : page SignUp + modal SignIn
 - 27/03 : ResetPassword component complet (firebase+UI)
+- 29/03 : envoyer firebase id a la database sql sur sign up
+- 29/03 : page de profil et routes privées
 
 ### ToDo's/Bug's
 
-- TODO link id firebase a id table sql nodeJs
 - TODO routes privées order + reservations pour User connecter
 
 - TODO: Home + Catalogue Lazy loading des components? Check udemy course => stocker les items du catalogue dans le localstorage

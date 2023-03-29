@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../../context/userContext';
-import { RxHamburgerMenu, RxMagnifyingGlass, RxCross1 } from 'react-icons/rx';
+import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
-import { CgLogIn, CgLogOff } from 'react-icons/cg';
+import { CgLogIn, CgLogOff, CgProfile } from 'react-icons/cg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
@@ -25,6 +25,10 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+  };
+
+  const goToProfile = () => {
+    navigate('/profile');
   };
 
   const handleLogout = () => {
@@ -87,23 +91,26 @@ const NavBar = () => {
 
       <div className="icons">
         {currentUser ? (
-          <i className="icon-logout" data-tooltip-id="logout-tooltip" data-tooltip-content="Déconnexion">
-            <Tooltip id="logout-tooltip" place="left" className="tooltip" />
-            <CgLogOff onClick={handleLogout} />
-          </i>
+          <>
+            <i data-tooltip-id="logout-tooltip" data-tooltip-content="Déconnexion">
+              <Tooltip id="logout-tooltip" place="left" className="tooltip" />
+              <CgLogOff onClick={handleLogout} />
+            </i>
+
+            <i>
+              <CgProfile onClick={goToProfile} />
+            </i>
+          </>
         ) : (
-          <i className="icon-login" data-tooltip-id="login-tooltip" data-tooltip-content="Se connecter">
+          <i data-tooltip-id="login-tooltip" data-tooltip-content="Se connecter">
             <Tooltip id="login-tooltip" place="left" className="tooltip" />
             <CgLogIn onClick={() => toggleModal('signIn')} />
           </i>
         )}
-        <i className="icon-search">
-          <RxMagnifyingGlass />
-        </i>
-        <i className="icon-cart">
+        <i>
           <FaShoppingCart />
         </i>
-        <i className="icon-hamburger" id="menu" onClick={toggleMenu}>
+        <i id="menu" onClick={toggleMenu}>
           {showMenu ? <RxCross1 /> : <RxHamburgerMenu />}
         </i>
       </div>

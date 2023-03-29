@@ -1,5 +1,5 @@
 import Catalogue from '../Catalogue/Catalogue';
-import Inscription from '../SingUp/SignUp';
+// import Inscription from '../SingUp/SignUp';
 // import Team from '../Team/Team';
 import Reservations from '../Reservations/Reservations';
 // import News from '../News/News';
@@ -75,7 +75,7 @@ const Home = () => {
         </div>
       </main>
       <Catalogue />
-      <Inscription />
+      {/* <Inscription /> */}
       {/* <Team />  */}
       <Reservations />
       {/* <News />  */}

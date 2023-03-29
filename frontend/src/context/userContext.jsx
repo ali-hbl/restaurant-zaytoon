@@ -14,8 +14,8 @@ export const UserContextProvider = (props) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setCurrentUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
       setLoadingData(false);
     });
 
@@ -27,6 +27,12 @@ export const UserContextProvider = (props) => {
     if (modal === 'signIn') setLoginModal(true);
     if (modal === 'close') setLoginModal(false);
   };
+
+  // const getCurrentUserToken = async () => {
+  //   if (!currentUser) return null;
+  //   const token = await currentUser.getIdToken();
+  //   return token;
+  // };
 
   return (
     <UserContext.Provider value={{ loginModal, toggleModal, currentUser, signIn }}>

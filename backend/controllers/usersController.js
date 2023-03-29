@@ -1,5 +1,14 @@
 const connection = require('../db');
 
+// GET All
+const getAll = (req, res) => {
+  connection.query('SELECT * FROM `users`', function (err, results) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ results });
+  });
+};
+
 // GET by ID
 const getUserById = (req, res) => {
   const id = req.params.id;
@@ -14,15 +23,13 @@ const getUserById = (req, res) => {
 // POST
 const postUser = (req, res) => {
   const data = req.body;
-  // console.log(req);
 
   connection.query(
-    // 'INSERT INTO `users`(`id`, `username`, `password`, `email`, `phone`, `created_at`) VALUES (?, ?, ?, ?, ?, ?)',
-    'INSERT INTO `users`(`id`, `username`, `password`, `email`, `phone`, `created_at`) VALUES (?, ?, ?, ?, ?)',
-    [req.user.uid, data.username, data.password, data.email, data.phone],
-    // [req.user.uid, data.username, data.password, data.email, data.phone, createdAt],
+    'INSERT INTO `users` (`uid`, `username`, `email`) VALUES (?, ?, ?)',
+    [data.uid, data.username, data.email],
 
     function (err, results) {
+      console.log(results);
       if (err) return res.json({ success: false, message: err });
 
       res.json({ results });
@@ -63,4 +70,4 @@ const deleteUser = (req, res) => {
   );
 };
 
-module.exports = { getUserById, postUser, updateUser, deleteUser };
+module.exports = { getAll, getUserById, postUser, updateUser, deleteUser };
