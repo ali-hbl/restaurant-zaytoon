@@ -30,10 +30,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 27/03 : ResetPassword component complet (firebase+UI)
 - 29/03 : envoyer firebase id a la database sql sur sign up
 - 29/03 : page de profil et routes privées
+- 29/03 : refactor home page catalogue (requete par 3)
 
 ### ToDo's/Bug's
 
-- TODO routes privées order + reservations pour User connecter
+- TODO: navbar en iPad pas belle + logo et titre sur slider non plus
 
 - TODO: Catalogue : rajouter boissons dans le catalogue + verifier les prix
 - TODO: Catalogue : Plats en carrousel style hawaiien?

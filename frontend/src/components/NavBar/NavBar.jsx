@@ -77,11 +77,16 @@ const NavBar = () => {
           <NavLink to="/reservations" style={navStyle}>
             Réservations
           </NavLink>
-          <NavLink to="/sign-up" style={navStyle}>
-            S'inscrire
-          </NavLink>
+          {!currentUser && (
+            <NavLink to="/sign-up" style={navStyle}>
+              S'inscrire
+            </NavLink>
+          )}
           <NavLink to="/contact" style={navStyle}>
             Contact
+          </NavLink>
+          <NavLink to="/about" style={navStyle}>
+            À Propos
           </NavLink>
         </nav>
       )}

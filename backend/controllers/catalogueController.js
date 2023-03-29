@@ -9,6 +9,15 @@ const getAll = (req, res) => {
   });
 };
 
+// GET 3 plates
+const getTopThree = (req, res) => {
+  connection.query('SELECT * FROM `catalogue` LIMIT 3', function (err, results) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ results });
+  });
+};
+
 // GET by ID
 const getById = (req, res) => {
   const id = req.params.id;
@@ -20,4 +29,4 @@ const getById = (req, res) => {
   });
 };
 
-module.exports = { getAll, getById };
+module.exports = { getAll, getTopThree, getById };

@@ -1,7 +1,20 @@
 @use '../../App.scss' as main;
 
 /* HOME */
-.home {
+.btn {
+  @include main.btn-styles;
+}
+
+main {
+  .header {
+    @include main.header-styles;
+
+    @media (max-width: 768px) {
+      font-size: 3.5rem;
+      margin-top: 2rem;
+    }
+  }
+
   .home-slider {
     .slide {
       height: 90vh;
@@ -83,8 +96,29 @@
       }
     }
   }
-}
 
-.btn {
-  @include main.btn-styles;
+  .box-container {
+    @include main.box-container;
+    padding: 0 9%;
+    margin-bottom: 4rem;
+  }
+
+  .catalogue-button {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    a {
+      color: main.$color-white;
+      background-color: main.$color-coral;
+      font-size: 2.2rem;
+      padding: 0.4rem 3.5rem;
+      border: none;
+      border-radius: 5rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken(main.$color-coral, 8%);
+      }
+    }
+  }
 }

@@ -1,8 +1,8 @@
-import './App.scss';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Loader from './components/Loader/Loader';
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
-import Catalogue from './components/Catalogue/Catalogue';
 import Orders from './components/Orders/Orders';
 import Reservations from './components/Reservations/Reservations';
 import SignUp from './components/SingUp/SignUp';
@@ -13,6 +13,8 @@ import ResetPassword from './components/ResetPassword/ResetPassword';
 import Footer from './components/Footer/Footer';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import './App.scss';
+const Catalogue = React.lazy(() => import('./components/Catalogue/Catalogue'));
 
 const App = () => {
   return (
@@ -22,15 +24,22 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/catalogue" element={<Catalogue />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/profile" element={<Profile />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/orders" element={<Orders />} />
             <Route path="/reservations" element={<Reservations />} />
           </Route>
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/catalogue"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Catalogue />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
