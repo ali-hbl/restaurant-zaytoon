@@ -1,13 +1,15 @@
-import Catalogue from '../Catalogue/Catalogue';
-// import Inscription from '../SingUp/SignUp';
-// import Team from '../Team/Team';
+import React, { Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import Reservations from '../Reservations/Reservations';
+// import Team from '../Team/Team';
 // import News from '../News/News';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
+import Loader from '../Loader/Loader';
+const Catalogue = React.lazy(() => import('../Catalogue/Catalogue'));
 
 const Home = () => {
   return (
@@ -35,9 +37,7 @@ const Home = () => {
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
-                      <a href="/" className="btn">
-                        Commandez en ligne
-                      </a>
+                      <Link to="/catalogue">Commandez en ligne</Link>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -49,9 +49,7 @@ const Home = () => {
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
-                      <a href="/" className="btn">
-                        Commandez en ligne
-                      </a>
+                      <Link to="/catalogue">Commandez en ligne</Link>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -63,9 +61,7 @@ const Home = () => {
 
                       <h3>Goûtez l'Orient</h3>
                       <h1>Ô Zaytoon</h1>
-                      <a href="/" className="btn">
-                        Commandez en ligne
-                      </a>
+                      <Link to="/catalogue">Commandez en ligne</Link>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -74,8 +70,9 @@ const Home = () => {
           </div>
         </div>
       </main>
-      <Catalogue />
-      {/* <Inscription /> */}
+      <Suspense fallback={<Loader />}>
+        <Catalogue />
+      </Suspense>
       {/* <Team />  */}
       <Reservations />
       {/* <News />  */}

@@ -35,9 +35,6 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO routes privées order + reservations pour User connecter
 
-- TODO: Home + Catalogue Lazy loading des components? Check udemy course => stocker les items du catalogue dans le localstorage
-  pour eviter de trop fetch?
-
 - TODO: Catalogue : rajouter boissons dans le catalogue + verifier les prix
 - TODO: Catalogue : Plats en carrousel style hawaiien?
 

@@ -36,6 +36,7 @@
       .content {
         text-align: center;
         padding-left: 9rem;
+        margin-bottom: 6rem;
 
         @media (max-width: 768px) {
           padding: 0;
@@ -63,6 +64,21 @@
           letter-spacing: 1px;
           line-height: 1.5;
           font-weight: 200;
+        }
+
+        a {
+          color: main.$color-white;
+          background-color: main.$color-orange;
+          font-size: 1.7rem;
+          padding: 0.5rem 3rem;
+          margin-top: 1.5rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: darken(main.$color-red, 5%);
+          }
         }
       }
     }
