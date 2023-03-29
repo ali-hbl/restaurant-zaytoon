@@ -1,0 +1,34 @@
+import { useContext } from 'react';
+import { useNavigate, Outlet } from 'react-router-dom';
+import { UserContext } from '../../context/userContext';
+import { toast } from 'react-toastify';
+
+const PrivateRoutes = () => {
+  const { currentUser, toggleModal } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  if (currentUser) {
+    return <Outlet />;
+  } else {
+    // redirect, open modal and show notification
+    navigate('/');
+    toggleModal('logIn');
+    toast.error(`Veuillez vous connecter pour accéder à cette page.`, {
+      position: 'top-right',
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: 'dark',
+      icon: false,
+      className: 'notification',
+      bodyClassName: 'toastify-color-welcome',
+    });
+
+    return null;
+  }
+};
+
+export default PrivateRoutes;

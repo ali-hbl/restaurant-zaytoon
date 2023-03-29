@@ -23,21 +23,16 @@ const NavBar = () => {
     };
   };
 
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
+  const toggleMenu = () => setShowMenu(!showMenu);
 
-  const goToProfile = () => {
-    navigate('/profile');
-  };
+  const goToProfile = () => navigate('/profile');
 
   const handleLogout = async () => {
     try {
       // logout, show notification and redirect
       await signOut(auth);
 
-      toast.error(`Déconnexion en cours...`, {
-        className: 'notification',
+      toast.error(`À bientôt!`, {
         position: 'top-right',
         autoClose: 1000,
         hideProgressBar: false,
@@ -47,6 +42,7 @@ const NavBar = () => {
         progress: undefined,
         theme: 'dark',
         icon: false,
+        className: 'notification',
         bodyClassName: 'toastify-color-welcome',
       });
 
@@ -75,7 +71,7 @@ const NavBar = () => {
           <NavLink to="/catalogue" style={navStyle}>
             Catalogue
           </NavLink>
-          <NavLink to="/order" style={navStyle}>
+          <NavLink to="/orders" style={navStyle}>
             Commander
           </NavLink>
           <NavLink to="/reservations" style={navStyle}>
@@ -105,7 +101,7 @@ const NavBar = () => {
         ) : (
           <i data-tooltip-id="login-tooltip" data-tooltip-content="Se connecter">
             <Tooltip id="login-tooltip" place="left" className="tooltip" />
-            <CgLogIn onClick={() => toggleModal('signIn')} />
+            <CgLogIn onClick={() => toggleModal('logIn')} />
           </i>
         )}
         <i>
