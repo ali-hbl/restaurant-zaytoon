@@ -33,12 +33,13 @@ header {
     left: 0;
 
     img {
-      @media (max-width: 768px) {
-        height: 7rem;
+      @media (max-width: 991px) {
+        display: none;
       }
 
-      @media (max-width: 991px) {
-        height: 7rem;
+      @media (max-width: 768px) {
+        display: inline-block;
+        height: 6rem;
       }
     }
 
@@ -55,6 +56,10 @@ header {
       &:hover {
         color: main.$color-white;
         border: 0.1rem solid rgba(205, 170, 124, 0.2);
+      }
+
+      @media (max-width: 991px) {
+        font-size: 1.6rem;
       }
 
       @media (max-width: 768px) {
@@ -79,7 +84,7 @@ header {
   }
 
   @media (max-width: 991px) {
-    padding: 1rem 2rem;
+    padding: 2.5rem 2rem;
   }
 }
 

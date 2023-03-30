@@ -27,6 +27,15 @@ footer {
     margin: 0 5rem;
     border-bottom: 1px solid main.$color-soft-grey;
 
+    .logo {
+      display: none;
+
+      @media (max-width: 991px) {
+        @include main.flex-center;
+        margin: 0.7rem 0;
+      }
+    }
+
     div {
       padding: 0 7rem;
       margin: 1rem auto;
@@ -44,31 +53,20 @@ footer {
 
         li {
           color: main.$color-soft-grey;
-          // margin-left: 10px;
           font-size: 1.3rem;
 
           u {
             text-decoration: underline;
           }
         }
-
-        @media (max-width: 991px) {
-          text-align: center;
-        }
-
-        @media (max-width: 768px) {
-          text-align: center;
-        }
       }
 
       @media (max-width: 991px) {
         margin: 0.7rem 0;
-        text-align: center;
       }
 
       @media (max-width: 768px) {
         margin: 0.7rem 0;
-        text-align: center;
       }
     }
   }

@@ -50,7 +50,14 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          <div className="logo">
+            <a href="/">
+              <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Ô Zaytoon" />
+            </a>
+          </div>
         </div>
+
         <p className="footer-copyright">&copy;2022-2023 Haboula Ali</p>
       </footer>
 

@@ -37,8 +37,6 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - TODO NavBar : passe en mobile -> cache le hamburger menu -> revient en desktop -> plus de Navbar
 - TODO NavBar : passage en responsive (mobile/tablet) ouvre automatiquement le hamburger menu
 
-- TODO Sign Up: en mobile le centrage est trop à droite?
-
 - TODO Reservations : Gérer tout le formulaire avec useForm hook
 
 - TODO Team et News : a changer par des infos du resto ou sur moi?
