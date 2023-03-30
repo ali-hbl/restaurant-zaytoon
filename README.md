@@ -34,13 +34,6 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO: navbar en iPad pas belle + logo et titre sur slider non plus
-
-- TODO: Catalogue : rajouter boissons dans le catalogue + verifier les prix
-- TODO: Catalogue : Plats en carrousel style hawaiien?
-
-- TODO récuperer formulaires, tooltip et toastify et les utiliser
-
 - TODO NavBar : passe en mobile -> cache le hamburger menu -> revient en desktop -> plus de Navbar
 - TODO NavBar : passage en responsive (mobile/tablet) ouvre automatiquement le hamburger menu
 
