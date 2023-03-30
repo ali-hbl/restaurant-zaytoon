@@ -22,16 +22,17 @@ header {
   left: 0;
   right: 0;
   background: main.$color-black;
-  padding: 0.3rem 7%;
+  padding: 2.5rem 8%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   z-index: 9;
 
   .logo {
-    img {
-      height: auto;
+    position: absolute;
+    left: 0;
 
+    img {
       @media (max-width: 768px) {
         height: 7rem;
       }
@@ -101,10 +102,10 @@ header {
 
     &:hover {
       color: main.$color-white;
-      background: main.$color-dark-brown;
+      background: main.$color-brown;
     }
 
-    &#menu {
+    &.menu {
       display: none;
 
       @media (max-width: 768px) {

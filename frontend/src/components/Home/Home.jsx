@@ -71,7 +71,7 @@ const Home = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide>
+              {/* <SwiperSlide>
                 <div className="slide slide-2">
                   <div className="content">
                     <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
@@ -93,7 +93,7 @@ const Home = () => {
                     <Link to="/catalogue">Commandez en ligne</Link>
                   </div>
                 </div>
-              </SwiperSlide>
+              </SwiperSlide> */}
             </Swiper>
           </div>
         </div>

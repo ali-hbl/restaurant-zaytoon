@@ -85,9 +85,6 @@ const NavBar = () => {
           <NavLink to="/contact" style={navStyle}>
             Contact
           </NavLink>
-          <NavLink to="/about" style={navStyle}>
-            À Propos
-          </NavLink>
         </nav>
       )}
 
@@ -112,7 +109,7 @@ const NavBar = () => {
         <i>
           <FaShoppingCart />
         </i>
-        <i id="menu" onClick={toggleMenu}>
+        <i className="menu" onClick={toggleMenu}>
           {showMenu ? <RxCross1 /> : <RxHamburgerMenu />}
         </i>
       </div>
