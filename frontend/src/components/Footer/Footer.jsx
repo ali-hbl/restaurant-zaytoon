@@ -1,15 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaAngleUp } from 'react-icons/fa';
 import './styles.scss';
 
 const Footer = () => {
-  const goToTop = () => {
-    window.scrollTo({
-      top: 0,
-    });
-  };
-
   return (
     <>
       <footer>
@@ -37,24 +30,29 @@ const Footer = () => {
                 <u>Lundi</u> : Fermé
               </li>
               <li>
-                <u>Mardi</u> à <u>Jeudi</u> : 11h30 - 14h30 / 17h30 - 21h00
+                <u>Mardi</u> à <u>Jeudi</u> : 11h30 - 14h30 & 17h30 - 21h00
               </li>
               <li>
-                <u>Vendredi</u> : 11h30 - 14h30 / 17h30 - 22h00
+                <u>Vendredi</u> : 11h30 - 14h30 & 17h30 - 22h00
               </li>
               <li>
                 <u>Samedi</u> : 17h30 - 22h00
               </li>
               <li>
-                <u>Dimanche</u> : 11h30 - 14h30 / 17h30 - 20h00
+                <u>Dimanche</u> : 11h30 - 14h30 & 17h30 - 20h00
               </li>
             </ul>
           </div>
+
+          <div className="logo">
+            <a href="/">
+              <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Ô Zaytoon" />
+            </a>
+          </div>
         </div>
+
         <p className="footer-copyright">&copy;2022-2023 Haboula Ali</p>
       </footer>
-
-      <FaAngleUp className="btn-top" onClick={goToTop} />
     </>
   );
 };

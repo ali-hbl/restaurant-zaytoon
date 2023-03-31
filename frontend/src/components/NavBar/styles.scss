@@ -22,22 +22,25 @@ header {
   left: 0;
   right: 0;
   background: main.$color-black;
-  padding: 0.3rem 7%;
+  padding: 2.5rem 8%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   z-index: 9;
 
   .logo {
-    img {
-      height: auto;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
 
-      @media (max-width: 768px) {
-        height: 7rem;
+    img {
+      @media (max-width: 991px) {
+        display: none;
       }
 
-      @media (max-width: 991px) {
-        height: 7rem;
+      @media (max-width: 768px) {
+        display: inline-block;
+        height: 6rem;
       }
     }
 
@@ -54,6 +57,10 @@ header {
       &:hover {
         color: main.$color-white;
         border: 0.1rem solid rgba(205, 170, 124, 0.2);
+      }
+
+      @media (max-width: 991px) {
+        font-size: 1.6rem;
       }
 
       @media (max-width: 768px) {
@@ -78,7 +85,7 @@ header {
   }
 
   @media (max-width: 991px) {
-    padding: 1rem 2rem;
+    padding: 2.5rem 2rem;
   }
 }
 
@@ -101,10 +108,10 @@ header {
 
     &:hover {
       color: main.$color-white;
-      background: main.$color-dark-brown;
+      background: main.$color-brown;
     }
 
-    &#menu {
+    &.menu {
       display: none;
 
       @media (max-width: 768px) {

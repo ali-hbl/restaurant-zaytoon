@@ -7,7 +7,7 @@ const Catalogue = () => {
   const { data, isLoading } = useFetch('catalogue');
   const catalogueItems = data.results;
 
-  const categories = ['entrees', 'plats', 'desserts'];
+  const categories = ['entrees', 'plats', 'desserts', 'boissons'];
 
   const handleClick = () => {
     console.log('Passer la commande'); //TODO

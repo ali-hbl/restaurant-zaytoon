@@ -2,6 +2,7 @@
 
 /* RESERVATIONS */
 .reservation {
+  padding-bottom: 8%;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
@@ -13,7 +14,23 @@
     text-transform: uppercase;
   }
 
-  .reservation-image {
+  &-info {
+    h3 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &-image {
     width: 55%;
     background: url(../../../public/images/bookTable.jpeg);
     background-size: cover;
@@ -22,7 +39,7 @@
     padding-top: 9rem;
   }
 
-  .reservation-form {
+  &-form {
     background: main.$color-soft-black;
     width: 45%;
     padding: 9rem 7%;
@@ -59,11 +76,11 @@
       font-size: 3.7rem;
     }
 
-    .reservation-image {
+    &-image {
       width: 0;
     }
 
-    .reservation-form {
+    &-form {
       padding-top: 3rem;
       width: 100%;
 

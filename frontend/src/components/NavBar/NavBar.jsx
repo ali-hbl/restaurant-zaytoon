@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { UserContext } from '../../context/userContext';
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -23,8 +23,12 @@ const NavBar = () => {
     };
   };
 
-  const toggleMenu = () => setShowMenu(!showMenu);
+  // fix the hamburger menu bug
+  const handleResize = useCallback(() => {
+    setShowMenu(window.innerWidth >= 768);
+  }, []);
 
+  const toggleMenu = () => setShowMenu(!showMenu);
   const goToProfile = () => navigate('/profile');
 
   const handleLogout = async () => {
@@ -53,6 +57,12 @@ const NavBar = () => {
     }
   };
 
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [handleResize]);
+
   return (
     <header>
       <ToastContainer />
@@ -63,33 +73,32 @@ const NavBar = () => {
         </NavLink>
       </div>
 
-      {showMenu && (
-        <nav>
-          <NavLink to="/" style={navStyle}>
-            Accueil
-          </NavLink>
-          <NavLink to="/catalogue" style={navStyle}>
-            Catalogue
-          </NavLink>
-          <NavLink to="/orders" style={navStyle}>
-            Commander
-          </NavLink>
-          <NavLink to="/reservations" style={navStyle}>
-            Réservations
-          </NavLink>
-          {!currentUser && (
-            <NavLink to="/sign-up" style={navStyle}>
-              S'inscrire
+      <div className="navbar">
+        {showMenu && (
+          <nav>
+            <NavLink to="/" style={navStyle}>
+              Accueil
             </NavLink>
-          )}
-          <NavLink to="/contact" style={navStyle}>
-            Contact
-          </NavLink>
-          <NavLink to="/about" style={navStyle}>
-            À Propos
-          </NavLink>
-        </nav>
-      )}
+            <NavLink to="/catalogue" style={navStyle}>
+              Catalogue
+            </NavLink>
+            <NavLink to="/orders" style={navStyle}>
+              Commander
+            </NavLink>
+            <NavLink to="/reservations" style={navStyle}>
+              Réservations
+            </NavLink>
+            {!currentUser && (
+              <NavLink to="/sign-up" style={navStyle}>
+                S'inscrire
+              </NavLink>
+            )}
+            <NavLink to="/contact" style={navStyle}>
+              Contact
+            </NavLink>
+          </nav>
+        )}
+      </div>
 
       <div className="icons">
         {currentUser ? (
@@ -112,7 +121,7 @@ const NavBar = () => {
         <i>
           <FaShoppingCart />
         </i>
-        <i id="menu" onClick={toggleMenu}>
+        <i className="menu" onClick={toggleMenu}>
           {showMenu ? <RxCross1 /> : <RxHamburgerMenu />}
         </i>
       </div>
