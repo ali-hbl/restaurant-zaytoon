@@ -3,10 +3,23 @@ import './styles.scss';
 const Reservations = () => {
   return (
     <div className="reservation">
+      <div className="reservation-info">
+        <h3>
+          Bonjour et bienvenue sur notre page de réservations ! Nous sommes ravis de vous accueillir chez nous et
+          espérons que vous passerez un excellent moment.
+        </h3>
+        <p>
+          Ici, vous pouvez réserver une table en indiquant la date, l'heure et le nombre de personnes. N'hésitez pas à
+          nous faire part de vos préférences ou demandes particulières dans la section commentaire.
+        </p>
+        <p>Nous avons hâte de vous recevoir et de vous faire découvrir nos délicieuses spécialités. À très bientôt !</p>
+      </div>
+
       <div className="reservation-image"></div>
 
       <div className="reservation-form">
         <h1>Réserver une table</h1>
+
         <form>
           <div className="form-holder">
             <div>

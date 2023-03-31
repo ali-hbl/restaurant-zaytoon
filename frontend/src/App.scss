@@ -138,7 +138,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.7rem;
-  margin-bottom: 4.5rem;
+  margin: 3rem 0;
 
   .box {
     background: $color-black;
@@ -155,7 +155,7 @@ body {
       img {
         height: 101%;
         width: 101%;
-        object-fit: fill;
+        object-fit: cover;
 
         @media (max-width: 768px) {
           height: 101%;

@@ -31,22 +31,22 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 29/03 : envoyer firebase id a la database sql sur sign up
 - 29/03 : page de profil et routes privées
 - 29/03 : refactor home page catalogue (requete par 3)
-- 31/02 : refactor du sass general, images, catalogue, body background color...
+- 31/03 : refactor du sass general, images, catalogue, body background color...
+- 31/03 : fix Navbar/PrivateRoutes bugs + et ScrollToTop Component
 
 ### ToDo's/Bug's
 
-- FIXME NavBar : passe en mobile -> cache le hamburger menu -> revient en desktop -> plus de Navbar
-- FIXME NavBar : passage en responsive (mobile/tablet) ouvre automatiquement le hamburger menu
-- FIXME Orders + Reservations : erreur dans la console et crash quand je clique dessus en etant connect
-
+- TODO Reservations : UI sur la page
 - TODO Reservations : Gérer tout le formulaire avec useForm hook, verifier la query INSERT et les jointures reservation.user/user.id
 
-- TODO Page de profil affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
+- TODO Orders : bouton commander sur chaque item du catalogue envoie le plat en question (id) dans le ShoppingCart
+
+- TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
 
-- TODO Team et News : a changer par des infos du resto ou sur moi? ou a utiliser pour sections suivantes
+- TODO Teams ou News : voir premeiere section de ce site : https://www.laltruiste.be/
 
-- TODO ShoppingCart : check projet deja fait !!!
+- TODO ShoppingCart : check projet deja fait !!! + Stripe
 
 ### Créateur du projet
 

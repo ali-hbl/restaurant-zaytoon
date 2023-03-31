@@ -111,7 +111,9 @@ const SignUp = () => {
             className="input-form"
             required
           />
+
           <p>{validation}</p>
+
           <button className="btn" type="submit">
             S'inscrire
           </button>

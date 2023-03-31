@@ -8,9 +8,7 @@ const PrivateRoutes = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser) {
-      return <Outlet />;
-    } else {
+    if (!currentUser) {
       // redirect, open modal and show notification
       navigate('/');
       toggleModal('logIn');
@@ -30,6 +28,8 @@ const PrivateRoutes = () => {
       });
     }
   }, [currentUser, navigate, toggleModal]);
+
+  return <>{currentUser ? <Outlet /> : null}</>;
 };
 
 export default PrivateRoutes;
