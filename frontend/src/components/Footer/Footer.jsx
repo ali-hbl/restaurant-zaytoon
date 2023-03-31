@@ -1,15 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaAngleUp } from 'react-icons/fa';
 import './styles.scss';
 
 const Footer = () => {
-  const goToTop = () => {
-    window.scrollTo({
-      top: 0,
-    });
-  };
-
   return (
     <>
       <footer>
@@ -60,8 +53,6 @@ const Footer = () => {
 
         <p className="footer-copyright">&copy;2022-2023 Haboula Ali</p>
       </footer>
-
-      <FaAngleUp className="btn-top" onClick={goToTop} />
     </>
   );
 };

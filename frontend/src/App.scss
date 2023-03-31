@@ -15,6 +15,7 @@ $box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 
 // Secondary colors
 $color-beige: #cdaa7c;
+$color-light-beige: #f6f2ee;
 $color-light-pink: #e5e5e5;
 $color-soft-grey: #b9b9b6;
 $color-grey: #919598;
@@ -39,6 +40,11 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+body {
+  background-color: $color-light-beige;
+  // background-color: $color-light-pink;
 }
 
 .notification {
@@ -126,27 +132,30 @@ html {
 
 // Box container
 @mixin box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2.7rem;
   margin-bottom: 4.5rem;
 
   .box {
     background: $color-black;
+    width: 40rem;
     text-align: center;
-    padding-bottom: 1%;
     box-shadow: $box-shadow;
 
     .box-image {
-      height: 25rem;
+      height: 32rem;
       width: 100%;
       overflow: hidden;
       position: relative;
 
       img {
-        height: 100%;
-        width: 105%;
-        object-fit: cover;
+        height: 101%;
+        width: 101%;
+        object-fit: fill;
 
         @media (max-width: 768px) {
           height: 101%;
@@ -191,11 +200,15 @@ html {
 
       .item-description {
         margin: 1.3rem 0;
+
+        @media (max-width: 991px) {
+          font-size: 1.6rem;
+        }
       }
     }
 
     @media (max-width: 991px) {
-      width: 100%;
+      width: 85%;
     }
 
     @media (max-width: 768px) {

@@ -34,12 +34,16 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO NavBar : passe en mobile -> cache le hamburger menu -> revient en desktop -> plus de Navbar
-- TODO NavBar : passage en responsive (mobile/tablet) ouvre automatiquement le hamburger menu
+- FIXME NavBar : passe en mobile -> cache le hamburger menu -> revient en desktop -> plus de Navbar
+- FIXME NavBar : passage en responsive (mobile/tablet) ouvre automatiquement le hamburger menu
+- FIXME Orders + Reservations : erreur dans la console et crash quand je clique dessus en etant connect
 
-- TODO Reservations : Gérer tout le formulaire avec useForm hook
+- TODO Reservations : Gérer tout le formulaire avec useForm hook, verifier la query INSERT et les jointures reservation.user/user.id
 
-- TODO Team et News : a changer par des infos du resto ou sur moi?
+- TODO Page de profil affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
+  Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
+
+- TODO Team et News : a changer par des infos du resto ou sur moi? ou a utiliser pour sections suivantes
 
 - TODO ShoppingCart : check projet deja fait !!!
 

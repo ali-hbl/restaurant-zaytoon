@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import Loader from '../Loader/Loader';
-import Reservations from '../Reservations/Reservations';
-// import Team from '../Team/Team';
+import Team from '../Team/Team';
 // import News from '../News/News';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
@@ -71,7 +70,7 @@ const Home = () => {
                 </div>
               </SwiperSlide>
 
-              {/* <SwiperSlide>
+              <SwiperSlide>
                 <div className="slide slide-2">
                   <div className="content">
                     <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Slideshow" />
@@ -93,7 +92,7 @@ const Home = () => {
                     <Link to="/catalogue">Commandez en ligne</Link>
                   </div>
                 </div>
-              </SwiperSlide> */}
+              </SwiperSlide>
             </Swiper>
           </div>
         </div>
@@ -110,8 +109,7 @@ const Home = () => {
           </Link>
         </div>
       </main>
-      <Reservations />
-      {/* <Team />  */}
+      <Team />
       {/* <News />  */}
     </>
   );

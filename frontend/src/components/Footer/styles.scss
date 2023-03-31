@@ -2,7 +2,6 @@
 
 /* FOOTER */
 footer {
-  text-align: left;
   background-color: main.$color-dark-grey;
   color: main.$color-soft-grey;
   font-size: 1.3rem;
@@ -17,6 +16,7 @@ footer {
 
   .footer-copyright {
     text-align: center;
+    padding: 0.7rem;
   }
 
   .footer-container {

@@ -12,9 +12,12 @@ import Profile from './components/Profile/Profile';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import Footer from './components/Footer/Footer';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
-import ErrorPage from './components/ErrorPage/ErrorPage';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+// import ErrorPage from './components/ErrorPage/ErrorPage';
 import './App.scss';
+
 const Catalogue = React.lazy(() => import('./components/Catalogue/Catalogue'));
+const ErrorPage = React.lazy(() => import('./components/ErrorPage/ErrorPage'));
 
 const App = () => {
   return (
@@ -42,6 +45,7 @@ const App = () => {
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <ScrollToTop />
         <Footer />
       </BrowserRouter>
     </div>

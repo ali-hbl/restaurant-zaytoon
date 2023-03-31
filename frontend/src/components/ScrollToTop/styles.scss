@@ -1,0 +1,17 @@
+@use '../../App.scss' as main;
+
+.btn-top {
+  cursor: pointer;
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  width: 25px;
+  height: 25px;
+  border-radius: 10%;
+  background: main.$color-beige;
+  color: main.$color-white;
+
+  &:hover {
+    background: darken(main.$color-beige, 10%);
+  }
+}
