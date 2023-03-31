@@ -31,6 +31,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 29/03 : envoyer firebase id a la database sql sur sign up
 - 29/03 : page de profil et routes privées
 - 29/03 : refactor home page catalogue (requete par 3)
+- 31/02 : refactor du sass general, images, catalogue, body background color...
 
 ### ToDo's/Bug's
 
