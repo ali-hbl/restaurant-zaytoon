@@ -22,7 +22,7 @@ header {
   left: 0;
   right: 0;
   background: main.$color-black;
-  padding: 2.5rem 8%;
+  padding: 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@ header {
 
   .logo {
     position: absolute;
-    left: 0;
+    // left: 0;
     top: 0.5rem;
 
     img {

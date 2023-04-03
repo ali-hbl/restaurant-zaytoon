@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import NavBar from './components/NavBar/NavBar';
-// import Home from './components/Home/Home';
+import Home from './components/Home/Home';
 import Orders from './components/Orders/Orders';
 import Reservations from './components/Reservations/Reservations';
 import SignUp from './components/SingUp/SignUp';
@@ -16,7 +16,6 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 // import ErrorPage from './components/ErrorPage/ErrorPage';
 import './App.scss';
 
-const Home = lazy(() => import('./components/Home/Home'));
 const Catalogue = lazy(() => import('./components/Catalogue/Catalogue'));
 const ErrorPage = lazy(() => import('./components/ErrorPage/ErrorPage'));
 

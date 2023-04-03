@@ -8,28 +8,33 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
 import { ToastContainer, toast } from 'react-toastify';
 import { Tooltip } from 'react-tooltip';
+import Sidebar from '../Sidebar/Sidebar';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import './styles.scss';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { toggleModal, currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const navStyle = ({ isActive }) => {
+  const handleNavbarStyle = ({ isActive }) => {
     return {
       color: isActive && '#fff',
     };
   };
 
+  const handeGoToProfile = () => navigate('/profile');
+
+  const handeMenuToggle = () => setShowMenu(!showMenu);
+
+  const handleSidebarToggle = () => setIsSidebarOpen(!isSidebarOpen);
+
   // fix the hamburger menu bug
   const handleResize = useCallback(() => {
     setShowMenu(window.innerWidth >= 768);
   }, []);
-
-  const toggleMenu = () => setShowMenu(!showMenu);
-  const goToProfile = () => navigate('/profile');
 
   const handleLogout = async () => {
     try {
@@ -66,9 +71,10 @@ const NavBar = () => {
   return (
     <header>
       <ToastContainer />
+      <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarToggle} />
 
       <div className="logo">
-        <NavLink to="/" style={navStyle}>
+        <NavLink to="/" style={handleNavbarStyle}>
           <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Ô Zaytoon" />
         </NavLink>
       </div>
@@ -76,25 +82,28 @@ const NavBar = () => {
       <div className="navbar">
         {showMenu && (
           <nav>
-            <NavLink to="/" style={navStyle}>
+            <NavLink to="/" style={handleNavbarStyle}>
               Accueil
             </NavLink>
-            <NavLink to="/catalogue" style={navStyle}>
+            <NavLink to="/catalogue" style={handleNavbarStyle}>
               Catalogue
             </NavLink>
-            <NavLink to="/orders" style={navStyle}>
+            <NavLink to="/orders" style={handleNavbarStyle}>
               Commander
             </NavLink>
-            <NavLink to="/reservations" style={navStyle}>
+            <NavLink to="/reservations" style={handleNavbarStyle}>
               Réservations
             </NavLink>
             {!currentUser && (
-              <NavLink to="/sign-up" style={navStyle}>
+              <NavLink to="/sign-up" style={handleNavbarStyle}>
                 S'inscrire
               </NavLink>
             )}
-            <NavLink to="/contact" style={navStyle}>
+            <NavLink to="/contact" style={handleNavbarStyle}>
               Contact
+            </NavLink>
+            <NavLink to="/about" style={handleNavbarStyle}>
+              À Propos
             </NavLink>
           </nav>
         )}
@@ -109,7 +118,7 @@ const NavBar = () => {
             </i>
 
             <i>
-              <CgProfile onClick={goToProfile} />
+              <CgProfile onClick={handeGoToProfile} />
             </i>
           </>
         ) : (
@@ -119,9 +128,10 @@ const NavBar = () => {
           </i>
         )}
         <i>
-          <FaShoppingCart />
+          <FaShoppingCart onClick={handleSidebarToggle} />
         </i>
-        <i className="menu" onClick={toggleMenu}>
+
+        <i className="menu" onClick={handeMenuToggle}>
           {showMenu ? <RxCross1 /> : <RxHamburgerMenu />}
         </i>
       </div>
