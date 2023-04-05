@@ -5,7 +5,7 @@
   padding: 0 8% 15rem;
   background: url(../../../public/images/our-menu.png) left top no-repeat, url(../../../public/images/our-menu-bg.jpg);
 
-  .sign-up-header {
+  &-header {
     @include main.flex-center;
     color: main.$color-light-pink;
     font-size: 4.5rem;
@@ -14,7 +14,7 @@
     padding: 1rem 0;
   }
 
-  .sign-up-container {
+  &-container {
     width: 30%;
     margin: 0 auto;
 

@@ -17,7 +17,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   // Handle Form
-  const handleForm = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // form validations
@@ -73,7 +73,7 @@ const SignUp = () => {
       <h1 className="sign-up-header">Inscrivez-vous</h1>
 
       <div className="sign-up-container">
-        <form onSubmit={handleForm} ref={formRef}>
+        <form onSubmit={handleSubmit} ref={formRef}>
           <input
             ref={usernameRef}
             type="text"

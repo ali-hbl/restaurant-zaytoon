@@ -1,16 +1,30 @@
-import React from 'react';
+// import { useState } from 'react';
+import './styles.scss';
 
 const Contact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // TODO: submit form data to backend
+  };
+
   return (
-    <>
-      <h1>Formulaire de contact</h1>
-      <p>
-        L'interface doit inclure un formulaire de contact où les utilisateurs peuvent envoyer des demandes de
-        renseignements, des commentaires ou d'autres messages au gérant. Le formulaire doit être convivial et inclure
-        des champs tels que le nom, l'e-mail, le téléphone et le message, ainsi que toute validation ou gestion des
-        erreurs pertinentes.
-      </p>
-    </>
+    <div className="contact">
+      <h1 className="contact-header">Contactez-nous</h1>
+
+      <div className="contact-container">
+        <form onSubmit={handleSubmit}>
+          <input type="text" id="name" name="name" placeholder="Nom d'utilisateur" />
+          <input type="email" id="email" name="email" placeholder="Adresse email" />
+          <input type="text" id="phone" name="phone" placeholder="Votre téléphone" />
+          <textarea id="message" name="message" placeholder="Votre message"></textarea>
+
+          <button className="btn" type="submit">
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 
