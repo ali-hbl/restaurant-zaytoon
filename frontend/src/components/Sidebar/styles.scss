@@ -24,11 +24,11 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: main.$color-dark-brown;
+    color: main.$color-brown;
     font-size: 2rem;
 
     &:hover {
-      color: darken(main.$color-soft-black, 10%);
+      color: darken(main.$color-soft-black, 20%);
     }
   }
 

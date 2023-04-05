@@ -1,6 +1,46 @@
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import TimePicker from '../TimePicker/TimePicker';
 import './styles.scss';
 
 const Reservations = () => {
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const handleTimeChange = (time) => setSelectedTime(time);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // get values
+    const form = e.target;
+    const formData = new FormData(form);
+    const num_guests = formData.get('num_guests');
+    const name = formData.get('name');
+    const phone = formData.get('phone');
+    const email = formData.get('email');
+
+    //TODO post request
+    console.log(num_guests, name, phone, email, selectedTime);
+
+    // show notification
+    toast.error(`Votre réservation est confirmée!`, {
+      position: 'top-right',
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: 'dark',
+      icon: false,
+      className: 'notification',
+      bodyClassName: 'toastify-color-welcome',
+    });
+
+    // reset inputs and redirect
+    form.reset();
+  };
+
   return (
     <>
       <div className="reservation">
@@ -12,7 +52,7 @@ const Reservations = () => {
             <br />
             Nous avons hâte de vous recevoir et de vous faire découvrir nos délicieuses spécialités.
           </p>
-          <p>À très bientôt !</p>
+          <p>À très bientôt!</p>
         </div>
 
         <div className="reservation-container">
@@ -21,10 +61,10 @@ const Reservations = () => {
           <div className="reservation-container-form">
             <h1>Réserver une table</h1>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="reservation-container-form-holder">
-                <div>
-                  <select required>
+                <div className="reservation-inputs">
+                  <select name="num_guests" required>
                     <option value="1">1 couvert</option>
                     <option value="2">2 couverts</option>
                     <option value="3">3 couverts</option>
@@ -35,17 +75,12 @@ const Reservations = () => {
                     <option value="8">8 couverts</option>
                     <option value="9">9 couverts</option>
                     <option value="10">10 couverts</option>
-                    <option>+10 couverts</option>
+                    <option value="+10">+10 couverts</option>
                   </select>
 
+                  <TimePicker onTimeChange={handleTimeChange} />
                   <input type="text" name="name" placeholder="Nom" required />
                   <input type="text" name="phone" placeholder="Téléphone" pattern="[0-9]{10}" required />
-                </div>
-
-                <div>
-                  <input type="date" name="date" placeholder="Date" required />
-                  <input type="time" name="time" placeholder="Heure" required />
-
                   <input type="email" name="email" placeholder="Adresse mail" required />
                 </div>
               </div>

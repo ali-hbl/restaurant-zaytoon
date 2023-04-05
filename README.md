@@ -34,12 +34,13 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 31/03 : refactor du sass general, images, catalogue, body background color...
 - 31/03 : fix Navbar/PrivateRoutes bugs + et ScrollToTop Component
 - 03/04 : Sidebar Component
+- 05/04 : Reservations UI et DatePicker
 
 ### ToDo's/Bug's
 
-- TODO Reservations : Gérer tout le formulaire avec useForm hook, verifier la query INSERT et les jointures reservation.user/user.id
+- TODO Reservations query INSERT et les jointures reservation.user/user.id
 
-- TODO Formulaire de contact
+- TODO Page contact
 
 - TODO Orders : bouton commander sur chaque item du catalogue envoie le plat en question (id) dans le ShoppingCart
 

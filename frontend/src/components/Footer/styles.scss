@@ -50,18 +50,9 @@ footer {
         padding-bottom: 0.8rem;
       }
 
-      ul {
-        margin: 0 auto;
-        list-style: none;
-        text-align: left;
-
-        li {
-          color: main.$color-soft-grey;
-          font-size: 1.3rem;
-
-          u {
-            text-decoration: underline;
-          }
+      p {
+        u {
+          text-decoration: underline;
         }
       }
 
