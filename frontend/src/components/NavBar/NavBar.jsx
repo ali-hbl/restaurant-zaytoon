@@ -47,7 +47,6 @@ const NavBar = () => {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
-        draggable: false,
         progress: undefined,
         theme: 'dark',
         icon: false,
