@@ -1,44 +1,65 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/userContext';
 import { toast } from 'react-toastify';
 import TimePicker from '../TimePicker/TimePicker';
 import './styles.scss';
 
 const Reservations = () => {
+  const { currentUser } = useContext(UserContext);
   const [selectedTime, setSelectedTime] = useState(null);
+  const navigate = useNavigate();
 
   const handleTimeChange = (time) => setSelectedTime(time);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // get values
     const form = e.target;
     const formData = new FormData(form);
-    const num_guests = formData.get('num_guests');
+
+    const uid = currentUser.uid;
+    const numGuests = formData.get('num_guests');
     const name = formData.get('name');
     const phone = formData.get('phone');
     const email = formData.get('email');
 
-    //TODO post request
-    console.log(num_guests, name, phone, email, selectedTime);
+    try {
+      // POST reservation to database
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}reservations`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ uid, name, email, phone, selectedTime, numGuests }),
+      });
 
-    // show notification
-    toast.error(`Votre réservation est confirmée!`, {
-      position: 'top-right',
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: 'dark',
-      icon: false,
-      className: 'notification',
-      bodyClassName: 'toastify-color-welcome',
-    });
+      if (response.ok) {
+        // clear inputs, show notification and redirect
+        form.reset();
 
-    // reset inputs and redirect
-    form.reset();
+        toast.error(`Votre réservation est confirmée!`, {
+          position: 'top-right',
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: 'dark',
+          icon: false,
+          className: 'notification',
+          bodyClassName: 'toastify-color-welcome',
+        });
+
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
+      }
+    } catch (error) {
+      alert('Une erreur est survenue. Veuillez réessayer svp.');
+      console.error(error);
+    }
   };
 
   return (

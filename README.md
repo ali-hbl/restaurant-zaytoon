@@ -34,11 +34,9 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 31/03 : refactor du sass general, images, catalogue, body background color...
 - 31/03 : fix Navbar/PrivateRoutes bugs + et ScrollToTop Component
 - 03/04 : Sidebar Component
-- 05/04 : Reservations UI et DatePicker
+- 05/04 : DatePicker, Reservations UI + backend
 
 ### ToDo's/Bug's
-
-- TODO Reservations query INSERT et les jointures reservation.user/user.id
 
 - TODO Page contact
 
@@ -49,7 +47,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO Teams ou News : voir premiere section de ce site : https://www.laltruiste.be/
 
-- TODO ShoppingCart : check projet deja fait / traversymedia
+- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
 
 ### Créateur du projet
 

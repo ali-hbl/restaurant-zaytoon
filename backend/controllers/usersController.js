@@ -29,7 +29,6 @@ const postUser = (req, res) => {
     [data.uid, data.username, data.email],
 
     function (err, results) {
-      console.log(results);
       if (err) return res.json({ success: false, message: err });
 
       res.json({ results });
