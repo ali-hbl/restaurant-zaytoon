@@ -14,9 +14,26 @@
     padding: 1rem 0;
   }
 
+  &-sub-header {
+    @include main.flex-center;
+    text-align: center;
+    color: main.$color-light-pink;
+    font-size: 1.8rem;
+    font-weight: 300;
+    padding-bottom: 3.5rem;
+  }
+
   &-container {
     width: 30%;
     margin: 0 auto;
+
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 80%;
+    }
 
     form {
       @include main.flex-center;
@@ -41,5 +58,15 @@
         }
       }
     }
+  }
+
+  @media (max-width: 991px) {
+    background: url(../../../public/images/our-menu.png) left top no-repeat, url(../../../public/images/our-menu-bg.jpg);
+    background-size: 50%, cover;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 8% 5rem;
+    background: url(../../../public/images/our-menu-bg.jpg);
   }
 }

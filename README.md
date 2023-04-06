@@ -38,7 +38,9 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO Page contact
+- FIXME Reservation + Sidebar responsive page working ?
+
+- TODO Page contact store infos to db?
 
 - TODO Orders : bouton commander sur chaque item du catalogue envoie le plat en question (id) dans le ShoppingCart
 

@@ -30,7 +30,7 @@ const TimePicker = ({ onTimeChange }) => {
       maxTime={setHours(setMinutes(new Date(), 0), 23, 30)}
       filterDate={isWeekday}
       dateFormat="d MMMM yyyy, HH:mm"
-      placeholderText="Choisissez une date et une heure"
+      placeholderText="Date et heure"
       locale={fr}
       onChange={handleTimeChange}
       required

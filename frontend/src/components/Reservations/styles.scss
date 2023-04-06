@@ -2,7 +2,6 @@
 
 /* RESERVATIONS */
 .reservation {
-  // padding-bottom: 8%;
   width: 100%;
 
   h1 {
@@ -10,6 +9,10 @@
     text-align: center;
     font-size: 4.5rem;
     text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 3.7rem;
+    }
   }
 
   &-header {
@@ -20,12 +23,25 @@
 
     h3 {
       font-size: 3.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
     }
 
     h4 {
       font-size: 2rem;
       font-weight: 600;
       margin-bottom: 2rem;
+
+      @media (max-width: 991px) {
+        font-size: 1.8rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.6rem;
+        text-align: center;
+      }
     }
 
     p {
@@ -35,6 +51,14 @@
       &:last-child {
         margin-top: 2rem;
       }
+
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 1rem;
     }
   }
 
@@ -49,12 +73,29 @@
       background-repeat: no-repeat;
       background-position: center center;
       padding-top: 9rem;
+
+      @media (max-width: 991px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     &-form {
       background: main.$color-soft-black;
       width: 45%;
       padding: 9rem 7%;
+
+      @media (max-width: 991px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        padding-top: 3rem;
+        width: 100%;
+      }
     }
 
     &-form-holder {
@@ -89,32 +130,15 @@
       @include main.flex-center;
       flex-direction: column;
       width: 65%;
+
+      @media (max-width: 991px) {
+        width: 90%;
+      }
     }
 
     .reservation-button {
       @include main.flex-center;
       margin-top: 2rem;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .reservation {
-    h1 {
-      font-size: 3.7rem;
-    }
-
-    &-image {
-      width: 0;
-    }
-
-    &-form {
-      padding-top: 3rem;
-      width: 100%;
-
-      .form-holder {
-        display: block;
-      }
     }
   }
 }
