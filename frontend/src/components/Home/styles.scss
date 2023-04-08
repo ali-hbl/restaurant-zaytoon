@@ -27,11 +27,12 @@ main {
       }
 
       &-2 {
-        background: url(../../../public/images/slideshow-2.png);
+        background: url(../../../public/images/slideshow-4.jpg);
+        background-position: center;
       }
 
       &-3 {
-        background: url(../../../public/images/slideshow-3.png);
+        background: url(../../../public/images/slideshow-0.jpg);
       }
 
       &-1,
@@ -124,7 +125,7 @@ main {
 
   .catalogue-button {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 
     a {
       color: main.$color-white;

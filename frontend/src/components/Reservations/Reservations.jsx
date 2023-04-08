@@ -70,7 +70,6 @@ const Reservations = () => {
           <p>
             Ici, vous pouvez réserver une table en indiquant la date, l'heure et le nombre de personnes.
             <br />
-            Nous avons hâte de vous recevoir et de vous faire découvrir nos délicieuses spécialités.
           </p>
           <p>À très bientôt!</p>
         </div>

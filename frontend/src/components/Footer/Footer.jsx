@@ -8,27 +8,29 @@ const Footer = () => {
       <footer>
         <div className="footer-container">
           <div>
-            <h3>A PROPOS</h3>
+            <h3>HEURES D'OUVERTURE</h3>
             <p>
-              Notre restaurant oriental propose une cuisine authentique et savoureuse préparée avec des ingrédients
-              frais et de qualité par notre équipe de chefs passionnés.
+              <u>Ouvert</u> : mardi à samedi de 13h00 à 23h00.
+              <br />
+              <u>Fermé</u> : dimanche et lundi.
             </p>
           </div>
 
           <div>
             <h3>CONTACT</h3>
             <p>
-              Des questions ou des commentaires à propos de notre restaurant? Veuillez prendre contact via notre
-              <Link to="/contact"> formulaire de contact</Link> et nous vous répondrons dans les plus brefs délais.
+              Des questions ou des commentaires à propos de notre restaurant? Veuillez prendre contact via notre{' '}
+              <Link to="/contact">formulaire de contact</Link> et nous vous répondrons dans les plus brefs délais.
             </p>
           </div>
 
           <div>
-            <h3>HEURES D'OUVERTURE</h3>
+            <h3>A PROPOS</h3>
             <p>
-              Nous sommes heureux de vous accueillir tous les jours de <u>mardi à samedi</u>, de <u>13h à 23h</u>.
-              Veuillez noter que notre restaurant sera <u>fermé le dimanche et le lundi</u>. Nous avons hâte de vous
-              servir bientôt!
+              Notre restaurant oriental propose une cuisine authentique et savoureuse préparée avec des ingrédients
+              frais et de qualité par notre équipe de chefs passionnés.
+              <br />
+              Nous avons hâte de vous servir bientôt!
             </p>
           </div>
 

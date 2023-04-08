@@ -1,0 +1,15 @@
+@use '../../App.scss' as main;
+
+/* DIVIDER */
+.divider {
+  @include main.flex-center;
+  margin: 0;
+
+  .circle {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: main.$color-dark-brown;
+    margin: 0 1rem;
+  }
+}

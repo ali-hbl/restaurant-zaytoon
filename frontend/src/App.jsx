@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Contact from './components/Contact/Contact';
 import Profile from './components/Profile/Profile';
 import ResetPassword from './components/ResetPassword/ResetPassword';
+import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
@@ -35,6 +36,8 @@ const App = () => {
             <Route path="/orders" element={<Orders />} />
             <Route path="/reservations" element={<Reservations />} />
           </Route>
+          <Route path="/about" element={<About />} />
+
           <Route
             path="/catalogue"
             element={

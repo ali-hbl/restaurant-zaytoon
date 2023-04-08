@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import useFetch from '../../hooks/useFetch';
+import Divider from '../Divider/Divider';
 import Loader from '../Loader/Loader';
 import './styles.scss';
 
@@ -19,6 +20,7 @@ const Catalogue = () => {
         {categories.map((category, i) => (
           <Fragment key={`category-${i}`}>
             <h2 className="sub-header">{category}</h2>
+            <Divider />
 
             <div className="box-container">
               {catalogueItems

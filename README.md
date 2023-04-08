@@ -35,10 +35,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 31/03 : fix Navbar/PrivateRoutes bugs + et ScrollToTop Component
 - 03/04 : Sidebar Component
 - 05/04 : DatePicker, Reservations UI + backend
+- 07/04 : About page + Divider
 
 ### ToDo's/Bug's
 
-- FIXME Reservation + Sidebar responsive page working ?
+- TODO About page responsive
 
 - TODO Page contact store infos to db?
 

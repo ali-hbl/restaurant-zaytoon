@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import About from '../About/About';
+import Divider from '../Divider/Divider';
 import Loader from '../Loader/Loader';
-import Team from '../Team/Team';
-// import News from '../News/News';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
@@ -109,7 +109,8 @@ const Home = () => {
           </Link>
         </div>
       </main>
-      <Team />
+      <Divider />
+      <About />
       {/* <News />  */}
     </>
   );

@@ -133,13 +133,11 @@ body {
 
 // Box container
 @mixin box-container {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.7rem;
-  margin: 3rem 0;
+  margin: 3rem 0 5rem;
 
   .box {
     background: $color-black;

@@ -1,0 +1,56 @@
+@use '../../App.scss' as main;
+
+/* ABOUT */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 5rem;
+  max-width: 120rem;
+
+  &-header {
+    @include main.flex-center;
+    color: main.$color-dark-brown;
+    font-size: 4.5rem;
+    letter-spacing: 1.3px;
+    font-weight: 300;
+    padding: 0 0 1rem;
+    margin: 1rem auto 3rem;
+  }
+
+  &-text {
+    flex-basis: 50%;
+    margin-right: 5rem;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-top: 3rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+
+      a {
+        padding: 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &-image {
+    flex-basis: 40%;
+    height: 40rem;
+    background: url(../../../public/images/about.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+  }
+}
