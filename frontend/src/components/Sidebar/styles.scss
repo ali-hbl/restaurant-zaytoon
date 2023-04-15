@@ -3,8 +3,8 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: -30rem;
-  width: 30rem;
+  right: -50rem;
+  width: 50rem;
   height: 100%;
   transition: right 0.3s ease-in-out;
   z-index: 1000;
@@ -24,11 +24,11 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: main.$color-brown;
+    color: main.$color-dark-brown;
     font-size: 2rem;
 
     &:hover {
-      color: darken(main.$color-soft-black, 20%);
+      color: darken(main.$color-black, 20%);
     }
   }
 

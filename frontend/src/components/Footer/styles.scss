@@ -12,6 +12,10 @@ footer {
     padding: 0;
     text-decoration: underline;
     font-style: italic;
+
+    &:hover {
+      color: main.$color-light-pink;
+    }
   }
 
   .footer-copyright {

@@ -6,7 +6,7 @@ const About = () => {
       <h1 className="about-header">Plongez dans la cuisine orientale chez Ô Zaytoon</h1>
 
       <div className="about-text">
-        <h2>Goûtez l'Orient chez Ô Zaytoon</h2>
+        <h2>Goûtez l'Orient</h2>
         <p>
           Bienvenue chez Ô Zaytoon, votre restaurant oriental de choix! Depuis notre ouverture, nous proposons une cuisine
           fine à base de produits frais et de saison. Passionnés par la gastronomie orientale, nous mettons notre

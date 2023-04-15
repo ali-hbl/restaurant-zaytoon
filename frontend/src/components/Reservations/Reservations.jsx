@@ -67,10 +67,7 @@ const Reservations = () => {
         <div className="reservation-header">
           <h3>Bienvenue sur notre page de réservations! </h3>
           <h4>Nous sommes ravis de vous accueillir chez nous et espérons que vous passerez un excellent moment.</h4>
-          <p>
-            Ici, vous pouvez réserver une table en indiquant la date, l'heure et le nombre de personnes.
-            <br />
-          </p>
+          <p>Ici, vous pouvez réserver une table en indiquant la date, l'heure et le nombre de personnes.</p>
           <p>À très bientôt!</p>
         </div>
 

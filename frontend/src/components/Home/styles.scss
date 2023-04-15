@@ -23,16 +23,15 @@ main {
       align-items: center;
 
       &-1 {
-        background: url(../../../public/images/slideshow-1.png);
+        background: url(../../../public/images/slideshow-0.jpg);
       }
 
       &-2 {
-        background: url(../../../public/images/slideshow-4.jpg);
-        background-position: center;
+        background: url(../../../public/images/slideshow-1.png);
       }
 
       &-3 {
-        background: url(../../../public/images/slideshow-0.jpg);
+        background: url(../../../public/images/slideshow-2.png);
       }
 
       &-1,
@@ -79,7 +78,7 @@ main {
         h3 {
           color: main.$color-yellow;
           font-size: 3rem;
-          font-weight: 300;
+          font-weight: 350;
 
           @media (max-width: 991px) {
             font-size: 5rem;
