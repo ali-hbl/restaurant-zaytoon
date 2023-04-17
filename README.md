@@ -36,6 +36,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 03/04 : Sidebar Component
 - 05/04 : DatePicker, Reservations UI + backend
 - 07/04 : About page + Divider
+- 17/04 : Contact enregistrer le message envoyé dans la DB
 
 ### ToDo's/Bug's
 
@@ -44,9 +45,9 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
 
-- TODO Teams ou News : voir premiere section de ce site : https://www.laltruiste.be/
-
 - TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
+
+- TODO: Reservation : e-mail de confirmation et de rappel.
 
 ### Créateur du projet
 
