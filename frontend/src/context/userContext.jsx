@@ -9,8 +9,6 @@ export const UserContextProvider = (props) => {
   const [currentUser, setCurrentUser] = useState();
   const [loadingData, setLoadingData] = useState(true);
 
-  console.log('currentUser', currentUser);
-
   const signIn = (email, pwd) => {
     signInWithEmailAndPassword(auth, email, pwd);
   };

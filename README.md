@@ -37,6 +37,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 05/04 : DatePicker, Reservations UI + backend
 - 07/04 : About page + Divider
 - 17/04 : Contact enregistrer le message envoyé dans la DB
+- 17/04 : CartContext logique complete
 
 ### ToDo's/Bug's
 

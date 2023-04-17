@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { UserContext } from '../../context/userContext';
+import { CartContext } from '../../context/CartContext';
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
 import { CgLogIn, CgLogOff, CgProfile } from 'react-icons/cg';
@@ -9,6 +10,7 @@ import { auth } from '../../firebaseConfig';
 import { ToastContainer, toast } from 'react-toastify';
 import { Tooltip } from 'react-tooltip';
 import Sidebar from '../Sidebar/Sidebar';
+import Badge from '../../components/Badge/Badge';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import './styles.scss';
@@ -17,7 +19,10 @@ const NavBar = () => {
   const [showMenu, setShowMenu] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { toggleModal, currentUser } = useContext(UserContext);
+  const cart = useContext(CartContext);
   const navigate = useNavigate();
+
+  const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 
   const handleNavbarStyle = ({ isActive }) => {
     return {
@@ -126,7 +131,9 @@ const NavBar = () => {
             <CgLogIn onClick={() => toggleModal('logIn')} />
           </i>
         )}
-        <i>
+
+        <i className="cart">
+          <Badge value={productsCount} className="badge" />
           <FaShoppingCart onClick={handleSidebarToggle} />
         </i>
 

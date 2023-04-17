@@ -34,9 +34,30 @@
     }
   }
 
-  & p {
-    color: main.$color-white;
-    font-size: 1.7rem;
-    padding: 5rem 1.5rem 0 2rem;
+  &-body {
+    @include main.flex-center;
+
+    h1 {
+      color: main.$color-white;
+      font-size: 1.7rem;
+      padding: 5rem 1.5rem 0 2rem;
+    }
+
+    p {
+      color: main.$color-white;
+    }
+
+    button {
+      background-color: main.$color-green;
+      color: main.$color-white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 1rem;
+      font-weight: bold;
+
+      &:hover {
+        color: main.$color-white;
+        background-color: darken(main.$color-green, 5%);
+      }
+    }
   }
 }
