@@ -1,0 +1,81 @@
+@use '../../App.scss' as main;
+
+/* PROFILE */
+
+
+
+// TODO: check responsive sass et rajoute le dedans
+
+
+
+.profil {
+  @include main.flex-center;
+  flex-direction: column;
+  padding: 0 8% 15rem;
+
+  .photo {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 20rem;
+      height: 20rem;
+      border-radius: 50%;
+      top: -2.5rem;
+      right: -2.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  h1 {
+    margin: 2rem 0;
+    font-size: 3.2rem;
+    text-align: center;
+    color: main.$color-dark-brown;
+  }
+
+  .orders,
+  .reservations {
+    position: relative;
+    width: 80%;
+    padding: 2rem;
+    margin-top: 5rem;
+    border-radius: 1rem;
+    box-shadow: main.$box-shadow;
+    background-color: main.$color-white;
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2.4rem;
+      color: main.$color-brown;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+        color: main.$color-soft-black;
+      }
+    }
+  }
+
+  .reservations {
+    margin-top: 5rem;
+    background-color: main.$color-white;
+  }
+}
