@@ -44,6 +44,9 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO finir tuto stripe + style sidebar et pas de badge quand 0
 
+- FIXME: crop la taille des images pour que dans la sidebar ce soit impeccable?
+  (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
+
 - TODO mettre dans panier direct via home aussi
 
 - TODO Orders : bouton commander sur chaque item du catalogue envoie le plat en question (id) dans le ShoppingCart

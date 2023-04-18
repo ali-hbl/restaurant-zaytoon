@@ -20,13 +20,13 @@
   }
 
   & .btn-close {
-    cursor: pointer;
     position: absolute;
-    top: 0;
+    top: 13px;
     right: 10px;
     background-color: transparent;
     color: main.$color-brown;
     font-size: 2rem;
+    cursor: pointer;
 
     &:hover {
       color: darken(main.$color-black, 30%);
