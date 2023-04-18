@@ -9,18 +9,28 @@ const Sidebar = ({ isOpen, onClose }) => {
 
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <button onClick={onClose}>&#x2715;</button>
+      <button className="btn-close" onClick={onClose}>
+        &#x2715;
+      </button>
 
       <div className="sidebar-body">
         {productsCount > 0 ? (
           <>
-            <p>Votre panier :</p>
+            <h1>Panier ({productsCount})</h1>
             {cart.items.map((item, index) => {
               return <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>;
             })}
 
-            <h1>Total: {cart.getTotalCost().toFixed(2)} €</h1>
-            <button>Commander maintenant!</button>
+            <div className="sidebar-body-summary">
+              <div className="sidebar-body-summary-price">
+                <h1>Total :</h1>
+                <h1>{cart.getTotalCost().toFixed(2)} €</h1>
+              </div>
+
+              <div className="sidebar-body-summary-button">
+                <button className="btn-checkout">Finalisation de la commande</button>
+              </div>
+            </div>
           </>
         ) : (
           <h1>Votre panier est vide.</h1>

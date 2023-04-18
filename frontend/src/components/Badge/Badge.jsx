@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Badge = ({ value }) => {
-  return <div className="badge">{value}</div>;
+  return <span className="badge">{value}</span>;
 };
 
 export default Badge;

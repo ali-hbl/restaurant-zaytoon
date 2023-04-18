@@ -24,31 +24,29 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Suspense fallback={<Loader />}>
-          <Login />
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route element={<PrivateRoutes />}>
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/reservations" element={<Reservations />} />
-            </Route>
-            <Route path="/about" element={<About />} />
-            <Route
-              path="/catalogue"
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Catalogue />
-                </Suspense>
-              }
-            />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </Suspense>
+        <Login />
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route element={<PrivateRoutes />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/reservations" element={<Reservations />} />
+          </Route>
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/catalogue"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Catalogue />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
 
         <ScrollToTop />
         <Footer />

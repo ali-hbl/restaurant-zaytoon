@@ -1,3 +1,73 @@
 @use '../../App.scss' as main;
 
 /* CART PRODUCT */
+.cart-product {
+  display: flex;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid main.$color-black;
+
+  &-image {
+    flex: 1;
+
+    img {
+      padding-left: 1.5rem;
+      width: 90%;
+      height: auto;
+    }
+  }
+
+  &-details {
+    flex: 0.7 1;
+
+    h3 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+    }
+
+    button {
+      display: block;
+      cursor: pointer;
+      color: main.$color-red;
+      font-size: 1.7rem;
+      background: transparent;
+
+      &:hover {
+        color: darken(main.$color-red, 10%);
+        font-weight: bold;
+      }
+    }
+  }
+
+  hr {
+    margin: 1rem 0;
+  }
+
+  &-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      background-color: main.$color-green;
+      color: main.$color-white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken(main.$color-green, 10%);
+      }
+    }
+  }
+}

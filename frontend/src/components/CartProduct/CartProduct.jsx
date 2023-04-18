@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+// import { BiPlus, BiMinus } from 'react-icons/bi';
 import './styles.scss';
 
 const CartProduct = (props) => {
@@ -9,13 +10,20 @@ const CartProduct = (props) => {
   const productData = cart.getProductData(id);
 
   return (
-    <>
-      <h3>{productData.name}</h3>
-      <p>{quantity} total</p>
-      <p>{(quantity * productData.price).toFixed(2)} €</p>
-      <button onClick={() => cart.deleteFromCart(id)}>Supprimer</button>
-      <hr />
-    </>
+    <div className="cart-product">
+      <div className="cart-product-image">
+        <img src={process.env.REACT_APP_BACKEND_URL + productData.image_url} alt={productData.name} />
+      </div>
+
+      <div className="cart-product-details">
+        <h3>{productData.name}</h3>
+        <p>{(quantity * productData.price).toFixed(2)} €</p>
+        <p>Quantité : {quantity}</p>
+
+        <button onClick={() => cart.addOneToCart(id)}>Ajouter</button>
+        <button onClick={() => cart.removeOneFromCart(id)}>Supprimer</button>
+      </div>
+    </div>
   );
 };
 

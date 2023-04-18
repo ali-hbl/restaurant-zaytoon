@@ -38,8 +38,13 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 07/04 : About page + Divider
 - 17/04 : Contact enregistrer le message envoyé dans la DB
 - 17/04 : CartContext logique complete
+- 18/04 : CartContext UI responsive
 
 ### ToDo's/Bug's
+
+- TODO finir tuto stripe + style sidebar et pas de badge quand 0
+
+- TODO mettre dans panier direct via home aussi
 
 - TODO Orders : bouton commander sur chaque item du catalogue envoie le plat en question (id) dans le ShoppingCart
 
@@ -48,7 +53,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
 
-- TODO: Reservation : e-mail de confirmation et de rappel.
+- TODO Reservation : e-mail de confirmation et de rappel.
 
 ### Créateur du projet
 
