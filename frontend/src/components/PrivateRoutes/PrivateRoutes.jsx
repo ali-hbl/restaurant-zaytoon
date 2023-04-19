@@ -9,7 +9,7 @@ const PrivateRoutes = () => {
 
   useEffect(() => {
     if (!currentUser) {
-      // redirect, open modal and show notification
+      // redirect, open login modal and show notification
       navigate('/');
       toggleModal('logIn');
 
@@ -19,7 +19,6 @@ const PrivateRoutes = () => {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
-        draggable: false,
         progress: undefined,
         theme: 'dark',
         icon: false,

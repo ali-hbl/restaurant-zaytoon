@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { UserContext } from '../../context/userContext';
+import { CartContext } from '../../context/CartContext';
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
 import { CgLogIn, CgLogOff, CgProfile } from 'react-icons/cg';
@@ -8,28 +9,37 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
 import { ToastContainer, toast } from 'react-toastify';
 import { Tooltip } from 'react-tooltip';
+import Sidebar from '../Sidebar/Sidebar';
+import Badge from '../../components/Badge/Badge';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import './styles.scss';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { toggleModal, currentUser } = useContext(UserContext);
+  const cart = useContext(CartContext);
   const navigate = useNavigate();
 
-  const navStyle = ({ isActive }) => {
+  const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
+
+  const handleNavbarStyle = ({ isActive }) => {
     return {
       color: isActive && '#fff',
     };
   };
 
+  const handeGoToProfile = () => navigate('/profile');
+
+  const handeMenuToggle = () => setShowMenu(!showMenu);
+
+  const handleSidebarToggle = () => setIsSidebarOpen(!isSidebarOpen);
+
   // fix the hamburger menu bug
   const handleResize = useCallback(() => {
     setShowMenu(window.innerWidth >= 768);
   }, []);
-
-  const toggleMenu = () => setShowMenu(!showMenu);
-  const goToProfile = () => navigate('/profile');
 
   const handleLogout = async () => {
     try {
@@ -42,7 +52,6 @@ const NavBar = () => {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
-        draggable: false,
         progress: undefined,
         theme: 'dark',
         icon: false,
@@ -66,9 +75,10 @@ const NavBar = () => {
   return (
     <header>
       <ToastContainer />
+      <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarToggle} />
 
       <div className="logo">
-        <NavLink to="/" style={navStyle}>
+        <NavLink to="/" style={handleNavbarStyle}>
           <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Ô Zaytoon" />
         </NavLink>
       </div>
@@ -76,25 +86,25 @@ const NavBar = () => {
       <div className="navbar">
         {showMenu && (
           <nav>
-            <NavLink to="/" style={navStyle}>
+            <NavLink to="/" style={handleNavbarStyle}>
               Accueil
             </NavLink>
-            <NavLink to="/catalogue" style={navStyle}>
+            <NavLink to="/catalogue" style={handleNavbarStyle}>
               Catalogue
             </NavLink>
-            <NavLink to="/orders" style={navStyle}>
-              Commander
-            </NavLink>
-            <NavLink to="/reservations" style={navStyle}>
+            <NavLink to="/reservations" style={handleNavbarStyle}>
               Réservations
             </NavLink>
             {!currentUser && (
-              <NavLink to="/sign-up" style={navStyle}>
+              <NavLink to="/sign-up" style={handleNavbarStyle}>
                 S'inscrire
               </NavLink>
             )}
-            <NavLink to="/contact" style={navStyle}>
+            <NavLink to="/contact" style={handleNavbarStyle}>
               Contact
+            </NavLink>
+            <NavLink to="/about" style={handleNavbarStyle}>
+              À Propos
             </NavLink>
           </nav>
         )}
@@ -109,7 +119,7 @@ const NavBar = () => {
             </i>
 
             <i>
-              <CgProfile onClick={goToProfile} />
+              <CgProfile onClick={handeGoToProfile} />
             </i>
           </>
         ) : (
@@ -118,10 +128,13 @@ const NavBar = () => {
             <CgLogIn onClick={() => toggleModal('logIn')} />
           </i>
         )}
-        <i>
-          <FaShoppingCart />
+
+        <i className="cart">
+          {productsCount > 0 && <Badge value={productsCount} className="badge" />}
+          <FaShoppingCart onClick={handleSidebarToggle} />
         </i>
-        <i className="menu" onClick={toggleMenu}>
+
+        <i className="menu" onClick={handeMenuToggle}>
           {showMenu ? <RxCross1 /> : <RxHamburgerMenu />}
         </i>
       </div>

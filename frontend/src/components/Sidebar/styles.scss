@@ -1,0 +1,86 @@
+@use '../../App.scss' as main;
+
+/* SIDEBAR */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -45rem;
+  width: 45rem;
+  height: 100%;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  background-color: main.$color-light-beige;
+  border-left: 2px solid main.$color-soft-black;
+  box-shadow: main.$box-shadow;
+  overflow-y: scroll;
+
+  &.open {
+    right: 0;
+  }
+
+  & .btn-close {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    background-color: transparent;
+    color: main.$color-brown;
+    font-size: 2rem;
+    cursor: pointer;
+
+    &:hover {
+      color: darken(main.$color-black, 30%);
+    }
+
+    &::-webkit-scrollbar {
+      background-color: green;
+      width: 0.5em;
+    }
+  }
+
+  &-body {
+    h1 {
+      color: main.$color-black;
+      font-weight: 350;
+      padding: 1rem 1.5rem;
+    }
+
+    p {
+      color: main.$color-black;
+    }
+
+    .btn-checkout {
+      @include main.flex-center;
+      cursor: pointer;
+      width: 90%;
+      background-color: #000;
+      color: #fff;
+      margin: 1rem auto;
+      padding: 0.7rem 1.5rem;
+      font-weight: bold;
+      font-size: 1.8rem;
+
+      &:hover {
+        color: main.$color-white;
+        background-color: darken(main.$color-red, 10%);
+      }
+    }
+
+    &-summary {
+      h1 {
+        font-size: 2.4rem;
+        color: main.$color-black;
+        font-weight: bold;
+      }
+
+      &-price {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 30rem;
+  }
+}

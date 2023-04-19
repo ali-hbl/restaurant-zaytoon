@@ -17,7 +17,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   // Handle Form
-  const handleForm = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // form validations
@@ -30,6 +30,7 @@ const SignUp = () => {
       const uid = user.uid;
       const email = user.email;
       const username = usernameRef.current.value;
+      localStorage.setItem('username', username); // store username in ls to be able to use it anywhere on the app
 
       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}users`, {
         method: 'POST',
@@ -49,7 +50,6 @@ const SignUp = () => {
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
-          draggable: false,
           progress: undefined,
           theme: 'dark',
           icon: false,
@@ -74,7 +74,7 @@ const SignUp = () => {
       <h1 className="sign-up-header">Inscrivez-vous</h1>
 
       <div className="sign-up-container">
-        <form onSubmit={handleForm} ref={formRef}>
+        <form onSubmit={handleSubmit} ref={formRef}>
           <input
             ref={usernameRef}
             type="text"

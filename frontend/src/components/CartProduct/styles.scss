@@ -1,0 +1,66 @@
+@use '../../App.scss' as main;
+
+/* CART PRODUCT */
+.cart-product {
+  display: flex;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid main.$color-black;
+
+  &-image {
+    flex: 0.7 1;
+
+    img {
+      padding-left: 1.5rem;
+      width: 80%;
+
+      @media (max-width: 768px) {
+        padding: 0 1.5rem;
+        width: 100%;
+      }
+    }
+  }
+
+  &-details {
+    flex: 0.7 0;
+    line-height: 2.7rem;
+
+    h3 {
+      font-size: 1.8rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.6rem;
+        line-height: 1.3rem;
+        padding-bottom: 0.3rem;
+      }
+    }
+
+    p {
+      font-size: 1.7rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
+    }
+
+    button {
+      display: block;
+      cursor: pointer;
+      color: main.$color-red;
+      font-size: 1.7rem;
+      line-height: 2.7rem;
+      background: transparent;
+
+      &:hover {
+        color: darken(main.$color-red, 10%);
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
+    }
+  }
+}

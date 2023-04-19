@@ -2,21 +2,20 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import NavBar from './components/NavBar/NavBar';
-// import Home from './components/Home/Home';
-import Orders from './components/Orders/Orders';
+import Home from './components/Home/Home';
 import Reservations from './components/Reservations/Reservations';
 import SignUp from './components/SingUp/SignUp';
 import Login from './components/Login/Login';
 import Contact from './components/Contact/Contact';
 import Profile from './components/Profile/Profile';
 import ResetPassword from './components/ResetPassword/ResetPassword';
+import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 // import ErrorPage from './components/ErrorPage/ErrorPage';
 import './App.scss';
 
-const Home = lazy(() => import('./components/Home/Home'));
 const Catalogue = lazy(() => import('./components/Catalogue/Catalogue'));
 const ErrorPage = lazy(() => import('./components/ErrorPage/ErrorPage'));
 
@@ -31,11 +30,11 @@ const App = () => {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/profile" element={<Profile />} />
           <Route element={<PrivateRoutes />}>
-            <Route path="/orders" element={<Orders />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/reservations" element={<Reservations />} />
           </Route>
+          <Route path="/about" element={<About />} />
           <Route
             path="/catalogue"
             element={
@@ -46,6 +45,7 @@ const App = () => {
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+
         <ScrollToTop />
         <Footer />
       </BrowserRouter>

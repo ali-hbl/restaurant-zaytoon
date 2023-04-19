@@ -1,0 +1,72 @@
+@use '../../App.scss' as main;
+
+/* CONTACT */
+.contact {
+  padding: 0 8% 15rem;
+  background: url(../../../public/images/our-menu.png) left top no-repeat, url(../../../public/images/our-menu-bg.jpg);
+
+  &-header {
+    @include main.flex-center;
+    color: main.$color-light-pink;
+    font-size: 4.5rem;
+    letter-spacing: 1.3px;
+    font-weight: 300;
+    padding: 1rem 0;
+  }
+
+  &-sub-header {
+    @include main.flex-center;
+    text-align: center;
+    color: main.$color-light-pink;
+    font-size: 1.8rem;
+    font-weight: 300;
+    padding-bottom: 3.5rem;
+  }
+
+  &-container {
+    width: 30%;
+    margin: 0 auto;
+
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 80%;
+    }
+
+    form {
+      @include main.flex-center;
+      @include main.form-inputs;
+      flex-direction: column;
+
+      textarea {
+        background: none;
+        color: main.$color-light-pink;
+        border: 1px solid main.$color-light-pink;
+        border-radius: 5px;
+        width: 105%;
+        height: 20rem;
+        resize: none;
+        font-size: 1.7rem;
+        font-weight: 300;
+        padding: 1rem;
+        margin-bottom: 3rem;
+
+        &::placeholder {
+          color: main.$color-soft-grey;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    background: url(../../../public/images/our-menu.png) left top no-repeat, url(../../../public/images/our-menu-bg.jpg);
+    background-size: 50%, cover;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 8% 5rem;
+    background: url(../../../public/images/our-menu-bg.jpg);
+  }
+}

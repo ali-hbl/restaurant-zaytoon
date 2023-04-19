@@ -33,20 +33,29 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 29/03 : refactor home page catalogue (requete par 3)
 - 31/03 : refactor du sass general, images, catalogue, body background color...
 - 31/03 : fix Navbar/PrivateRoutes bugs + et ScrollToTop Component
+- 03/04 : Sidebar Component
+- 05/04 : DatePicker, Reservations UI + backend
+- 07/04 : About page + Divider
+- 17/04 : Contact enregistrer le message envoyé dans la DB
+- 17/04 : CartContext logique complete
+- 18/04 : CartContext UI responsive
+- 19/04 : Stripe fonctionnel!
 
 ### ToDo's/Bug's
 
-- TODO Reservations : UI sur la page
-- TODO Reservations : Gérer tout le formulaire avec useForm hook, verifier la query INSERT et les jointures reservation.user/user.id
+- TODO rajouter chaque produit dans Stripe et envoyer l'API key dans mysql
+- FIXME crop la taille des images pour que dans la sidebar ce soit impeccable?
+  (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
+- TODO Home : mettre dans panier direct via home aussi
 
-- TODO Orders : bouton commander sur chaque item du catalogue envoie le plat en question (id) dans le ShoppingCart
+- TODO Orders : verifier les clés en SQL, envoyer chaque plat commandé dans la DB avec id du current user
+
+- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
 
 - TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
 
-- TODO Teams ou News : voir premeiere section de ce site : https://www.laltruiste.be/
-
-- TODO ShoppingCart : check projet deja fait !!! + Stripe
+- TODO Reservation : e-mail de confirmation et de rappel.
 
 ### Créateur du projet
 

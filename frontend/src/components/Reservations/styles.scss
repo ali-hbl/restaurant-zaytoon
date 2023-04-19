@@ -2,52 +2,100 @@
 
 /* RESERVATIONS */
 .reservation {
-  padding-bottom: 8%;
-  display: flex;
   width: 100%;
-  flex-wrap: wrap;
 
   h1 {
     color: main.$color-white;
     text-align: center;
     font-size: 4.5rem;
     text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 3.7rem;
+    }
   }
 
-  &-info {
+  &-header {
+    @include main.flex-center;
+    color: main.$color-dark-brown;
+    flex-direction: column;
+    margin: 2rem 0;
+
     h3 {
-      font-size: 3rem;
-      font-weight: bold;
+      font-size: 3.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
+    }
+
+    h4 {
+      font-size: 2rem;
+      font-weight: 600;
       margin-bottom: 2rem;
+
+      @media (max-width: 991px) {
+        font-size: 1.8rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.6rem;
+        text-align: center;
+      }
     }
 
     p {
-      margin-bottom: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
 
-      &:last-child {
-        margin-bottom: 2rem;
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
       }
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 1rem;
     }
   }
 
-  &-image {
-    width: 55%;
-    background: url(../../../public/images/bookTable.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding-top: 9rem;
-  }
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
 
-  &-form {
-    background: main.$color-soft-black;
-    width: 45%;
-    padding: 9rem 7%;
+    &-image {
+      width: 55%;
+      background: url(../../../public/images/bookTable.jpeg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      padding-top: 9rem;
 
-    .form-holder {
+      @media (max-width: 991px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &-form {
+      background: main.$color-soft-black;
+      width: 45%;
+      padding: 9rem 7%;
+
+      @media (max-width: 991px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        padding-top: 3rem;
+        width: 100%;
+      }
+    }
+
+    &-form-holder {
       @include main.flex-center;
-      gap: 3rem;
-      width: 100%;
 
       input,
       option,
@@ -64,29 +112,29 @@
       }
     }
 
+    .error-message {
+      @include main.flex-center;
+      flex-direction: column;
+
+      p {
+        color: main.$color-red;
+        font-size: 1.8rem;
+      }
+    }
+
+    .reservation-inputs {
+      @include main.flex-center;
+      flex-direction: column;
+      width: 65%;
+
+      @media (max-width: 991px) {
+        width: 90%;
+      }
+    }
+
     .reservation-button {
       @include main.flex-center;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .reservation {
-    h1 {
-      font-size: 3.7rem;
-    }
-
-    &-image {
-      width: 0;
-    }
-
-    &-form {
-      padding-top: 3rem;
-      width: 100%;
-
-      .form-holder {
-        display: block;
-      }
+      margin-top: 2rem;
     }
   }
 }

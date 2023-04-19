@@ -15,7 +15,8 @@ $box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 
 // Secondary colors
 $color-beige: #cdaa7c;
-$color-light-beige: #f6f2ee;
+$color-light-beige: #f1e9e2;
+$color-light-coral: #fba681;
 $color-light-pink: #e5e5e5;
 $color-soft-grey: #b9b9b6;
 $color-grey: #919598;
@@ -44,7 +45,6 @@ html {
 
 body {
   background-color: $color-light-beige;
-  // background-color: $color-light-pink;
 }
 
 .notification {
@@ -132,13 +132,11 @@ body {
 
 // Box container
 @mixin box-container {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.7rem;
-  margin: 3rem 0;
+  margin: 3rem 0 5rem;
 
   .box {
     background: $color-black;
@@ -226,7 +224,13 @@ body {
   }
 }
 
-/* Custom scroll bar  */
+// DatePicker
+// .react-datepicker,
+// .react-datepicker__header {
+//   font-size: 1.2rem;
+// }
+
+// Custom scroll bar
 ::-webkit-scrollbar {
   width: 12px;
 }
