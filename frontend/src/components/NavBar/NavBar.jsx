@@ -133,7 +133,7 @@ const NavBar = () => {
         )}
 
         <i className="cart">
-          <Badge value={productsCount} className="badge" />
+          {productsCount > 0 && <Badge value={productsCount} className="badge" />}
           <FaShoppingCart onClick={handleSidebarToggle} />
         </i>
 

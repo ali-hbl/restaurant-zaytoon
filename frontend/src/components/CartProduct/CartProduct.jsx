@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-// import { BiPlus, BiMinus } from 'react-icons/bi';
 import './styles.scss';
 
 const CartProduct = (props) => {

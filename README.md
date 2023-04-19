@@ -42,7 +42,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO finir tuto stripe + style sidebar et pas de badge quand 0
+- TODO finir tuto stripe
 
 - FIXME: crop la taille des images pour que dans la sidebar ce soit impeccable?
   (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)

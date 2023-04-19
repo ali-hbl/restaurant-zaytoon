@@ -8,24 +8,40 @@
   border-bottom: 1px solid main.$color-black;
 
   &-image {
-    flex: 1;
+    flex: 0.7 1;
 
     img {
       padding-left: 1.5rem;
-      width: 90%;
-      height: auto;
+      width: 80%;
+
+      @media (max-width: 768px) {
+        padding: 0 1.5rem;
+        width: 100%;
+      }
     }
   }
 
   &-details {
-    flex: 0.7 1;
+    flex: 0.7 0;
+    line-height: 2.7rem;
 
     h3 {
       font-size: 1.8rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.6rem;
+        line-height: 1.3rem;
+        padding-bottom: 0.3rem;
+      }
     }
 
     p {
       font-size: 1.7rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
     }
 
     button {
@@ -33,40 +49,17 @@
       cursor: pointer;
       color: main.$color-red;
       font-size: 1.7rem;
+      line-height: 2.7rem;
       background: transparent;
 
       &:hover {
         color: darken(main.$color-red, 10%);
         font-weight: bold;
       }
-    }
-  }
 
-  hr {
-    margin: 1rem 0;
-  }
-
-  &-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    p {
-      margin: 0;
-      font-weight: bold;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      background-color: main.$color-green;
-      color: main.$color-white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: darken(main.$color-green, 10%);
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+        line-height: 2rem;
       }
     }
   }
