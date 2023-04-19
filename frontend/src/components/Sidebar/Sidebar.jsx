@@ -7,6 +7,23 @@ const Sidebar = ({ isOpen, onClose }) => {
   const cart = useContext(CartContext);
   const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}checkout`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ items: cart.items }),
+      });
+
+      const data = await response.json();
+      if (data.url) window.location.assign(data.url);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <button className="btn-close" onClick={onClose}>
@@ -28,7 +45,9 @@ const Sidebar = ({ isOpen, onClose }) => {
               </div>
 
               <div className="sidebar-body-summary-button">
-                <button className="btn-checkout">Finalisation de la commande</button>
+                <button className="btn-checkout" onClick={handleCheckout}>
+                  Finalisation de la commande
+                </button>
               </div>
             </div>
           </>

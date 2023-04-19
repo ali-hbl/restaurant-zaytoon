@@ -39,22 +39,22 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 17/04 : Contact enregistrer le message envoyé dans la DB
 - 17/04 : CartContext logique complete
 - 18/04 : CartContext UI responsive
+- 19/04 : Stripe fonctionnel!
 
 ### ToDo's/Bug's
 
-- TODO finir tuto stripe
+- TODO rajouter chaque produit dans stripe et envoyer l'api key dans
 
-- FIXME: crop la taille des images pour que dans la sidebar ce soit impeccable?
+- FIXME crop la taille des images pour que dans la sidebar ce soit impeccable?
   (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
 
-- TODO mettre dans panier direct via home aussi
+- TODO Home : mettre dans panier direct via home aussi
+- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
 
-- TODO Orders : bouton commander sur chaque item du catalogue envoie le plat en question (id) dans le ShoppingCart
+- TODO Orders : Routes/Query ... btn commander sur chaque item envoie le plat en question (id) du current User dans la DB.
 
 - TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
-
-- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
 
 - TODO Reservation : e-mail de confirmation et de rappel.
 

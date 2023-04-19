@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
-import Orders from './components/Orders/Orders';
 import Reservations from './components/Reservations/Reservations';
 import SignUp from './components/SingUp/SignUp';
 import Login from './components/Login/Login';
@@ -33,7 +32,6 @@ const App = () => {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/orders" element={<Orders />} />
             <Route path="/reservations" element={<Reservations />} />
           </Route>
           <Route path="/about" element={<About />} />

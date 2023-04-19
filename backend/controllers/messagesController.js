@@ -3,7 +3,6 @@ const connection = require('../db');
 // POST
 const postMessage = (req, res) => {
   const data = req.body;
-  console.log(data);
 
   connection.query(
     'INSERT INTO `messages` (`user_id`, `name`, `email`, `phone`, `message`) VALUES (?, ?, ?, ?, ?)',

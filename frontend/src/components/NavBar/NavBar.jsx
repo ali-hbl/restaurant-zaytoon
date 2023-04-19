@@ -92,9 +92,6 @@ const NavBar = () => {
             <NavLink to="/catalogue" style={handleNavbarStyle}>
               Catalogue
             </NavLink>
-            <NavLink to="/orders" style={handleNavbarStyle}>
-              Commander
-            </NavLink>
             <NavLink to="/reservations" style={handleNavbarStyle}>
               Réservations
             </NavLink>
