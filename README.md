@@ -43,15 +43,14 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO rajouter chaque produit dans stripe et envoyer l'api key dans
-
+- TODO rajouter chaque produit dans Stripe et envoyer l'API key dans mysql
 - FIXME crop la taille des images pour que dans la sidebar ce soit impeccable?
   (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
-
 - TODO Home : mettre dans panier direct via home aussi
-- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
 
-- TODO Orders : Routes/Query ... btn commander sur chaque item envoie le plat en question (id) du current User dans la DB.
+- TODO Orders : verifier les clés en SQL, envoyer chaque plat commandé dans la DB avec id du current user
+
+- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
 
 - TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
