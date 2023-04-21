@@ -1,0 +1,39 @@
+@use '../../App.scss' as main;
+
+/* CHECKOUT SUCCESS */
+.checkout-success {
+  @include main.flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: 9% 2rem;
+
+  &-header {
+    color: main.$color-dark-brown;
+    margin: 2rem 0;
+    font-size: 3.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 3.5rem;
+      margin-top: 2rem;
+    }
+  }
+
+  h3 {
+    font-size: 2.4rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  a {
+    @include main.flex-center;
+    font-size: 2.3rem;
+
+    &:hover {
+      color: darken(main.$color-brown, 5%);
+    }
+  }
+}

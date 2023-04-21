@@ -13,11 +13,14 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-// import ErrorPage from './components/ErrorPage/ErrorPage';
+// import CheckoutSuccess from './components/CheckoutSuccess/CheckoutSuccess';
+// import CheckoutError from './components/CheckoutError/CheckoutError';
 import './App.scss';
 
 const Catalogue = lazy(() => import('./components/Catalogue/Catalogue'));
 const ErrorPage = lazy(() => import('./components/ErrorPage/ErrorPage'));
+const CheckoutSuccess = lazy(() => import('./components/CheckoutSuccess/CheckoutSuccess'));
+const CheckoutError = lazy(() => import('./components/CheckoutError/CheckoutError'));
 
 const App = () => {
   return (
@@ -43,6 +46,8 @@ const App = () => {
               </Suspense>
             }
           />
+          <Route path="/success" element={<CheckoutSuccess />} />
+          <Route path="/cancel" element={<CheckoutError />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
 
