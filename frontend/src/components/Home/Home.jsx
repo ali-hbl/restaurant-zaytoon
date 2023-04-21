@@ -4,6 +4,7 @@ import useFetch from '../../hooks/useFetch';
 import About from '../About/About';
 import Divider from '../Divider/Divider';
 import Loader from '../Loader/Loader';
+import CatalogueItem from '../CatalogueItem/CatalogueItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
@@ -22,20 +23,7 @@ const Home = () => {
     return (
       <div className="box-container">
         {topThreePlates.map((item) => (
-          <div className="box" key={item.id}>
-            <div className="box-image">
-              <img src={process.env.REACT_APP_BACKEND_URL + item.image_url} alt={item.title} />
-            </div>
-            <div className="catalogue-content">
-              <h3>{item.name}</h3>
-              <p className="item-price">{item.price} €</p>
-              <p className="item-description">{item.description}</p>
-
-              <a href="/" className="btn" onClick={handleClick}>
-                Commander
-              </a>
-            </div>
-          </div>
+          <CatalogueItem key={item.id} item={item} />
         ))}
       </div>
     );
@@ -111,7 +99,6 @@ const Home = () => {
       </main>
       <Divider />
       <About />
-      {/* <News />  */}
     </>
   );
 };

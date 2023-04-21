@@ -42,17 +42,16 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 19/04 : Stripe fonctionnel!
 - 21/04 : Login Modal et Sidebar UI Update
 - 21/04 : CheckoutSuccess and CheckoutError component
+- 21/04 : Refactor Home component
 
 ### ToDo's/Bug's
 
 - TODO run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO faire page success + page erreur stripe
 - TODO sur Succes Stripe => Recapitulatif de ma commande qui dirige vers la page de profil, mais pour ca, il faut poster la commande du currentUser dans la db OU alors envoyer un recap par mail?
 
 - FIXME crop la taille des images pour que dans la sidebar ce soit impeccable?
   (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
-- TODO Home : mettre dans panier direct via home aussi
 
 - TODO Orders : verifier les clés en SQL, envoyer chaque plat commandé dans la DB avec id du current user
 
