@@ -41,6 +41,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 18/04 : CartContext UI responsive
 - 19/04 : Stripe fonctionnel!
 - 21/04 : Login Modal et Sidebar UI Update
+- 21/04 : CheckoutSuccess and CheckoutError component
 
 ### ToDo's/Bug's
 
