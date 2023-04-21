@@ -48,6 +48,9 @@ const Sidebar = ({ isOpen, onClose }) => {
                 <button className="btn-checkout" onClick={handleCheckout}>
                   Finalisation de la commande
                 </button>
+                <button className="btn-empty" onClick={() => cart.deleteAllFromCart()}>
+                  Vider le panier
+                </button>
               </div>
             </div>
           </>

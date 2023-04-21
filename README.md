@@ -43,7 +43,10 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO rajouter chaque produit dans Stripe et envoyer l'API key dans mysql
+- TODO run le site sur grand ecran pour verifier le padding (a propos page)
+
+- TODO: faire page success + page erreur stripe
+
 - FIXME crop la taille des images pour que dans la sidebar ce soit impeccable?
   (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
 - TODO Home : mettre dans panier direct via home aussi

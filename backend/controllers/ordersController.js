@@ -26,7 +26,6 @@ const postOrder = async (req, res) => {
       url: session.url,
     })
   );
-
 };
 
 module.exports = { postOrder };

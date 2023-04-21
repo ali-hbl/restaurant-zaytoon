@@ -66,7 +66,6 @@ const Login = () => {
                 className="input-form"
                 required
               />
-
               <input
                 ref={loginPwdRef}
                 type="password"
@@ -78,11 +77,14 @@ const Login = () => {
               />
 
               <button type="submit">Se connecter</button>
-
               <p>{validation}</p>
 
               <Link to="/reset-password" onClick={() => toggleModal('close')}>
                 Mot de passe oublié?
+              </Link>
+
+              <Link to="/sign-up" onClick={() => toggleModal('close')}>
+                Pas de compte? Inscrivez-vous!
               </Link>
             </form>
           </div>
