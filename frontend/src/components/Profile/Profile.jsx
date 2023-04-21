@@ -1,5 +1,5 @@
 import { useEffect, useContext } from 'react';
-import { UserContext } from '../../context/userContext';
+import { UserContext } from '../../context/UserContext';
 // import Orders from './components/Orders/Orders';
 // import Reservations from './components/Reservations/Reservations';
 import './styles.scss';

@@ -1,0 +1,6 @@
+@use '../../App.scss' as main;
+
+/* CHECKOUT ERROR */
+.checkout-error {
+  @include main.checkout-pages;
+}

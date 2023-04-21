@@ -1,26 +1,47 @@
 import React, { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 import { CartContext } from '../../context/CartContext';
 import CartProduct from '../CartProduct/CartProduct';
+import { toast } from 'react-toastify';
 import './styles.scss';
 
 const Sidebar = ({ isOpen, onClose }) => {
+  const { currentUser, toggleModal } = useContext(UserContext);
   const cart = useContext(CartContext);
   const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 
   const handleCheckout = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}checkout`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ items: cart.items }),
-      });
+    // only a connected user can proceed to checkout
+    if (currentUser !== null) {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}checkout`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ items: cart.items }),
+        });
 
-      const data = await response.json();
-      if (data.url) window.location.assign(data.url);
-    } catch (error) {
-      console.error(error);
+        const data = await response.json();
+        if (data.url) window.location.assign(data.url);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      // display login modal and show notification
+      toggleModal('logIn');
+      toast.error(`Veuillez vous connecter pour procéder au paiement.`, {
+        position: 'top-right',
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        progress: undefined,
+        theme: 'dark',
+        icon: false,
+        className: 'notification',
+        bodyClassName: 'toastify-color-welcome',
+      });
     }
   };
 
@@ -47,6 +68,9 @@ const Sidebar = ({ isOpen, onClose }) => {
               <div className="sidebar-body-summary-button">
                 <button className="btn-checkout" onClick={handleCheckout}>
                   Finalisation de la commande
+                </button>
+                <button className="btn-empty" onClick={() => cart.deleteAllFromCart()}>
+                  Vider le panier
                 </button>
               </div>
             </div>

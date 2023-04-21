@@ -25,7 +25,7 @@ const ResetPassword = () => {
 
   return (
     <div className="reset-password">
-      <h1 className="reset-password-header">Mot de passe oublié ?</h1>
+      <h1 className="reset-password-header">Mot de passe oublié?</h1>
 
       <div className="reset-password-container">
         <form onSubmit={handleResetPassword}>

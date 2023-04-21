@@ -1,0 +1,6 @@
+@use '../../App.scss' as main;
+
+/* CHECKOUT SUCCESS */
+.checkout-success {
+  @include main.checkout-pages;
+}

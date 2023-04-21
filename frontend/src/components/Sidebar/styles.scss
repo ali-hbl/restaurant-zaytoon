@@ -53,8 +53,8 @@
       @include main.flex-center;
       cursor: pointer;
       width: 90%;
-      background-color: #000;
-      color: #fff;
+      background-color: main.$color-black;
+      color: main.$color-white;
       margin: 1rem auto;
       padding: 0.7rem 1.5rem;
       font-weight: bold;
@@ -63,6 +63,24 @@
       &:hover {
         color: main.$color-white;
         background-color: darken(main.$color-red, 10%);
+      }
+    }
+
+    .btn-empty {
+      @include main.flex-center;
+      cursor: pointer;
+      width: 90%;
+      background-color: transparent;
+      color: main.$color-black;
+      border: 2px solid main.$color-black;
+      margin: 1rem auto;
+      padding: 0.7rem 1.5rem;
+      font-weight: bold;
+      font-size: 1.8rem;
+
+      &:hover {
+        color: main.$color-white;
+        background-color: main.$color-black;
       }
     }
 

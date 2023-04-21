@@ -40,22 +40,22 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 17/04 : CartContext logique complete
 - 18/04 : CartContext UI responsive
 - 19/04 : Stripe fonctionnel!
+- 21/04 : Login Modal et Sidebar UI Update
+- 21/04 : CheckoutSuccess and CheckoutError component
+- 21/04 : Refactor Home component
 
 ### ToDo's/Bug's
 
-- TODO rajouter chaque produit dans Stripe et envoyer l'API key dans mysql
-- FIXME crop la taille des images pour que dans la sidebar ce soit impeccable?
-  (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
-- TODO Home : mettre dans panier direct via home aussi
+- TODO run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO Orders : verifier les clés en SQL, envoyer chaque plat commandé dans la DB avec id du current user
+- TODO Succes Stripe => Envoyer un mail de confirmation de commande.
+- TODO Reservation : e-mail de confirmation et de rappel.
 
-- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
+- TODO Orders : vérifier les clés en SQL (table order => product_id et catalogue_id)
+  Envoyer chaque plat commandé dans la DB avec id du current user
 
 - TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
-
-- TODO Reservation : e-mail de confirmation et de rappel.
 
 ### Créateur du projet
 
