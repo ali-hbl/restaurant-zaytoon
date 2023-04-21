@@ -48,19 +48,14 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO sur Succes Stripe => Recapitulatif de ma commande qui dirige vers la page de profil, mais pour ca, il faut poster la commande du currentUser dans la db OU alors envoyer un recap par mail?
+- TODO Succes Stripe => Envoyer un mail de confirmation de commande.
+- TODO Reservation : e-mail de confirmation et de rappel.
 
-- FIXME crop la taille des images pour que dans la sidebar ce soit impeccable?
-  (rajoute tout puis check juste celles qui sont flag par exemple Mousse au chocolat)
-
-- TODO Orders : verifier les clés en SQL, envoyer chaque plat commandé dans la DB avec id du current user
-
-- TODO ShoppingCart : on peut le remplir sans etre co mais le checkout se fait que pour user co (check projet deja fait / traversymedia)
+- TODO Orders : vérifier les clés en SQL (table order => product_id et catalogue_id)
+  Envoyer chaque plat commandé dans la DB avec id du current user
 
 - TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
-
-- TODO Reservation : e-mail de confirmation et de rappel.
 
 ### Créateur du projet
 
