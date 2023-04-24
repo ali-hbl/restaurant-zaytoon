@@ -43,13 +43,16 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 21/04 : Login Modal et Sidebar UI Update
 - 21/04 : CheckoutSuccess and CheckoutError component
 - 21/04 : Refactor Home component
+- 24/04 : Rajout d'une commande dans la base de données avec toutes les jointures entre les tables
 
 ### ToDo's/Bug's
 
 - TODO run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO Succes Stripe => Envoyer un mail de confirmation de commande.
-- TODO Reservation : e-mail de confirmation et de rappel.
+- TODO click outside of sidebar close it (check modal)
+
+- TODO Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
+- TODO Reservation : e-mail de confirmation et de rappel (idem ici).
 
 - TODO Orders : vérifier les clés en SQL (table order => product_id et catalogue_id)
   Envoyer chaque plat commandé dans la DB avec id du current user

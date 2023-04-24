@@ -25,22 +25,24 @@ export const CartProvider = ({ children }) => {
   };
 
   const getProductQuantity = (id) => {
-    const quantity = cartProducts.find((product) => product.id === id)?.quantity;
-    if (quantity === undefined) return 0;
-
+    const quantity = cartProducts.find((product) => product.id === id)?.quantity || 0;
     return quantity;
   };
 
   const addOneToCart = (id) => {
     const quantity = getProductQuantity(id);
+    const name = getProductData(id).name;
+    const price = getProductData(id).price * (quantity + 1);
 
     if (quantity === 0) {
       // product is not in cart
-      setCartProducts([...cartProducts, { id: id, quantity: 1 }]);
+      setCartProducts([...cartProducts, { id: id, name: name, price: price, quantity: 1 }]);
     } else {
       // product is in cart
       setCartProducts(
-        cartProducts.map((product) => (product.id === id ? { ...product, quantity: product.quantity + 1 } : product))
+        cartProducts.map((product) =>
+          product.id === id ? { ...product, name: name, price: price, quantity: product.quantity + 1 } : product
+        )
       );
     }
   };

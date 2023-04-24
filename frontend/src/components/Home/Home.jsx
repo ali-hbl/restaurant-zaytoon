@@ -15,10 +15,6 @@ const Home = () => {
   const { data, isLoading } = useFetch('catalogue/top-three');
   const topThreePlates = data.results;
 
-  const handleClick = () => {
-    console.log('Passer la commande'); //TODO
-  };
-
   const renderTopThree = () => {
     return (
       <div className="box-container">
@@ -92,9 +88,7 @@ const Home = () => {
         </>
 
         <div className="catalogue-button">
-          <Link to="/catalogue" onClick={handleClick}>
-            Consultez le catalogue
-          </Link>
+          <Link to="/catalogue">Consultez le catalogue</Link>
         </div>
       </main>
       <Divider />
