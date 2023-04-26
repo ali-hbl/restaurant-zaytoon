@@ -64,12 +64,16 @@
       a {
         color: main.$color-light-brown;
         text-align: center;
-        margin-top: 1.7rem;
+        margin-top: 1.2rem;
         margin-bottom: -2rem;
         font-size: 1.6rem;
 
         &:hover {
           color: darken(main.$color-red, 5%);
+        }
+
+        &:first-of-type {
+          margin-top: 0;
         }
       }
 
@@ -88,18 +92,26 @@
           background-color: darken(main.$color-orange, 5%);
         }
       }
+
+      p {
+        color: main.$color-red;
+        font-size: 1.7rem;
+        font-weight: 100;
+        text-align: center;
+        margin-top: 1.3rem;
+      }
     }
   }
+}
 
-  @media (max-width: 991px) {
-    .modal-content {
-      width: 50%;
-    }
+@media (max-width: 991px) {
+  .modal-content {
+    width: 50%;
   }
+}
 
-  @media (max-width: 768px) {
-    .modal-content {
-      width: 90%;
-    }
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
   }
 }

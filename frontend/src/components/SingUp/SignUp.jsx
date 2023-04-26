@@ -42,7 +42,7 @@ const SignUp = () => {
       if (response.ok) {
         // clear inputs, show notification and redirect
         setValidation('');
-
+        
         toast.error(`Bienvenue ${usernameRef.current.value}!`, {
           position: 'top-right',
           autoClose: 1000,

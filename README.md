@@ -44,18 +44,18 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 21/04 : CheckoutSuccess and CheckoutError component
 - 21/04 : Refactor Home component
 - 24/04 : Rajout d'une commande dans la base de données avec toutes les jointures entre les tables
+- 26/04 : Fix bug d'un login avec une email inexistante => refactoring du contexte
+- 26/04 : Fix bug du username sur la page de profil => géré via une requete
 
 ### ToDo's/Bug's
 
 - TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO handle login et sign up avec compte inexistant !!
+- TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
+  Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
 
 - TODO Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici).
-
-- TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
-  Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
 
 - TODO clean backend code : usersRoute pleine de route inutiles (delete, update, ...)
 

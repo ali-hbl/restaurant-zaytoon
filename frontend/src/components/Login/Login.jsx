@@ -1,46 +1,22 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
 
 const Login = () => {
-  const { loginModal, toggleModal, signIn } = useContext(UserContext);
-  const [validation, setValidation] = useState('');
+  const { loginModal, toggleModal, signIn, validation } = useContext(UserContext);
   const emailRef = useRef();
   const loginPwdRef = useRef();
   const formRef = useRef();
-
   const navigate = useNavigate();
 
   const handleForm = async (e) => {
     e.preventDefault();
 
-    try {
-      await signIn(emailRef.current.value, loginPwdRef.current.value);
-
-      // clear inputs, show notification and redirect
-      setValidation('');
-      toggleModal('close');
-
-      toast.error(`Rebonjour!`, {
-        position: 'top-right',
-        autoClose: 700,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        progress: undefined,
-        theme: 'dark',
-        icon: false,
-        className: 'notification',
-        bodyClassName: 'toastify-color-welcome',
-      });
-
-      navigate('/');
-    } catch (error) {
-      setValidation('Adresse email et/ou mot de passe incorrect.');
-    }
+    await signIn(emailRef.current.value, loginPwdRef.current.value);
+    navigate('/');
   };
 
   return (
