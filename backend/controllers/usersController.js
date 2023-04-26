@@ -13,7 +13,7 @@ const getAll = (req, res) => {
 const getUserById = (req, res) => {
   const id = req.params.id;
 
-  connection.query('SELECT username FROM `users` WHERE `id` = ?', [id], function (err, results) {
+  connection.query('SELECT username FROM `users` WHERE `uid` = ?', [id], function (err, results) {
     if (err) return res.json({ success: false, message: err });
 
     res.json({ results });

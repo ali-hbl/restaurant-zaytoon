@@ -1,12 +1,14 @@
 import { useEffect, useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
+import useFetch from '../../hooks/useFetch';
 // import Orders from './components/Orders/Orders';
 // import Reservations from './components/Reservations/Reservations';
 import './styles.scss';
 
 const Profil = () => {
   const { currentUser } = useContext(UserContext);
-  const username = localStorage.getItem('username');
+  const { data } = useFetch(`users/${currentUser.uid}`);
+  const username = data.results && data.results[0]?.username; // check if not undefined and then assign it because it is undefined on first render
 
   // const [orders, setOrders] = useState([]);
   // const [reservations, setReservations] = useState([]);

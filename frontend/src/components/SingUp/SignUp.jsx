@@ -30,7 +30,6 @@ const SignUp = () => {
       const uid = user.uid;
       const email = user.email;
       const username = usernameRef.current.value;
-      localStorage.setItem('username', username); // store username in ls to be able to use it anywhere on the app
 
       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}users`, {
         method: 'POST',
@@ -46,7 +45,7 @@ const SignUp = () => {
 
         toast.error(`Bienvenue ${usernameRef.current.value}!`, {
           position: 'top-right',
-          autoClose: 1500,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,

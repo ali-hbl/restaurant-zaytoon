@@ -47,18 +47,17 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO run le site sur grand ecran pour verifier le padding (a propos page)
+- TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO click outside of sidebar close it (check modal)
+- TODO handle login et sign up avec compte inexistant !!
 
 - TODO Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici).
 
-- TODO Orders : vérifier les clés en SQL (table order => product_id et catalogue_id)
-  Envoyer chaque plat commandé dans la DB avec id du current user
-
 - TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
   Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
+
+- TODO clean backend code : usersRoute pleine de route inutiles (delete, update, ...)
 
 ### Créateur du projet
 

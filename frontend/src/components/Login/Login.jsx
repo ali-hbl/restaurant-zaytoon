@@ -26,7 +26,7 @@ const Login = () => {
 
       toast.error(`Rebonjour!`, {
         position: 'top-right',
-        autoClose: 1500,
+        autoClose: 700,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
