@@ -50,6 +50,14 @@
     border-radius: 0.5rem;
     box-shadow: 0 10px 30px main.$color-black;
 
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+
     form {
       @include main.form-inputs;
       display: flex;
@@ -101,17 +109,5 @@
         margin-top: 1.3rem;
       }
     }
-  }
-}
-
-@media (max-width: 991px) {
-  .modal-content {
-    width: 50%;
-  }
-}
-
-@media (max-width: 768px) {
-  .modal-content {
-    width: 90%;
   }
 }
