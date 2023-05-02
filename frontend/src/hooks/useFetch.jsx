@@ -4,9 +4,6 @@ const useFetch = (fetchURL) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Creer un composant qui prend en props le chemin localhost + le backend
-  // Renvoyer une image d'erreur par defaut
-
   useEffect(() => {
     let path = process.env.REACT_APP_BACKEND_URL + fetchURL;
 

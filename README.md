@@ -46,13 +46,14 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 24/04 : Rajout d'une commande dans la base de données avec toutes les jointures entre les tables
 - 26/04 : Fix bug d'un login avec une email inexistante => refactoring du contexte
 - 26/04 : Fix bug du username sur la page de profil => géré via une requete
+- 27/04 : routes et requetes pour page de profil (mes reservations/orders)
+- 02/05 : ajout de photo de profil sur la page de profil
 
 ### ToDo's/Bug's
 
 - TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
-  Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
+- TODO ProfilePage : finir reservations et orders, la requete est bonne et le fetch aussi, puis UI pour les afficher
 
 - TODO Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici).

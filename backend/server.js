@@ -9,15 +9,17 @@ app.use(express.json());
 
 const usersRoute = require('./routes/usersRoute');
 const catalogueRoute = require('./routes/catalogueRoute');
-const reservationRoutes = require('./routes/reservationsRoute');
-const ordersRoutes = require('./routes/ordersRoutes');
+const reservationRoute = require('./routes/reservationsRoute');
+const ordersRoutes = require('./routes/ordersRoute');
 const messagesRoute = require('./routes/messagesRoute');
+const profileRoute = require('./routes/profileRoutes');
 
 app.use('/users', usersRoute);
 app.use('/catalogue', catalogueRoute);
-app.use('/reservations', reservationRoutes);
+app.use('/reservations', reservationRoute);
 app.use('/messages', messagesRoute);
 app.use('/checkout', ordersRoutes);
+app.use('/profile', profileRoute);
 
 // start listening the server
 app.listen(PORT, () => {
