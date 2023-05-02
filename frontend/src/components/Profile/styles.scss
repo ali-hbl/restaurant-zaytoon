@@ -18,9 +18,12 @@
 
     &:before {
       content: '';
+      background: url(../../../public/images//default-profile-pic.jpeg);
+      background-size: cover;
+      background-position: center;
       position: absolute;
-      width: 20rem;
-      height: 20rem;
+      width: 15rem;
+      height: 15rem;
       background-color: rgba(0, 0, 0, 0.2);
       pointer-events: none; /* prevent the click from being blocked */
       cursor: pointer;
@@ -56,6 +59,11 @@
     font-size: 1.6rem;
     padding: 0.7rem 0;
     cursor: pointer;
+    color: main.$color-brown;
+
+    &:hover {
+      color: darken(main.$color-dark-brown, 10%);
+    }
   }
 
   h1 {
