@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import useFetch from '../../hooks/useFetch';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 import './styles.scss';
 
 const Profil = () => {
@@ -12,17 +14,25 @@ const Profil = () => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
 
-    reader.readAsDataURL(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        localStorage.setItem('profilePic', reader.result);
+        setProfilePic(event.target.result);
+      };
 
-    reader.onload = () => {
-      localStorage.setItem('profilePic', reader.result);
-      setProfilePic(reader.result);
-    };
+      reader.readAsDataURL(file);
+    }
   };
 
-  const handleDelete = () => setProfilePic('');
+  const handleDelete = () => {
+    setProfilePic(null);
+    localStorage.clear();
+
+    const fileInput = document.getElementById('profile-pic');
+    fileInput.value = ''; // reset input file value
+  };
 
   useEffect(() => {
     const fetchReservations = async () => {
@@ -49,21 +59,28 @@ const Profil = () => {
 
       <div className="profile-pic">
         <input type="file" name="profile-pic" id="profile-pic" onChange={handleFileChange} />
-        {profilePic && (
+
+        {profilePic ? (
           <>
             <img src={profilePic} alt="Profile Pic" onClick={() => document.getElementById('profile-pic').click()} />
             <button className="delete-btn" onClick={handleDelete}>
               &#x2715;
             </button>
           </>
+        ) : (
+          <>
+            <img
+              src={process.env.PUBLIC_URL + '/images/default-profile-pic.jpeg'}
+              className="default-pic"
+              alt="Default profile pic"
+              data-tooltip-id="profilePic-tooltip"
+              data-tooltip-content="Ajouter une photo de profil"
+              onClick={() => document.getElementById('profile-pic').click()}
+            />
+            <Tooltip id="profilePic-tooltip" place="right" className="tooltip" />
+          </>
         )}
       </div>
-
-      {!profilePic && (
-        <label htmlFor="profile-pic" className="profile-label">
-          Ajouter une photo de profil
-        </label>
-      )}
 
       <div className="orders">
         <h2>Mes commandes</h2>
