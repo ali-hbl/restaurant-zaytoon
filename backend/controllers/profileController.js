@@ -2,8 +2,12 @@ const connection = require('../db');
 
 // GET my reservations
 const getReservations = (req, res) => {
+  const uid = req.params.id;
+
   connection.query(
-    'SELECT * FROM `reservations`, `users` WHERE reservations.user_id = users.uid',
+    'SELECT * FROM `reservations`, `users` WHERE reservations.user_id = users.uid AND users.uid = ?',
+    [uid],
+
     function (err, results) {
       if (err) return res.json({ success: false, message: err });
 
@@ -14,11 +18,18 @@ const getReservations = (req, res) => {
 
 // GET my orders
 const getOrders = (req, res) => {
-  connection.query('SELECT * FROM `orders`, `users` WHERE orders.user_id = users.uid', function (err, results) {
-    if (err) return res.json({ success: false, message: err });
+  const uid = req.params.id;
 
-    res.json({ results });
-  });
+  connection.query(
+    'SELECT * FROM `orders`, `users` WHERE orders.user_id = users.uid AND users.uid = ?',
+    [uid],
+
+    function (err, results) {
+      if (err) return res.json({ success: false, message: err });
+
+      res.json({ results });
+    }
+  );
 };
 
 module.exports = { getReservations, getOrders };

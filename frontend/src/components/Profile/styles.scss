@@ -5,84 +5,36 @@
 // TODO: check responsive sass et rajoute le dedans
 
 .profile {
-  @include main.flex-center;
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  padding: 0 8% 15rem;
-
-  &-pic {
-    position: relative;
-    width: 15rem;
-    height: 15rem;
-    margin-bottom: 5rem;
-
-    img {
-      border-radius: 1rem;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      cursor: pointer;
-    }
-
-    input[type='file'] {
-      display: none;
-    }
-
-    .delete-btn {
-      position: absolute;
-      top: 0;
-      right: 1rem;
-      background-color: transparent;
-      color: main.$color-light-pink;
-      font-size: 1.7rem;
-      cursor: pointer;
-
-      &:hover {
-        color: main.$color-grey;
-      }
-    }
-
-    .default-pic {
-      background-size: cover;
-      background-position: center;
-      width: 15rem;
-      height: 15rem;
-      border-radius: 1rem;
-    }
-
-    .label-container {
-      text-align: center;
-
-      label {
-        font-size: 1.5rem;
-        padding: 0.7rem 0;
-        margin-bottom: 5rem;
-        color: main.$color-brown;
-        cursor: pointer;
-
-        &:hover {
-          color: darken(main.$color-dark-brown, 10%);
-        }
-      }
-    }
-  }
+  padding: 0 8% 15%;
+  width: 100vw;
+  height: 100vh;
 
   h1 {
-    margin: 3rem 0;
+    margin: 2% 0 3%;
     font-size: 3.2rem;
     text-align: center;
     color: main.$color-dark-brown;
   }
 
+  p {
+    font-size: 1.6rem;
+    font-weight: 450;
+    color: main.$color-soft-black;
+  }
+
   .orders,
   .reservations {
-    width: 80%;
-    padding: 2rem;
+    width: 60%;
+    padding: 2%;
     border-radius: 1rem;
     box-shadow: main.$box-shadow;
     background-color: main.$color-white;
 
     h2 {
-      margin-bottom: 1rem;
+      margin-bottom: 1%;
       font-size: 2.4rem;
       color: main.$color-brown;
     }
@@ -93,7 +45,7 @@
       list-style: none;
 
       li {
-        margin-bottom: 1rem;
+        margin-bottom: 1%;
         font-size: 1.8rem;
         color: main.$color-soft-black;
       }
@@ -101,7 +53,7 @@
   }
 
   .reservations {
-    margin-top: 5rem;
+    margin-top: 5%;
     background-color: main.$color-white;
   }
 }

@@ -47,18 +47,28 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 26/04 : Fix bug d'un login avec une email inexistante => refactoring du contexte
 - 26/04 : Fix bug du username sur la page de profil => géré via une requete
 - 27/04 : routes et requetes pour page de profil (mes reservations/orders)
-- 02/05 : ajout de photo de profil sur la page de profil
+- 02/05 : ajout de photo de profil sur la page de profil (in progress)
+- 04/05 : Mes commandes et Mes réservations sur page de profil fetch et UI
+- 05/05 : ProfileComponent logique pour trier les commandes par dates et les afficher avec quantité + total
 
 ### ToDo's/Bug's
 
 - TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO ProfilePage : finir reservations et orders, la requete est bonne et le fetch aussi, puis UI pour les afficher
+  - TOUTES les pages du site sur grand écran
+  - Meme celles qu'on voit pas : loader, success/cancel, error, ...
+  - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
 
-- TODO Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
+- TODO Profile Page : pagination pour +10 orders/reservation
+- TODO Profile Page : click sur item commandé, redirigé vers catalogue? useless?
+- FIXME Profile Page responsive?
+
+- TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici).
 
-- TODO clean backend code : usersRoute pleine de route inutiles (delete, update, ...)
+- FIXME DatePicker minuscule
+
+- TODO clean backend code
 
 ### Créateur du projet
 

@@ -1,0 +1,30 @@
+@use '../../App.scss' as main;
+
+/* ORDER LIST */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+
+  &-container {
+    background-color: main.$color-light-grey;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    // width: 30rem;
+  }
+
+  &-details {
+    flex-wrap: wrap;
+    padding: 1rem;
+
+    p {
+      font-size: 1.6rem;
+      font-weight: 450;
+      color: main.$color-soft-black;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+}
