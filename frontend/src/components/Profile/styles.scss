@@ -5,55 +5,43 @@
 // TODO: check responsive sass et rajoute le dedans
 
 .profile {
-  display: flex;
-  align-items: center;
+  @include main.flex-center;
   flex-direction: column;
-  padding: 0 8% 15%;
-  width: 100vw;
-  height: 100vh;
+  padding: 0 8% 15rem;
 
   h1 {
-    margin: 2% 0 3%;
+    margin: 4.5rem 0 0 0;
     font-size: 3.2rem;
     text-align: center;
     color: main.$color-dark-brown;
   }
 
-  p {
-    font-size: 1.6rem;
-    font-weight: 450;
-    color: main.$color-soft-black;
-  }
+  .profile-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+    width: 75%;
 
-  .orders,
-  .reservations {
-    width: 60%;
-    padding: 2%;
-    border-radius: 1rem;
-    box-shadow: main.$box-shadow;
-    background-color: main.$color-white;
+    .orders,
+    .reservations {
+      width: 80%;
+      margin-top: 4.5rem;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: main.$box-shadow;
+      background-color: main.$color-white;
 
-    h2 {
-      margin-bottom: 1%;
-      font-size: 2.4rem;
-      color: main.$color-brown;
-    }
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 2.4rem;
+        color: main.$color-brown;
+      }
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-
-      li {
-        margin-bottom: 1%;
-        font-size: 1.8rem;
+      p {
+        font-size: 1.6rem;
+        font-weight: 450;
         color: main.$color-soft-black;
       }
     }
-  }
-
-  .reservations {
-    margin-top: 5%;
-    background-color: main.$color-white;
   }
 }

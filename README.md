@@ -50,6 +50,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 02/05 : ajout de photo de profil sur la page de profil (in progress)
 - 04/05 : Mes commandes et Mes réservations sur page de profil fetch et UI
 - 05/05 : ProfileComponent logique pour trier les commandes par dates et les afficher avec quantité + total
+- 09/05 : Pagination sur Mes Reservations/Mes Commandes
 
 ### ToDo's/Bug's
 
@@ -59,8 +60,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
   - Meme celles qu'on voit pas : loader, success/cancel, error, ...
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
 
-- TODO Profile Page : pagination pour +10 orders/reservation
-- TODO Profile Page : click sur item commandé, redirigé vers catalogue? useless?
+- TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demande au prof ou reessaye pour generer un seul id par groupe de commandes
 - FIXME Profile Page responsive?
 
 - TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)

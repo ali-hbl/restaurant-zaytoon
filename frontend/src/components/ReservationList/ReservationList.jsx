@@ -8,7 +8,10 @@ const ReservationList = ({ reservations }) => {
         <div className="reservation-list-container" key={i}>
           <div className="reservation-list-details">
             <p>
-              <span>Date et heure:</span> {new Date(reservation.time).toLocaleString()}
+              <span>Date:</span>
+              {` Le ${new Date(reservation.time).toLocaleDateString()} à ${new Date(
+                reservation.time
+              ).toLocaleTimeString()}`}
             </p>
             <p>
               <span>Réservé au nom de:</span> {reservation.name}

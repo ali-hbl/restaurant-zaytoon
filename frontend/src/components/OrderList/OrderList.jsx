@@ -16,7 +16,7 @@ const OrderList = ({ orders }) => {
     return acc;
   }, {});
 
-  // Calculate total for each order and generate order list items
+  // calculate total for each order and generate order list items
   const orderListItems = Object.entries(ordersByTime).map(([time, orders]) => {
     let total = 0;
     let date;
@@ -34,7 +34,7 @@ const OrderList = ({ orders }) => {
       <div key={time} className="order-list-container">
         <div className="order-list-details">
           <p>
-            <span>Date:</span> {`${date} à ${time}`}
+            <span>Date:</span> {`Le ${date} à ${time}`}
           </p>
           <p>
             <span>Commande:</span> {orderItems}
