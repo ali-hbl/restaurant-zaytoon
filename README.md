@@ -43,19 +43,32 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 21/04 : Login Modal et Sidebar UI Update
 - 21/04 : CheckoutSuccess and CheckoutError component
 - 21/04 : Refactor Home component
+- 24/04 : Rajout d'une commande dans la base de données avec toutes les jointures entre les tables
+- 26/04 : Fix bug d'un login avec une email inexistante => refactoring du contexte
+- 26/04 : Fix bug du username sur la page de profil => géré via une requete
+- 27/04 : routes et requetes pour page de profil (mes reservations/orders)
+- 02/05 : ajout de photo de profil sur la page de profil (in progress)
+- 04/05 : Mes commandes et Mes réservations sur page de profil fetch et UI
+- 05/05 : ProfileComponent logique pour trier les commandes par dates et les afficher avec quantité + total
+- 09/05 : Pagination sur Mes Reservations/Mes Commandes
 
 ### ToDo's/Bug's
 
-- TODO run le site sur grand ecran pour verifier le padding (a propos page)
+- TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 
-- TODO Succes Stripe => Envoyer un mail de confirmation de commande.
-- TODO Reservation : e-mail de confirmation et de rappel.
+  - TOUTES les pages du site sur grand écran
+  - Meme celles qu'on voit pas : loader, success/cancel, error, ...
+  - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
 
-- TODO Orders : vérifier les clés en SQL (table order => product_id et catalogue_id)
-  Envoyer chaque plat commandé dans la DB avec id du current user
+- TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demande au prof ou reessaye pour generer un seul id par groupe de commandes
+- FIXME Profile Page responsive?
 
-- TODO ProfilePage : affichera des liens "Mes reservations"/"Mes commandes" qui meneront vers des routes privées
-  Et afficheront les réservations et commandes passées par l'user (via un select all from reservations where reservations.user = user.id)
+- TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
+- TODO Reservation : e-mail de confirmation et de rappel (idem ici).
+
+- FIXME DatePicker minuscule
+
+- TODO clean backend code
 
 ### Créateur du projet
 

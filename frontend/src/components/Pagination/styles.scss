@@ -1,0 +1,30 @@
+@use '../../App.scss' as main;
+
+/* PAGINATION */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+
+  button {
+    width: 4rem;
+    height: 4rem;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 0 1rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: main.$color-brown;
+    border: 2px solid main.$color-dark-brown;
+
+    &:hover,
+    &.active {
+      font-weight: 900;
+      background: main.$color-light-grey;
+    }
+  }
+}

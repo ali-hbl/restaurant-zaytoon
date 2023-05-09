@@ -8,22 +8,31 @@ import './styles.scss';
 const Sidebar = ({ isOpen, onClose }) => {
   const { currentUser, toggleModal } = useContext(UserContext);
   const cart = useContext(CartContext);
-  const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
+  const productsCount = cart.items.reduce((totalQuantity, product) => totalQuantity + product.quantity, 0);
 
   const handleCheckout = async () => {
     // only a connected user can proceed to checkout
     if (currentUser !== null) {
+      const dataToSend = {
+        uid: currentUser.uid,
+        productId: cart.items.product_id,
+        name: cart.items.name,
+        quantity: cart.items.quantity,
+        price: cart.items.price,
+        items: [...cart.items],
+      };
+
       try {
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}checkout`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ items: cart.items }),
+          body: JSON.stringify(dataToSend),
         });
 
         const data = await response.json();
-        if (data.url) window.location.assign(data.url);
+        if (data.url) window.location.assign(data.url); // redirect on success/error page
       } catch (error) {
         console.error(error);
       }

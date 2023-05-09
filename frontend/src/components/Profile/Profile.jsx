@@ -1,57 +1,100 @@
-import { useEffect, useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
-// import Orders from './components/Orders/Orders';
-// import Reservations from './components/Reservations/Reservations';
+import useFetch from '../../hooks/useFetch';
+import ReservationList from '../ReservationList/ReservationList';
+import OrderList from '../OrderList/OrderList';
+import Pagination from '../Pagination/Pagination';
+import 'react-tooltip/dist/react-tooltip.css';
 import './styles.scss';
 
 const Profil = () => {
   const { currentUser } = useContext(UserContext);
-  const username = localStorage.getItem('username');
+  const { data } = useFetch(`users/${currentUser.uid}`);
+  const [reservations, setReservations] = useState(null);
+  const [orders, setOrders] = useState(null);
+  const [currentOrdersPage, setCurrentOrdersPage] = useState(1);
+  const [currentReservationsPage, setCurrentReservationsPage] = useState(1);
 
-  // const [orders, setOrders] = useState([]);
-  // const [reservations, setReservations] = useState([]);
+  // User infos
+  const uid = currentUser.uid;
+  const username = data.results?.[0]?.username ?? ''; // check if not undefined and then assign it because it is undefined on first render
+
+  // Pagination
+  const postsPerPage = 5;
+
+  const lastOrdersIndex = currentOrdersPage * postsPerPage;
+  const firstOrdersIndex = lastOrdersIndex - postsPerPage;
+  const currentOrders = orders?.slice(firstOrdersIndex, lastOrdersIndex);
+
+  const lastReservationsIndex = currentReservationsPage * postsPerPage;
+  const firstReservationsIndex = lastReservationsIndex - postsPerPage;
+  const currentReservations = reservations?.slice(firstReservationsIndex, lastReservationsIndex);
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      // const ordersRef = firestore.collection('orders').where('uid', '==', currentUser.uid);
-      // const snapshot = await ordersRef.get();
-      // const ordersData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      // setOrders(ordersData);
-    };
-
+    // get reservations
     const fetchReservations = async () => {
-      // const reservationsRef = firestore.collection('reservations').where('uid', '==', currentUser.uid);
-      // const snapshot = await reservationsRef.get();
-      // const reservationsData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      // setReservations(reservationsData);
+      try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}profile/${uid}/my-reservations`);
+        const data = await response.json();
+        setReservations(data.results);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
-    fetchOrders();
+    // get orders
+    const fetchOrders = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}profile/${uid}/my-orders`);
+        const data = await response.json();
+        setOrders(data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     fetchReservations();
-  }, [currentUser]);
+    fetchOrders();
+  }, [uid]);
+
+  const renderOrders = () => {
+    return orders?.length > 0 ? <OrderList orders={currentOrders} /> : <p>Aucune commande.</p>;
+  };
+
+  const renderReservations = () => {
+    return reservations?.length > 0 ? (
+      <ReservationList reservations={currentReservations} />
+    ) : (
+      <p>Aucune réservation.</p>
+    );
+  };
 
   return (
-    <div className="profil">
+    <div className="profile">
       <h1>Bienvenue sur votre page de profil, {username}!</h1>
 
-      <div className="photo"></div>
+      <div className="profile-container">
+        <div className="orders">
+          <h2>Mes commandes</h2>
+          {renderOrders()}
+          <Pagination
+            totalPosts={orders?.length ?? 0}
+            postsPerPage={postsPerPage}
+            currentPage={currentOrdersPage}
+            setCurrentPage={setCurrentOrdersPage}
+          />
+        </div>
 
-      <div className="orders">
-        <h2>Mes commandes</h2>
-        <ul>
-          <li>Commande #123456</li>
-          <li>Commande #789012</li>
-          <li>Commande #345678</li>
-        </ul>
-      </div>
-
-      <div className="reservations">
-        <h2>Mes réservations</h2>
-        <ul>
-          <li>Réservation #123</li>
-          <li>Réservation #456</li>
-          <li>Réservation #789</li>
-        </ul>
+        <div className="reservations">
+          <h2>Mes réservations</h2>
+          {renderReservations()}
+          <Pagination
+            totalPosts={reservations?.length ?? 0}
+            postsPerPage={postsPerPage}
+            currentPage={currentReservationsPage}
+            setCurrentPage={setCurrentReservationsPage}
+          />
+        </div>
       </div>
     </div>
   );

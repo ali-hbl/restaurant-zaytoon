@@ -2,80 +2,46 @@
 
 /* PROFILE */
 
-
-
 // TODO: check responsive sass et rajoute le dedans
 
-
-
-.profil {
+.profile {
   @include main.flex-center;
   flex-direction: column;
   padding: 0 8% 15rem;
 
-  .photo {
-    position: relative;
-    width: 15rem;
-    height: 15rem;
-    border-radius: 50%;
-    overflow: hidden;
-
-    &:before {
-      content: '';
-      position: absolute;
-      width: 20rem;
-      height: 20rem;
-      border-radius: 50%;
-      top: -2.5rem;
-      right: -2.5rem;
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
   h1 {
-    margin: 2rem 0;
+    margin: 4.5rem 0 0 0;
     font-size: 3.2rem;
     text-align: center;
     color: main.$color-dark-brown;
   }
 
-  .orders,
-  .reservations {
-    position: relative;
-    width: 80%;
-    padding: 2rem;
-    margin-top: 5rem;
-    border-radius: 1rem;
-    box-shadow: main.$box-shadow;
-    background-color: main.$color-white;
+  .profile-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+    width: 75%;
 
-    h2 {
-      margin-bottom: 1rem;
-      font-size: 2.4rem;
-      color: main.$color-brown;
-    }
+    .orders,
+    .reservations {
+      width: 80%;
+      margin-top: 4.5rem;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: main.$box-shadow;
+      background-color: main.$color-white;
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-
-      li {
+      h2 {
         margin-bottom: 1rem;
-        font-size: 1.8rem;
+        font-size: 2.4rem;
+        color: main.$color-brown;
+      }
+
+      p {
+        font-size: 1.6rem;
+        font-weight: 450;
         color: main.$color-soft-black;
       }
     }
-  }
-
-  .reservations {
-    margin-top: 5rem;
-    background-color: main.$color-white;
   }
 }

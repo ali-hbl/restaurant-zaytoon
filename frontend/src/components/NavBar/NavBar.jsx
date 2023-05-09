@@ -48,7 +48,7 @@ const NavBar = () => {
 
       toast.error(`À bientôt!`, {
         position: 'top-right',
-        autoClose: 1000,
+        autoClose: 700,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,

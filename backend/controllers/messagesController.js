@@ -9,9 +9,6 @@ const postMessage = (req, res) => {
     [data.uid, data.name, data.email, data.phone, data.message],
 
     function (err, results) {
-      console.log(err);
-      console.log(results);
-
       if (err) return res.json({ success: false, message: err });
 
       res.json({ results });
