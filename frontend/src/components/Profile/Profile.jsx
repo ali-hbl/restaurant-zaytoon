@@ -20,14 +20,15 @@ const Profil = () => {
   const username = data.results?.[0]?.username ?? ''; // check if not undefined and then assign it because it is undefined on first render
 
   // Pagination
-  const postsPerPage = 5;
+  const reservationsPostsPerPage = 5;
+  const ordersPostsPerPage = 15;
 
-  const lastOrdersIndex = currentOrdersPage * postsPerPage;
-  const firstOrdersIndex = lastOrdersIndex - postsPerPage;
+  const lastOrdersIndex = currentOrdersPage * ordersPostsPerPage;
+  const firstOrdersIndex = lastOrdersIndex - ordersPostsPerPage;
   const currentOrders = orders?.slice(firstOrdersIndex, lastOrdersIndex);
 
-  const lastReservationsIndex = currentReservationsPage * postsPerPage;
-  const firstReservationsIndex = lastReservationsIndex - postsPerPage;
+  const lastReservationsIndex = currentReservationsPage * reservationsPostsPerPage;
+  const firstReservationsIndex = lastReservationsIndex - reservationsPostsPerPage;
   const currentReservations = reservations?.slice(firstReservationsIndex, lastReservationsIndex);
 
   useEffect(() => {
@@ -79,7 +80,7 @@ const Profil = () => {
           {renderOrders()}
           <Pagination
             totalPosts={orders?.length ?? 0}
-            postsPerPage={postsPerPage}
+            postsPerPage={ordersPostsPerPage}
             currentPage={currentOrdersPage}
             setCurrentPage={setCurrentOrdersPage}
           />
@@ -90,7 +91,7 @@ const Profil = () => {
           {renderReservations()}
           <Pagination
             totalPosts={reservations?.length ?? 0}
-            postsPerPage={postsPerPage}
+            postsPerPage={reservationsPostsPerPage}
             currentPage={currentReservationsPage}
             setCurrentPage={setCurrentReservationsPage}
           />

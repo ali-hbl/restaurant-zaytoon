@@ -61,10 +61,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
 
 - TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demande au prof ou reessaye pour generer un seul id par groupe de commandes
-- FIXME Profile Page responsive?
 
 - TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici).
+
+- TODO Backoffice sur un autre port qui permet de modifier toute la db
 
 - FIXME DatePicker minuscule
 
