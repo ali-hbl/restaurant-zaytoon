@@ -13,14 +13,18 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-// import CheckoutSuccess from './components/CheckoutSuccess/CheckoutSuccess';
-// import CheckoutError from './components/CheckoutError/CheckoutError';
+// import Dashboard from './components/Dashboard/Dashboard';
+// import DashboardCatalogue from './components/Dashboard/components/DashboardCatalogue/DashboardCatalogue';
 import './App.scss';
 
 const Catalogue = lazy(() => import('./components/Catalogue/Catalogue'));
 const ErrorPage = lazy(() => import('./components/ErrorPage/ErrorPage'));
 const CheckoutSuccess = lazy(() => import('./components/CheckoutSuccess/CheckoutSuccess'));
 const CheckoutError = lazy(() => import('./components/CheckoutError/CheckoutError'));
+const Dashboard = lazy(() => import('./components/Dashboard/Dashboard'));
+const DashboardCatalogue = lazy(() =>
+  import('./components/Dashboard/components/DashboardCatalogue/DashboardCatalogue')
+);
 
 const App = () => {
   return (
@@ -28,29 +32,26 @@ const App = () => {
       <BrowserRouter>
         <Login />
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route element={<PrivateRoutes />}>
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/reservations" element={<Reservations />} />
-          </Route>
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/catalogue"
-            element={
-              <Suspense fallback={<Loader />}>
-                <Catalogue />
-              </Suspense>
-            }
-          />
-          <Route path="/success" element={<CheckoutSuccess />} />
-          <Route path="/cancel" element={<CheckoutError />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/reservations" element={<Reservations />} />
+              <Route path="/back-office" element={<Dashboard />}>
+                <Route path="catalogue" element={<DashboardCatalogue />} />
+              </Route>
+            </Route>
+            <Route path="/about" element={<About />} />
+            <Route path="/catalogue" element={<Catalogue />} />
+            <Route path="/success" element={<CheckoutSuccess />} />
+            <Route path="/cancel" element={<CheckoutError />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Suspense>
         <ScrollToTop />
         <Footer />
       </BrowserRouter>

@@ -51,21 +51,24 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 04/05 : Mes commandes et Mes réservations sur page de profil fetch et UI
 - 05/05 : ProfileComponent logique pour trier les commandes par dates et les afficher avec quantité + total
 - 09/05 : Pagination sur Mes Reservations/Mes Commandes
+- 10/05 : Création du back-office et de ses différentes routes
 
 ### ToDo's/Bug's
 
+- TODO Backoffice sur un autre port qui permet de modifier toute la db
+
 - TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 
+  - CHECK COMMENT J'AI FAIT SUR PROFILE.scss avec height 100vh
   - TOUTES les pages du site sur grand écran
   - Meme celles qu'on voit pas : loader, success/cancel, error, ...
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
 
 - TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demande au prof ou reessaye pour generer un seul id par groupe de commandes
+  !! l'id 12/13 venait de l'id utilisateur, donc il y a une jointure qui est mal faite, essaie de voir si tu peux pas regrouper les orders du coup avec un meme id generé sur achat, et bien faire la jointure sur l'id de l'order et pas sur l'id de l'user. Si pas, laisse comme ca
 
 - TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
-- TODO Reservation : e-mail de confirmation et de rappel (idem ici).
-
-- TODO Backoffice sur un autre port qui permet de modifier toute la db
+- TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
 
 - FIXME DatePicker minuscule
 

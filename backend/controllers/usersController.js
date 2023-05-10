@@ -11,6 +11,17 @@ const getUserById = (req, res) => {
   });
 };
 
+// GET role
+const getUserRole = (req, res) => {
+  const id = req.params.id;
+
+  connection.query('SELECT `role` FROM `users` WHERE users.uid = ?', [id], function (err, results) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ results });
+  });
+};
+
 // POST
 const postUser = (req, res) => {
   const data = req.body;
@@ -27,4 +38,4 @@ const postUser = (req, res) => {
   );
 };
 
-module.exports = { getUserById, postUser };
+module.exports = { getUserById, getUserRole, postUser };

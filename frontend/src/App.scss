@@ -46,6 +46,9 @@ html {
 
 body {
   background-color: $color-light-beige;
+  max-width: 100%;
+  height: 100vh;
+  margin: auto;
 }
 
 .notification {
