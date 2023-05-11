@@ -8,6 +8,7 @@
   .main-content {
     padding: 2rem;
     width: 100%;
+    @include main.overflow-scroll;
 
     h2 {
       font-size: 2.4rem;

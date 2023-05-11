@@ -13,7 +13,7 @@
   background-color: main.$color-light-beige;
   border-left: 2px solid main.$color-soft-black;
   box-shadow: main.$box-shadow;
-  overflow-y: scroll;
+  @include main.overflow-scroll;
 
   &.open {
     right: 0;

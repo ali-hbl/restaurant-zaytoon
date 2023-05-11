@@ -58,6 +58,8 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO Backoffice toutes les pages
 
+  - FIXME DashboardCatalogueTable : Entree sans accent, a modifier depuis la db.
+
 - TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 
   - CHECK COMMENT J'AI FAIT SUR PROFILE.scss avec height 100vh

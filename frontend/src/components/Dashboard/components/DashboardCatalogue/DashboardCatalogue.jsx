@@ -80,7 +80,7 @@ const DashboardCatalogue = () => {
 
   const renderCatalogueTable = () => {
     return (
-      <table className="catalogue-table">
+      <table>
         <thead>
           <tr>
             <th>Nom</th>
