@@ -52,10 +52,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 05/05 : ProfileComponent logique pour trier les commandes par dates et les afficher avec quantité + total
 - 09/05 : Pagination sur Mes Reservations/Mes Commandes
 - 10/05 : Création du back-office et de ses différentes routes
+- 11/05 : Back-office catalogue ui
 
 ### ToDo's/Bug's
 
-- TODO Backoffice sur un autre port qui permet de modifier toute la db
+- TODO Backoffice toutes les pages
 
 - TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
 

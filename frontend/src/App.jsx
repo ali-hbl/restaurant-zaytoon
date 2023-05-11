@@ -13,8 +13,6 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-// import Dashboard from './components/Dashboard/Dashboard';
-// import DashboardCatalogue from './components/Dashboard/components/DashboardCatalogue/DashboardCatalogue';
 import './App.scss';
 
 const Catalogue = lazy(() => import('./components/Catalogue/Catalogue'));
