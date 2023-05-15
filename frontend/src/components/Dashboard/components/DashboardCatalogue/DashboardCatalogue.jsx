@@ -1,74 +1,92 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Loader from '../../../Loader/Loader';
 import CatalogueTable from '../../../CatalogueTable/CatalogueTable';
 import useFetch from '../../../../hooks/useFetch';
+import { toast } from 'react-toastify';
 import './styles.scss';
 
 const DashboardCatalogue = () => {
   const { data, isLoading } = useFetch('catalogue');
   const catalogueItems = data.results;
 
-  const [dishData, setDishData] = useState({
-    name: '',
-    description: '',
-    price: '',
-    image_url: '',
-    category: 'plat',
-  });
-
-  const handleChange = (e) => {
-    setDishData({ ...dishData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Ajouter la logique pour enregistrer le plat dans le catalogue
-    console.log(dishData);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const name = formData.get('name');
+    const description = formData.get('description');
+    const price = formData.get('price');
+    const imageUrl = formData.get('image_url');
+    const category = formData.get('category');
+
+    try {
+      const fileName = imageUrl.name;
+
+      // POST dish to database
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/new-dish`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, description, price, fileName, category }),
+      });
+
+      if (response.ok) {
+        // clear input and show notification
+        form.reset();
+
+        toast.error(`Nouveau plat ajouté dans la base de données.`, {
+          position: 'top-right',
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          progress: undefined,
+          theme: 'dark',
+          icon: false,
+          className: 'notification',
+          bodyClassName: 'toastify-color-welcome',
+        });
+      }
+    } catch (error) {
+      alert('Une erreur est survenue. Veuillez réessayer svp.');
+      console.error(error);
+    }
   };
 
   const renderForm = () => {
     return (
       <div className="form-container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className="form-group">
             <label htmlFor="name">Nom du plat:</label>
-            <input type="text" id="name" name="name" value={dishData.name} onChange={handleChange} required />
+            <input type="text" name="name" required />
           </div>
 
           <div className="form-group">
             <label htmlFor="description">Description:</label>
-            <textarea
-              id="description"
-              name="description"
-              value={dishData.description}
-              onChange={handleChange}
-              required
-            />
+            <textarea name="description" required />
           </div>
 
           <div className="form-group">
             <label htmlFor="price">Prix:</label>
-            <input type="number" id="price" name="price" value={dishData.price} onChange={handleChange} required />
+            <input type="number" name="price" required />
           </div>
 
           <div className="form-group">
             <label htmlFor="image_url">Image:</label>
-            <input
-              type="file"
-              id="image_url"
-              name="image_url"
-              value={dishData.image_url}
-              onChange={handleChange}
-              required
-            />
+            <input type="file" name="image_url" required />
           </div>
 
           <div className="form-group">
             <label htmlFor="category">Catégorie:</label>
-            <select id="category" name="category" value={dishData.category} onChange={handleChange} required>
-              <option value="entree">Entrée</option>
-              <option value="plat">Plat</option>
-              <option value="dessert">Dessert</option>
+            <select name="category" required>
+              <option value="entrees">Entrée</option>
+              <option value="plats">Plat</option>
+              <option value="desserts">Dessert</option>
+              <option value="boissons">Boisson</option>
             </select>
           </div>
 
@@ -91,9 +109,11 @@ const DashboardCatalogue = () => {
             <th>Action</th>
           </tr>
         </thead>
-        {catalogueItems.map((item) => (
-          <CatalogueTable key={item.id} item={item} />
-        ))}
+        <tbody>
+          {catalogueItems.map((item) => (
+            <CatalogueTable key={item.id} item={item} />
+          ))}
+        </tbody>
       </table>
     );
   };
