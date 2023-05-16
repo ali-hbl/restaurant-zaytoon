@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiEdit, FiDelete } from 'react-icons/fi';
 import { Tooltip } from 'react-tooltip';
+import { toast } from 'react-toastify';
 import './styles.scss';
 
 const CatalogueTable = ({ item }) => {
@@ -10,15 +11,27 @@ const CatalogueTable = ({ item }) => {
     })
       .then((response) => {
         if (response.ok) {
-          // TODO show notification 
-          console.log('Plat supprimé avec succès');
+          // show notification
+          toast.error(`Plat supprimé de la base de données.`, {
+            position: 'top-right',
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined,
+            theme: 'dark',
+            icon: false,
+            className: 'notification',
+            bodyClassName: 'toastify-color-welcome',
+          });
         } else {
-          // TODO show alert
-          console.error('Erreur lors de la suppression du plat');
+          // show alert
+          alert('Erreur lors de la suppression du plat');
         }
       })
       .catch((error) => {
-        //TODO show alert and transalte log
+        //show alert log error
+        alert('Une erreur est survenue lors de la suppression du plat', error);
         console.error('Une erreur est survenue lors de la suppression du plat', error);
       });
   };

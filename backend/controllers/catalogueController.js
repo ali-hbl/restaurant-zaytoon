@@ -66,7 +66,7 @@ const postDish = (req, res) => {
   const data = req.body;
 
   upload.single('image_url')(req, res, function (err) {
-    console.log(req.body.fileName);
+    // console.log(req.body.fileName);
 
     if (err) {
       console.error(err);

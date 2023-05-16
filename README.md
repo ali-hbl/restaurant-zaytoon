@@ -54,6 +54,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 10/05 : Création du back-office et de ses différentes routes
 - 11/05 : Back-office catalogue form + table UI
 - 12/05 : Back-office catalogue backend mais encore des bugs
+- 13/05 : Back-office catalogue backend delete query
 
 ### ToDo's/Bug's
 
