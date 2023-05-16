@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getTopThree, getAll, getById, postDish } = require('../controllers/catalogueController');
+const { getTopThree, getAll, getById, postDish, deleteDish } = require('../controllers/catalogueController');
 
 // GET all
 router.get('/', getAll);
@@ -11,7 +11,10 @@ router.get('/top-three', getTopThree);
 // GET by ID
 router.get('/:id', getById);
 
-// INSERT dish
-router.post('/new-dish', postDish);
+// INSERT
+router.post('/insert-dish', postDish);
+
+// DELETE
+router.delete('/delete-dish/:id', deleteDish);
 
 module.exports = router;

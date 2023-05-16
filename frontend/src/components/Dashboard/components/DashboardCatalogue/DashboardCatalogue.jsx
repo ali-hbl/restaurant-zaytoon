@@ -25,7 +25,7 @@ const DashboardCatalogue = () => {
       const fileName = imageUrl.name;
 
       // POST dish to database
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/new-dish`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/insert-dish`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

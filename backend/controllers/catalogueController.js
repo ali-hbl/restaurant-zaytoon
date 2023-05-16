@@ -61,7 +61,7 @@ const getById = (req, res) => {
   });
 };
 
-// INSERT dish
+// INSERT
 const postDish = (req, res) => {
   const data = req.body;
 
@@ -86,4 +86,15 @@ const postDish = (req, res) => {
   });
 };
 
-module.exports = { getAll, getTopThree, getById, postDish };
+// DELETE
+const deleteDish = (req, res) => {
+  const id = req.params.id;
+
+  connection.query('DELETE FROM `catalogue` WHERE id = ?', [id], function (err, result) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ result });
+  });
+};
+
+module.exports = { getAll, getTopThree, getById, postDish, deleteDish };
