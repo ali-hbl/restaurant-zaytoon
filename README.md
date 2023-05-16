@@ -54,7 +54,9 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 10/05 : Création du back-office et de ses différentes routes
 - 11/05 : Back-office catalogue form + table UI
 - 12/05 : Back-office catalogue backend mais encore des bugs
+  - Indiquer dans le travail ecrit que le proprio du site doit rentrer manuellement son plat dans stripe en plus du formulaire, puis mettre le stripe_id dans la base de données s'il veut rajouter un plat convenablement, avec etapes et screenshots.
 - 13/05 : Back-office catalogue backend delete query
+- 13/05 : Back-office catalogue code refactoring
 
 ### ToDo's/Bug's
 
@@ -63,10 +65,8 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
   - FIXME DashboardCatalogueTable : Entree sans accent, a modifier depuis la db.
 
   - TODO DashboardCatalogue : demander a Clement pour multer ou bien au prof pour utiliser fs de nodeJS sans multer.
-
-  Requete DELETE et UPDATE + indiquer dans le travail ecrit que le proprio du site doit rentrer manuellement un plat dans son catalogue et mettre le stripe_id dans la base de données, ou bien trouver une alternative pour l'id mais je n'en vois pas.
-
-  - TODO DashboardCatalogue : pour l'update check Angular project (text devient input)
+  - TODO DashboardCatalogue : UPDATE query + boutton ajouter pour l'un et modifier pour edit
+  - TODO DashboardCatalogue : responsive!!!!
 
   - TODO DashboardReservations: listing avec status + delete
   - TODO DashboardOrders: listing + delete

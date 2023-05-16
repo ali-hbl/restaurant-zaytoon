@@ -1,99 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CatalogueModal from './CatalogueModal/CatalogueModal';
+import CatalogueForm from './CatalogueForm/CatalogueForm';
 import Loader from '../../../Loader/Loader';
-import CatalogueTable from '../../../CatalogueTable/CatalogueTable';
 import useFetch from '../../../../hooks/useFetch';
+import { FiEdit, FiDelete } from 'react-icons/fi';
+import { Tooltip } from 'react-tooltip';
 import { toast } from 'react-toastify';
 import './styles.scss';
 
 const DashboardCatalogue = () => {
+  const [showModal, setShowModal] = useState(false);
   const { data, isLoading } = useFetch('catalogue');
   const catalogueItems = data.results;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleEdit = () => setShowModal(true);
 
-    const form = e.target;
-    const formData = new FormData(form);
-
-    const name = formData.get('name');
-    const description = formData.get('description');
-    const price = formData.get('price');
-    const imageUrl = formData.get('image_url');
-    const category = formData.get('category');
-
-    try {
-      const fileName = imageUrl.name;
-
-      // POST dish to database
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/insert-dish`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, description, price, fileName, category }),
+  const handleDelete = (id) => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/delete-dish/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          // show notification
+          toast.error(`Plat supprimé de la base de données.`, {
+            position: 'top-right',
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined,
+            theme: 'dark',
+            icon: false,
+            className: 'notification',
+            bodyClassName: 'toastify-color-welcome',
+          });
+        } else {
+          // show alert
+          alert('Erreur lors de la suppression du plat, veuillez réessayer.');
+        }
+      })
+      .catch((error) => {
+        //show alert log error
+        alert('Une erreur est survenue lors de la suppression du plat', error);
+        console.error('Une erreur est survenue lors de la suppression du plat', error);
       });
-
-      if (response.ok) {
-        // clear input and show notification
-        form.reset();
-
-        toast.error(`Nouveau plat ajouté dans la base de données.`, {
-          position: 'top-right',
-          autoClose: 1500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          progress: undefined,
-          theme: 'dark',
-          icon: false,
-          className: 'notification',
-          bodyClassName: 'toastify-color-welcome',
-        });
-      }
-    } catch (error) {
-      alert('Une erreur est survenue. Veuillez réessayer svp.');
-      console.error(error);
-    }
   };
 
   const renderForm = () => {
-    return (
-      <div className="form-container">
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
-          <div className="form-group">
-            <label htmlFor="name">Nom du plat:</label>
-            <input type="text" name="name" required />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="description">Description:</label>
-            <textarea name="description" required />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="price">Prix:</label>
-            <input type="number" name="price" required />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="image_url">Image:</label>
-            <input type="file" name="image_url" required />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="category">Catégorie:</label>
-            <select name="category" required>
-              <option value="entrees">Entrée</option>
-              <option value="plats">Plat</option>
-              <option value="desserts">Dessert</option>
-              <option value="boissons">Boisson</option>
-            </select>
-          </div>
-
-          <button type="submit">Ajouter</button>
-        </form>
-      </div>
-    );
+    return <CatalogueForm />;
   };
 
   const renderCatalogueTable = () => {
@@ -111,7 +65,28 @@ const DashboardCatalogue = () => {
         </thead>
         <tbody>
           {catalogueItems.map((item) => (
-            <CatalogueTable key={item.id} item={item} />
+            <tr key={item.id}>
+              <td>{item.name}</td>
+              <td>{item.description}</td>
+              <td>{item.price} €</td>
+              <td>
+                <img src={process.env.REACT_APP_BACKEND_URL + item.image_url} alt={item.name} />
+              </td>
+              <td>{item.category.charAt(0).toUpperCase() + item.category.slice(1, -1)}</td>
+              <td>
+                <span onClick={() => handleEdit(item.id)}>
+                  <FiEdit />
+                </span>
+                <span
+                  data-tooltip-id="delete-tooltip"
+                  data-tooltip-content="Supprimer ce plat"
+                  onClick={() => handleDelete(item.id)}
+                >
+                  <Tooltip id="delete-tooltip" />
+                  <FiDelete />
+                </span>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
@@ -126,6 +101,8 @@ const DashboardCatalogue = () => {
       <h2>Modifier un plat</h2>
       {isLoading && <Loader />}
       {!isLoading && renderCatalogueTable()}
+
+      {showModal && <CatalogueModal />}
     </div>
   );
 };

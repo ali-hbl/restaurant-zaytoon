@@ -1,0 +1,89 @@
+@use '../../../../../App.scss' as main;
+
+/* BACK OFFICE CATALOGUE MODAL */
+.modal {
+  @include main.flex-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      line-height: 1.1;
+      font-size: 3rem;
+      font-weight: 370;
+    }
+
+    button {
+      color: main.$color-light-pink;
+      background: transparent;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: darken(main.$color-grey, 10%);
+      }
+    }
+  }
+
+  &-content {
+    position: relative;
+    color: main.$color-light-pink;
+    background-color: yellow; //TODO
+    width: 25%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 30px main.$color-black;
+
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+
+    form {
+      @include main.form-inputs;
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+
+      input:not([type='submit']) {
+        margin-bottom: 1.5rem;
+      }
+
+      button {
+        color: main.$color-white;
+        background-color: main.$color-orange;
+        width: 100%;
+        font-size: 1.7rem;
+        padding: 0.5rem 3rem;
+        margin-top: 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken(main.$color-orange, 5%);
+        }
+      }
+    }
+  }
+}
