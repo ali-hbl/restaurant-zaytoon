@@ -1,31 +1,36 @@
-import React, { useState, useContext } from 'react';
-import { UserContext } from '../../../../../context/UserContext';
+import React, { useRef } from 'react';
 import CatalogueForm from '../CatalogueForm/CatalogueForm';
 import './styles.scss';
 
-const CatalogueModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-  const { toggleModal } = useContext(UserContext);
+const CatalogueModal = ({ showModal, setShowModal }) => {
+  const modalRef = useRef();
 
-  const handleModal = () => setIsModalOpen(!isModalOpen);
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) {
+      setShowModal(false);
+    }
+  };
 
   const renderForm = () => {
     return <CatalogueForm />;
   };
 
   return (
-    <div className="modal">
-      <div className="modal-overlay" onClick={() => handleModal()}></div>
-      <div className="modal-content">
-        <div className="modal-header">
-          <h2>Modifier le plat</h2>
-          <button onClick={() => toggleModal('close')}>&#x2715;</button>
-        </div>
+    <>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-overlay" onClick={closeModal} ref={modalRef}></div>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2>Modifier le plat</h2>
+              <button onClick={() => setShowModal((prev) => !prev)}>&#x2715;</button>
+            </div>
 
-        {renderForm()}
-        <button type="submit">Modifier</button>
-      </div>
-    </div>
+            {renderForm()}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

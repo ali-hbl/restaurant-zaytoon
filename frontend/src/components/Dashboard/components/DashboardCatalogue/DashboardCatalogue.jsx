@@ -13,37 +13,41 @@ const DashboardCatalogue = () => {
   const { data, isLoading } = useFetch('catalogue');
   const catalogueItems = data.results;
 
-  const handleEdit = () => setShowModal(true);
+  const openModal = () => setShowModal(!showModal); // open a modal to edit the dish
 
   const handleDelete = (id) => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/delete-dish/${id}`, {
-      method: 'DELETE',
-    })
-      .then((response) => {
-        if (response.ok) {
-          // show notification
-          toast.error(`Plat supprimé de la base de données.`, {
-            position: 'top-right',
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            progress: undefined,
-            theme: 'dark',
-            icon: false,
-            className: 'notification',
-            bodyClassName: 'toastify-color-welcome',
-          });
-        } else {
-          // show alert
-          alert('Erreur lors de la suppression du plat, veuillez réessayer.');
-        }
+    const confirmDelete = window.confirm('Êtes-vous sûr de vouloir supprimer cet élément?');
+
+    if (confirmDelete) {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/delete-dish/${id}`, {
+        method: 'DELETE',
       })
-      .catch((error) => {
-        //show alert log error
-        alert('Une erreur est survenue lors de la suppression du plat', error);
-        console.error('Une erreur est survenue lors de la suppression du plat', error);
-      });
+        .then((response) => {
+          if (response.ok) {
+            // show notification
+            toast.error(`Plat supprimé de la base de données.`, {
+              position: 'top-right',
+              autoClose: 1500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              progress: undefined,
+              theme: 'dark',
+              icon: false,
+              className: 'notification',
+              bodyClassName: 'toastify-color-welcome',
+            });
+          } else {
+            // show alert
+            alert('Erreur lors de la suppression du plat, veuillez réessayer.');
+          }
+        })
+        .catch((error) => {
+          //show alert log error
+          alert('Une erreur est survenue lors de la suppression du plat', error);
+          console.error('Une erreur est survenue lors de la suppression du plat', error);
+        });
+    }
   };
 
   const renderForm = () => {
@@ -74,7 +78,7 @@ const DashboardCatalogue = () => {
               </td>
               <td>{item.category.charAt(0).toUpperCase() + item.category.slice(1, -1)}</td>
               <td>
-                <span onClick={() => handleEdit(item.id)}>
+                <span onClick={openModal}>
                   <FiEdit />
                 </span>
                 <span
@@ -102,7 +106,7 @@ const DashboardCatalogue = () => {
       {isLoading && <Loader />}
       {!isLoading && renderCatalogueTable()}
 
-      {showModal && <CatalogueModal />}
+      {!isLoading && showModal && <CatalogueModal showModal={showModal} setShowModal={setShowModal} />}
     </div>
   );
 };

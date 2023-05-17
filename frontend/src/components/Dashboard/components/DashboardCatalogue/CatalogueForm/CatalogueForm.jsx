@@ -70,7 +70,7 @@ const CatalogueForm = () => {
 
         <div className="form-group">
           <label htmlFor="image_url">Image:</label>
-          <input type="file" name="image_url" required />
+          <input type="file" name="image_url" />
         </div>
 
         <div className="form-group">
@@ -83,7 +83,7 @@ const CatalogueForm = () => {
           </select>
         </div>
 
-        <button type="submit">Ajouter</button>
+        <button type="submit">Enregistrer</button>
       </form>
     </div>
   );

@@ -57,6 +57,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
   - Indiquer dans le travail ecrit que le proprio du site doit rentrer manuellement son plat dans stripe en plus du formulaire, puis mettre le stripe_id dans la base de données s'il veut rajouter un plat convenablement, avec etapes et screenshots.
 - 13/05 : Back-office catalogue backend delete query
 - 13/05 : Back-office catalogue code refactoring
+- 14/05 : ??
 
 ### ToDo's/Bug's
 
@@ -64,14 +65,16 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
   - FIXME DashboardCatalogueTable : Entree sans accent, a modifier depuis la db.
 
-  - TODO DashboardCatalogue : demander a Clement pour multer ou bien au prof pour utiliser fs de nodeJS sans multer.
-  - TODO DashboardCatalogue : UPDATE query + boutton ajouter pour l'un et modifier pour edit
-  - TODO DashboardCatalogue : responsive!!!!
+-- ecole ajd :
 
-  - TODO DashboardReservations: listing avec status + delete
-  - TODO DashboardOrders: listing + delete
-  - TODO DashboardUsers: listing
-  - TODO DashboardMessages: listing
+- TODO DashboardCatalogue : demander a Clement pour multer ou bien au prof pour utiliser fs de nodeJS sans multer. ===> un dossier backend/images a ete cree dans mon pc, donc ca fonctionne, il faut juste bien configurer la destination.
+- TODO DashboardCatalogue : UPDATE query
+- TODO DashboardCatalogue : responsive!!!!
+
+- TODO DashboardReservations: listing avec status + delete
+- TODO DashboardOrders: listing + delete
+- TODO DashboardUsers: listing
+- TODO DashboardMessages: listing
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers

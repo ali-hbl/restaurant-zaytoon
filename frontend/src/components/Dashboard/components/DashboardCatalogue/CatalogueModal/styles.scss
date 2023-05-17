@@ -24,19 +24,20 @@
     justify-content: space-between;
 
     h2 {
+      color: main.$color-dark-grey;
       line-height: 1.1;
       font-size: 3rem;
       font-weight: 370;
     }
 
     button {
-      color: main.$color-light-pink;
+      color: main.$color-grey;
       background: transparent;
       font-size: 2rem;
       cursor: pointer;
 
       &:hover {
-        color: darken(main.$color-grey, 10%);
+        color: darken(main.$color-grey, 20%);
       }
     }
   }
@@ -44,8 +45,8 @@
   &-content {
     position: relative;
     color: main.$color-light-pink;
-    background-color: yellow; //TODO
-    width: 25%;
+    background-color: main.$color-white;
+    width: 35%;
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 10px 30px main.$color-black;
@@ -65,8 +66,13 @@
       margin-top: 1rem;
       margin-bottom: 1.5rem;
 
-      input:not([type='submit']) {
-        margin-bottom: 1.5rem;
+      input:not([type='submit']),
+      textarea {
+        color: main.$color-black;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        padding: 0.3rem;
+        font-size: 1.6rem;
       }
 
       button {
