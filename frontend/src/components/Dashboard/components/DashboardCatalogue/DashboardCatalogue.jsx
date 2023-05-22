@@ -10,10 +10,16 @@ import './styles.scss';
 
 const DashboardCatalogue = () => {
   const [showModal, setShowModal] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState(null);
   const { data, isLoading } = useFetch('catalogue');
   const catalogueItems = data.results;
 
-  const openModal = () => setShowModal(!showModal); // open a modal to edit the dish
+  // const openModal = () => setShowModal(!showModal); // open a modal to edit the dish
+
+  const openModal = (productId) => {
+    setShowModal(true);
+    setSelectedProductId(productId);
+  };
 
   const handleDelete = (id) => {
     const confirmDelete = window.confirm('Êtes-vous sûr de vouloir supprimer cet élément?');
@@ -78,7 +84,7 @@ const DashboardCatalogue = () => {
               </td>
               <td>{item.category.charAt(0).toUpperCase() + item.category.slice(1, -1)}</td>
               <td>
-                <span onClick={openModal}>
+                <span onClick={() => openModal(item.id)}>
                   <FiEdit />
                 </span>
                 <span
@@ -106,7 +112,9 @@ const DashboardCatalogue = () => {
       {isLoading && <Loader />}
       {!isLoading && renderCatalogueTable()}
 
-      {!isLoading && showModal && <CatalogueModal showModal={showModal} setShowModal={setShowModal} />}
+      {!isLoading && showModal && (
+        <CatalogueModal showModal={showModal} setShowModal={setShowModal} productId={selectedProductId} />
+      )}
     </div>
   );
 };

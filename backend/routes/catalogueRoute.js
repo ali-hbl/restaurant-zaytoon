@@ -1,6 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { getTopThree, getAll, getById, postDish, deleteDish } = require('../controllers/catalogueController');
+const {
+  getTopThree,
+  getAll,
+  getById,
+  postDish,
+  updateDish,
+  deleteDish,
+} = require('../controllers/catalogueController');
 
 // GET all
 router.get('/', getAll);
@@ -13,6 +20,9 @@ router.get('/:id', getById);
 
 // INSERT
 router.post('/insert-dish', postDish);
+
+// UPDATE
+router.put('/update-dish/:id', updateDish);
 
 // DELETE
 router.delete('/delete-dish/:id', deleteDish);

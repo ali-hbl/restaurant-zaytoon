@@ -1,36 +1,4 @@
 const connection = require('../db');
-const multer = require('multer');
-const path = require('path');
-
-// setting storage engine
-const storageEngine = multer.diskStorage({
-  destination: '../../backend/images/',
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}--${file.originalname}`);
-  },
-});
-
-const checkFileType = function (file, cb) {
-  // allowed file extensions
-  const fileTypes = /jpeg|jpg|png|gif|svg/;
-  const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
-  const mimeType = fileTypes.test(file.mimetype);
-
-  if (mimeType && extName) {
-    return cb(null, true);
-  } else {
-    cb('Error: You can only upload images!');
-  }
-};
-
-// initializing multer
-const upload = multer({
-  storage: storageEngine,
-  limits: { fileSize: 10000000 },
-  fileFilter: (req, file, cb) => {
-    checkFileType(file, cb);
-  },
-});
 
 // GET All
 const getAll = (req, res) => {
@@ -63,27 +31,34 @@ const getById = (req, res) => {
 
 // INSERT
 const postDish = (req, res) => {
-  const data = req.body;
+  const { stripeID, name, description, price, image, category } = req.body;
 
-  upload.single('image_url')(req, res, function (err) {
-    // console.log(req.body.fileName);
+  connection.query(
+    'INSERT INTO `catalogue`(`id`, `name`, `description`, `price`, `image_url`, `category`) VALUES (?, ?, ?, ?, ?, ?)',
+    [stripeID, name, description, price, image, category],
 
-    if (err) {
-      console.error(err);
-      return res.json({ success: false, message: 'File upload failed' });
+    function (err, result) {
+      if (err) return res.json({ success: false, message: err });
+
+      res.json({ result });
     }
+  );
+};
 
-    connection.query(
-      'INSERT INTO `catalogue`(`name`, `description`, `price`, `image_url`, `category`) VALUES (?, ?, ?, ?, ?)',
-      [data.name, data.description, data.price, data.fileName, data.category],
+// UPLOAD
+const updateDish = (req, res) => {
+  const { productId, name, description, price, image, category } = req.body;
 
-      function (err, result) {
-        if (err) return res.json({ success: false, message: err });
+  connection.query(
+    'UPDATE `catalogue` SET `name` = ?, `description` = ?, `price` = ?, `image_url` = ?, `category` = ? WHERE `id` = ?',
+    [name, description, price, image, category, productId],
 
-        res.json({ result });
-      }
-    );
-  });
+    function (err, result) {
+      if (err) return res.json({ success: false, message: err });
+
+      res.json({ result });
+    }
+  );
 };
 
 // DELETE
@@ -97,4 +72,4 @@ const deleteDish = (req, res) => {
   });
 };
 
-module.exports = { getAll, getTopThree, getById, postDish, deleteDish };
+module.exports = { getAll, getTopThree, getById, postDish, updateDish, deleteDish };

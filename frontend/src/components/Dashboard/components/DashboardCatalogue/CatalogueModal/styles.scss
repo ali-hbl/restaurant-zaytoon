@@ -1,6 +1,8 @@
 @use '../../../../../App.scss' as main;
 
 /* BACK OFFICE CATALOGUE MODAL */
+@include main.back-office-form;
+
 .modal {
   @include main.flex-center;
   position: fixed;

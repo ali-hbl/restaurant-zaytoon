@@ -9,14 +9,21 @@ const CatalogueForm = () => {
     const form = e.target;
     const formData = new FormData(form);
 
+    const stripeID = formData.get('stripe_id');
     const name = formData.get('name');
     const description = formData.get('description');
     const price = formData.get('price');
-    const imageUrl = formData.get('image_url');
+    const imageFile = formData.get('image');
     const category = formData.get('category');
 
+    // formData.append('name', e.target.elements.name.value);
+    // formData.append('description', e.target.elements.description.value);
+    // formData.append('price', e.target.elements.price.value);
+    // formData.append('image', e.target.elements.image.files[0]);
+    // formData.append('category', e.target.elements.category.value);
+
     try {
-      const fileName = imageUrl.name;
+      const image = imageFile.name;
 
       // POST dish to database
       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/insert-dish`, {
@@ -24,11 +31,15 @@ const CatalogueForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, description, price, fileName, category }),
+        // headers: {
+        //   'Content-Type': 'multipart/form-data, application/json',
+        // },
+        // body: formData,
+        body: JSON.stringify({ stripeID, name, description, price, image, category }),
       });
 
       if (response.ok) {
-        // clear input and show notification
+        // clear form inputs and show notification
         form.reset();
 
         toast.error(`Nouveau plat ajouté dans la base de données.`, {
@@ -51,41 +62,50 @@ const CatalogueForm = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div className="form-group">
-          <label htmlFor="name">Nom du plat:</label>
-          <input type="text" name="name" required />
-        </div>
+    <>
+      {/* TEST */}
+      {/* <form action={`${process.env.REACT_APP_BACKEND_URL}upload`} method="POST" encType="multipart/form-data">
+        <input type="file" name="image" />
+        <button type="submit">Upload</button>
+      </form> */}
+      {/* END TEST */}
 
-        <div className="form-group">
-          <label htmlFor="description">Description:</label>
-          <textarea name="description" required />
-        </div>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Stripe ID:</label>
+            <input type="text" name="stripe_id" required />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="price">Prix:</label>
-          <input type="number" name="price" required />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="image_url">Image:</label>
-          <input type="file" name="image_url" />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="category">Catégorie:</label>
-          <select name="category" required>
-            <option value="entrees">Entrée</option>
-            <option value="plats">Plat</option>
-            <option value="desserts">Dessert</option>
-            <option value="boissons">Boisson</option>
-          </select>
-        </div>
-
-        <button type="submit">Enregistrer</button>
-      </form>
-    </div>
+          <div className="form-group">
+            <label htmlFor="name">Nom du plat:</label>
+            <input type="text" name="name" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="description">Description:</label>
+            <textarea name="description" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="price">Prix:</label>
+            <input type="number" name="price" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="image">Image:</label>
+            <input type="file" name="image" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="category">Catégorie:</label>
+            <select name="category" required>
+              <option value="entrees">Entrée</option>
+              <option value="plats">Plat</option>
+              <option value="desserts">Dessert</option>
+              <option value="boissons">Boisson</option>
+            </select>
+          </div>
+          <button type="submit">Enregistrer</button>
+        </form>
+      </div>
+    </>
   );
 };
 

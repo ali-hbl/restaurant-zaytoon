@@ -6,6 +6,7 @@ const stripe = require('stripe')(
 // POST order to Stripe and database
 const postOrder = async (req, res) => {
   const { uid } = req.body;
+
   const items = req.body.items;
   let lineItems = [];
 

@@ -57,24 +57,28 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
   - Indiquer dans le travail ecrit que le proprio du site doit rentrer manuellement son plat dans stripe en plus du formulaire, puis mettre le stripe_id dans la base de données s'il veut rajouter un plat convenablement, avec etapes et screenshots.
 - 13/05 : Back-office catalogue backend delete query
 - 13/05 : Back-office catalogue code refactoring
-- 14/05 : ??
+- 14/05 : Back-office modal logic and ui
+- 17/05 : Back-office trying to fix image upload bug
+- 22/05 : Back-office Catalogue update query + ...
 
 ### ToDo's/Bug's
 
 - TODO Backoffice toutes les pages
 
-  - FIXME DashboardCatalogueTable : Entree sans accent, a modifier depuis la db.
+==> fileUpload :
+Middlwares ne fonctionnent pas, donc j'ai laissé dans server.js mais les encType et headers dans le fetch posent des erreurs coté back-end, en supprimant la methode onSubmit du form, l'image s'upload bien.
+Donc il faut trouver un juste milieu entre les encType et le Content-Type des headers.
 
--- ecole ajd :
+==> securiser image upload avec suite du tuto https://pqina.nl/blog/upload-image-with-nodejs/
 
-- TODO DashboardCatalogue : demander a Clement pour multer ou bien au prof pour utiliser fs de nodeJS sans multer. ===> un dossier backend/images a ete cree dans mon pc, donc ca fonctionne, il faut juste bien configurer la destination.
-- TODO DashboardCatalogue : UPDATE query
 - TODO DashboardCatalogue : responsive!!!!
 
-- TODO DashboardReservations: listing avec status + delete
+- TODO DashboardReservations: listing avec status modifiable + delete
 - TODO DashboardOrders: listing + delete
 - TODO DashboardUsers: listing
 - TODO DashboardMessages: listing
+
+- FIXME DashboardCatalogueTable : Entree sans accent, a modifier depuis la db. Osef?
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers
@@ -92,6 +96,8 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
 
 - FIXME DatePicker minuscule
+
+- TODO Sécuriser l'authentifiction/connexion coté back
 
 ### Créateur du projet
 
