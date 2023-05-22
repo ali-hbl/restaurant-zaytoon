@@ -59,7 +59,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 13/05 : Back-office catalogue code refactoring
 - 14/05 : Back-office modal logic and ui
 - 17/05 : Back-office trying to fix image upload bug
-- 22/05 : Back-office Catalogue update query + ...
+- 22/05 : Back-office Catalogue update query + responsive
 
 ### ToDo's/Bug's
 

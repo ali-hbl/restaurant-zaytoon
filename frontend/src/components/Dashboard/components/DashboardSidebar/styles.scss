@@ -6,6 +6,16 @@
   background-color: main.$color-dark-brown;
   padding: 2rem;
 
+  @media (max-width: 991px) {
+    width: 7rem;
+    padding: 2rem 0 0 1rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 7rem;
+    padding: 2rem 0 0 1rem;
+  }
+
   ul {
     list-style: none;
     padding: 0;
@@ -30,6 +40,26 @@
 
       svg {
         color: main.$color-white;
+      }
+
+      span {
+        @media (max-width: 991px) {
+          display: none;
+        }
+
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      @media (max-width: 991px) {
+        margin: 0 1rem 2rem;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        margin: 0 1rem 2rem;
+        width: 100%;
       }
     }
   }

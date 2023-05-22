@@ -101,10 +101,10 @@ const CatalogueModal = ({ showModal, setShowModal, productId }) => {
   return (
     <>
       {showModal && (
-        <div className="modal">
-          <div className="modal-overlay" onClick={closeModal} ref={modalRef}></div>
-          <div className="modal-content">
-            <div className="modal-header">
+        <div className="catalogue-modal">
+          <div className="catalogue-modal-overlay" onClick={closeModal} ref={modalRef}></div>
+          <div className="catalogue-modal-content">
+            <div className="catalogue-modal-header">
               <h2>Modifier le plat</h2>
               <button onClick={() => setShowModal((prev) => !prev)}>&#x2715;</button>
             </div>

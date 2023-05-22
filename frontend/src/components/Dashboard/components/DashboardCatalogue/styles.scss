@@ -6,10 +6,29 @@ table {
   width: 95%;
   border-collapse: collapse;
   border: 1px solid main.$color-black;
-  border-bottom: 1px solid main.$color-black;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    tr {
+      flex-direction: column;
+
+      td,
+      th {
+        width: 100%;
+      }
+    }
+  }
 
   thead {
     font-size: 1.6rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
 
     th {
       background: main.$color-dark-grey;
@@ -25,11 +44,31 @@ table {
     tr {
       background-color: main.$color-light-grey;
 
+      @media (max-width: 768px) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3rem;
+      }
+
+      tr {
+        @media (max-width: 768px) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
       td {
         font-size: 1.5rem;
         padding: 0.5rem;
         text-align: left;
         border-bottom: 1px solid main.$color-soft-grey;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          text-align: center;
+        }
 
         span {
           cursor: pointer;
@@ -49,6 +88,7 @@ table {
           height: 5rem;
           object-fit: cover;
           border-radius: 50%;
+          border: 1px solid main.$color-dark-grey;
         }
 
         input {

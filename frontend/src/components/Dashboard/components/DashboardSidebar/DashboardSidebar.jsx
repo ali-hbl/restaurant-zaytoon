@@ -10,23 +10,33 @@ const DashboardSidebar = () => {
       <ul>
         <li>
           <AiOutlineHome />
-          <NavLink to="/back-office">Tableau de bord</NavLink>
+          <NavLink to="/back-office">
+            <span>Tableau de bord</span>
+          </NavLink>
         </li>
         <li>
           <MdRestaurantMenu />
-          <NavLink to="/back-office/catalogue">Catalogue</NavLink>
+          <NavLink to="/back-office/catalogue">
+            <span>Catalogue</span>
+          </NavLink>
         </li>
         <li>
           <AiOutlineClockCircle />
-          <NavLink to="/back-office/orders">Commandes</NavLink>
+          <NavLink to="/back-office/orders">
+            <span>Commandes</span>
+          </NavLink>
         </li>
         <li>
           <AiOutlineCalendar />
-          <NavLink to="/back-office/reservations">Réservations</NavLink>
+          <NavLink to="/back-office/reservations">
+            <span>Réservations</span>
+          </NavLink>
         </li>
         <li>
           <AiOutlineUser />
-          <NavLink to="/back-office/users">Utilisateurs</NavLink>
+          <NavLink to="/back-office/users">
+            <span>Utilisateurs</span>
+          </NavLink>
         </li>
       </ul>
     </div>

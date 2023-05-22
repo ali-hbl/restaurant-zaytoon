@@ -14,8 +14,7 @@ const DashboardCatalogue = () => {
   const { data, isLoading } = useFetch('catalogue');
   const catalogueItems = data.results;
 
-  // const openModal = () => setShowModal(!showModal); // open a modal to edit the dish
-
+  // open a modal to edit the dish
   const openModal = (productId) => {
     setShowModal(true);
     setSelectedProductId(productId);
@@ -78,7 +77,7 @@ const DashboardCatalogue = () => {
             <tr key={item.id}>
               <td>{item.name}</td>
               <td>{item.description}</td>
-              <td>{item.price} €</td>
+              <td>{item.price}€</td>
               <td>
                 <img src={process.env.REACT_APP_BACKEND_URL + item.image_url} alt={item.name} />
               </td>
