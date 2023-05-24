@@ -60,20 +60,16 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 14/05 : Back-office modal logic and ui
 - 17/05 : Back-office trying to fix image upload bug
 - 22/05 : Back-office Catalogue update query + responsive
+- 24/05 : Back-office Catalogue update file working!
 - 24/05 :
 
 ### ToDo's/Bug's
 
 - TODO Backoffice toutes les pages
 
-==> fileUpload :
-Middlwares ne fonctionnent pas, donc j'ai laissé dans server.js mais les encType et headers dans le fetch posent des erreurs coté back-end, en supprimant la methode onSubmit du form, l'image s'upload bien.
-Donc il faut trouver un juste milieu entre les encType et le Content-Type des headers.
-
-==> securiser image upload avec suite du tuto https://pqina.nl/blog/upload-image-with-nodejs/
-
+==> // FIXME: fonction upload de multer fait crasher le serveur lors du'upload d'un mauvais format
+==> upload image sur modal
 ==> empecher de recharger la page apres les requetes en utilisant useEffect et refetch l'api apres la requete
-
 
 - TODO DashboardReservations: listing avec status modifiable + delete
 - TODO DashboardOrders: listing + delete

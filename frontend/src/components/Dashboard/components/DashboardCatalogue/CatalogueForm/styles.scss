@@ -3,4 +3,13 @@
 /* DASHBOARD CATALOGUE FORM */
 @include main.back-office-form;
 
+.form-group {
+  label {
+    display: flex !important;
+    align-items: center;
 
+    svg {
+      font-size: 1.6rem;
+    }
+  }
+}
