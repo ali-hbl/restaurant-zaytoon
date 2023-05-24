@@ -1,4 +1,5 @@
 const connection = require('../db');
+const upload = require('../multer-config');
 
 // GET All
 const getAll = (req, res) => {
@@ -72,4 +73,15 @@ const deleteDish = (req, res) => {
   });
 };
 
-module.exports = { getAll, getTopThree, getById, postDish, updateDish, deleteDish };
+// FILE UPLOAD
+const handleFileUpload = (req, res) => {
+  upload.single('image')(req, res, (err) => {
+    if (err) {
+      res.status(500).send('Error uploading file: ', err);
+      return;
+    }
+    res.send('File uploaded successfully');
+  });
+};
+
+module.exports = { getAll, getTopThree, getById, postDish, updateDish, deleteDish, handleFileUpload };

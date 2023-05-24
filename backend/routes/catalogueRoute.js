@@ -7,6 +7,7 @@ const {
   postDish,
   updateDish,
   deleteDish,
+  handleFileUpload,
 } = require('../controllers/catalogueController');
 
 // GET all
@@ -26,5 +27,8 @@ router.put('/update-dish/:id', updateDish);
 
 // DELETE
 router.delete('/delete-dish/:id', deleteDish);
+
+// FILE UPLOAD
+router.post('/upload', handleFileUpload);
 
 module.exports = router;

@@ -13,17 +13,11 @@ const CatalogueForm = () => {
     const name = formData.get('name');
     const description = formData.get('description');
     const price = formData.get('price');
-    const imageFile = formData.get('image');
     const category = formData.get('category');
-
-    // formData.append('name', e.target.elements.name.value);
-    // formData.append('description', e.target.elements.description.value);
-    // formData.append('price', e.target.elements.price.value);
-    // formData.append('image', e.target.elements.image.files[0]);
-    // formData.append('category', e.target.elements.category.value);
+    const file = formData.get('image');
 
     try {
-      const image = imageFile.name;
+      const image = file.name;
 
       // POST dish to database
       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/insert-dish`, {
@@ -31,11 +25,7 @@ const CatalogueForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        // headers: {
-        //   'Content-Type': 'multipart/form-data, application/json',
-        // },
-        // body: formData,
-        body: JSON.stringify({ stripeID, name, description, price, image, category }),
+        body: JSON.stringify({ stripeID, name, description, price, category, image }),
       });
 
       if (response.ok) {
@@ -61,52 +51,92 @@ const CatalogueForm = () => {
     }
   };
 
-  return (
-    <>
-      {/* TEST */}
-      {/* <form action={`${process.env.REACT_APP_BACKEND_URL}upload`} method="POST" encType="multipart/form-data">
-        <input type="file" name="image" />
-        <button type="submit">Upload</button>
-      </form> */}
-      {/* END TEST */}
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
 
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Stripe ID:</label>
-            <input type="text" name="stripe_id" required />
-          </div>
+    if (file) {
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
 
-          <div className="form-group">
-            <label htmlFor="name">Nom du plat:</label>
-            <input type="text" name="name" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="description">Description:</label>
-            <textarea name="description" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="price">Prix:</label>
-            <input type="number" name="price" required />
-          </div>
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/upload`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          // Clear inputs, show notification, and redirect if needed
+          console.log('Upload successful');
+          console.log(response);
+        } else {
+          console.log('Upload failed');
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+        alert('Une erreur est survenue. Veuillez réessayer svp.');
+      }
+    } else {
+      console.log('No file selected');
+    }
+  };
+
+  const renderForm = () => {
+    return (
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Stripe ID:</label>
+          <input type="text" name="stripe_id" required />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="name">Nom du plat:</label>
+          <input type="text" name="name" required />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="description">Description:</label>
+          <textarea name="description" required />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="price">Prix:</label>
+          <input type="number" name="price" required />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="image">Image:</label>
+          <input type="file" name="image" onChange={handleFileUpload} />
+        </div>
+
+        {/* <form
+          action={`${process.env.REACT_APP_BACKEND_URL}catalogue/upload`}
+          method="post"
+          enctype="multipart/form-data"
+        >
           <div className="form-group">
             <label htmlFor="image">Image:</label>
             <input type="file" name="image" />
           </div>
-          <div className="form-group">
-            <label htmlFor="category">Catégorie:</label>
-            <select name="category" required>
-              <option value="entrees">Entrée</option>
-              <option value="plats">Plat</option>
-              <option value="desserts">Dessert</option>
-              <option value="boissons">Boisson</option>
-            </select>
-          </div>
+
           <button type="submit">Enregistrer</button>
-        </form>
-      </div>
-    </>
-  );
+        </form> */}
+
+        <div className="form-group">
+          <label htmlFor="category">Catégorie:</label>
+          <select name="category" required>
+            <option value="entrees">Entrée</option>
+            <option value="plats">Plat</option>
+            <option value="desserts">Dessert</option>
+            <option value="boissons">Boisson</option>
+          </select>
+        </div>
+
+        <button type="submit">Enregistrer</button>
+      </form>
+    );
+  };
+
+  return <div className="form-container">{renderForm()}</div>;
 };
 
 export default CatalogueForm;

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 app.use(cors());
 app.use(express.json());
 app.use(express.static('images'));
-app.use(bodyParser.json({ limit: '100mb', type: 'application/json' }));
+app.use(bodyParser.json({ limit: '50mb', type: 'application/json' }));
 
 ///////////////////////////// TEST
 // File upload configuration

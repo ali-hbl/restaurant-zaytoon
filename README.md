@@ -60,6 +60,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 14/05 : Back-office modal logic and ui
 - 17/05 : Back-office trying to fix image upload bug
 - 22/05 : Back-office Catalogue update query + responsive
+- 24/05 :
 
 ### ToDo's/Bug's
 
@@ -71,7 +72,8 @@ Donc il faut trouver un juste milieu entre les encType et le Content-Type des he
 
 ==> securiser image upload avec suite du tuto https://pqina.nl/blog/upload-image-with-nodejs/
 
-- TODO DashboardCatalogue : responsive!!!!
+==> empecher de recharger la page apres les requetes en utilisant useEffect et refetch l'api apres la requete
+
 
 - TODO DashboardReservations: listing avec status modifiable + delete
 - TODO DashboardOrders: listing + delete
