@@ -58,6 +58,23 @@ const CatalogueModal = ({ showModal, setShowModal, productId }) => {
     }
   };
 
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      // UPLOAD image to folder
+      const formData = new FormData();
+      formData.append('image', file);
+
+      fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/upload`, {
+        method: 'POST',
+        body: formData,
+      }).then((response) => {
+        if (!response.ok) alert('Une erreur est survenue. Veuillez réessayer svp.');
+      });
+    }
+  };
+
   const renderForm = () => {
     return (
       <div className="form-container">
@@ -79,7 +96,7 @@ const CatalogueModal = ({ showModal, setShowModal, productId }) => {
 
           <div className="form-group">
             <label htmlFor="image">Image:</label>
-            <input type="file" name="image" />
+            <input type="file" name="image" accept="image/*" onChange={handleFileUpload} />
           </div>
 
           <div className="form-group">

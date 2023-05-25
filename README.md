@@ -62,13 +62,13 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 22/05 : Back-office Catalogue update query + responsive
 - 24/05 : Back-office Catalogue update file working!
 - 24/05 : UI for Back-office Catalogue
+- 25/05 : fix server crash on upload bug + handle image on UPDATE query
 - 25/05 : ...
 
 ### ToDo's/Bug's
 
 - TODO Backoffice toutes les pages
 
-==> upload image sur modal
 ==> empecher de recharger la page apres les requetes en utilisant useEffect et refetch l'api apres la requete
 
 - TODO DashboardReservations: listing avec status modifiable + delete
