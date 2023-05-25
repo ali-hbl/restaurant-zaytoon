@@ -65,16 +65,9 @@ const CatalogueForm = () => {
       fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/upload`, {
         method: 'POST',
         body: formData,
-      })
-        .then((response) => {
-          if (!response.ok) alert('Une erreur est survenue. Veuillez réessayer svp.');
-        })
-        .catch((error) => {
-          console.error('An error occurred:', error);
-          alert('Type de fichier invalide. Seuls les fichiers JPEG, JPG et PNG sont autorisés.');
-        });
-    } else {
-      console.log('No file selected');
+      }).then((response) => {
+        if (!response.ok) alert('Une erreur est survenue. Veuillez réessayer svp.');
+      });
     }
   };
 
@@ -107,7 +100,7 @@ const CatalogueForm = () => {
 
         <div className="form-group">
           <label htmlFor="image">Image</label>
-          <input type="file" name="image" onChange={handleFileUpload} />
+          <input type="file" name="image" accept="image/*" onChange={handleFileUpload} />
         </div>
 
         <div className="form-group">

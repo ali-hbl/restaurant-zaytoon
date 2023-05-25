@@ -11,24 +11,18 @@ const storage = multer.diskStorage({
   },
 });
 
-// FIXME: fait crasher le serveur lors du'upload d'un mauvais format
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024, // limit to 1MB
+    fileSize: 5 * 1024 * 1024, // limit to 5MB for images
   },
   fileFilter: function (req, file, cb) {
-    const allowedMimes = ['image/jpeg', 'image/jpg', 'image/png'];
-
-    if (allowedMimes.includes(file.mimetype)) {
+    if (file.mimetype.startsWith('image/')) {
       cb(null, true);
     } else {
-      alert('Invalid file type. Only JPEG, JPG and PNG files are allowed.');
+      cb(new Error('Invalid file type. Only images are allowed.'));
     }
   },
 });
-
-/////////////// simple but working :
-// const upload = multer({ storage: storage });
 
 module.exports = upload;

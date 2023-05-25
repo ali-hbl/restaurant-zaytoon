@@ -75,13 +75,17 @@ const deleteDish = (req, res) => {
 
 // FILE UPLOAD
 const handleFileUpload = (req, res) => {
-  upload.single('image')(req, res, (err) => {
-    if (err) {
-      res.status(500).send('Error uploading file: ', err);
-      return;
-    }
-    res.send('File uploaded successfully');
-  });
+  try {
+    upload.single('image')(req, res, (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(400).json({ error: 'Invalid file type. Only images are allowed.' });
+      }
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Internal server error.' });
+  }
 };
 
 module.exports = { getAll, getTopThree, getById, postDish, updateDish, deleteDish, handleFileUpload };
