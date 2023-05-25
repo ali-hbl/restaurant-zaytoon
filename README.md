@@ -63,26 +63,25 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 24/05 : Back-office Catalogue update file working!
 - 24/05 : UI for Back-office Catalogue
 - 25/05 : fix server crash on upload bug + handle image on UPDATE query
-- 25/05 : ...
+- 25/05 : back-office catalogue refactor to not refresh the page on new values
 
 ### ToDo's/Bug's
 
-- TODO Backoffice toutes les pages
-
-==> empecher de recharger la page apres les requetes en utilisant useEffect et refetch l'api apres la requete
+==> dernier petit truc : handleFileUpload doit aussi envoyer au state la nouvelle image pour un update sans refresh. Sinon tout est ok
+==> PUSH + merge
 
 - TODO DashboardReservations: listing avec status modifiable + delete
 - TODO DashboardOrders: listing + delete
 - TODO DashboardUsers: listing
 - TODO DashboardMessages: listing
 
-- FIXME DashboardCatalogueTable : Entree sans accent, a modifier depuis la db. Osef?
+- TODO DashboardCatalogueTable : fonction de tri sur le tableau?
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers
   Run le site sur grand ecran pour verifier le padding (a propos page)
 
-  - CHECK COMMENT J'AI FAIT SUR PROFILE.scss avec height 100vh, mais ca deborde sur Home par exemple
+  - Check Profile.scss avec height 100vh, mais ca deborde sur Home par exemple
   - TOUTES les pages du site sur grand écran
   - Meme celles qu'on voit pas : loader, success/cancel, error, ...
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement

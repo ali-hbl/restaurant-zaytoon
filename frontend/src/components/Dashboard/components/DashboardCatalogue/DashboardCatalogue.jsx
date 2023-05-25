@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CatalogueModal from './CatalogueModal/CatalogueModal';
 import CatalogueForm from './CatalogueForm/CatalogueForm';
 import Loader from '../../../Loader/Loader';
@@ -11,13 +11,35 @@ import './styles.scss';
 const DashboardCatalogue = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const { data, isLoading } = useFetch('catalogue');
-  const catalogueItems = data.results;
+  const { data: catalogueData, isLoading } = useFetch('catalogue');
+  const [catalogueItems, setCatalogueItems] = useState([]);
+
+  useEffect(() => {
+    setCatalogueItems(catalogueData.results ?? []);
+  }, [catalogueData]);
 
   // open a modal to edit the dish
   const openModal = (productId) => {
     setShowModal(true);
     setSelectedProductId(productId);
+  };
+
+  const handleCatalogueItemInsert = (newItem) => {
+    setCatalogueItems((prevItems) => [...prevItems, newItem]);
+  };
+
+  const handleCatalogueItemDelete = (id) => {
+    setCatalogueItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  const handleCatalogueItemUpdate = (id, updatedItem) => {
+    setCatalogueItems((prevItems) => {
+      const updatedItems = prevItems.map((item) => {
+        return item.id === id ? { ...item, ...updatedItem } : item; // update the item that matches the id, otherwise return item as is
+      });
+
+      return updatedItems;
+    });
   };
 
   const handleDelete = (id) => {
@@ -42,13 +64,13 @@ const DashboardCatalogue = () => {
               className: 'notification',
               bodyClassName: 'toastify-color-welcome',
             });
+
+            handleCatalogueItemDelete(id); // remove the deleted item from the state
           } else {
-            // show alert
             alert('Erreur lors de la suppression du plat, veuillez réessayer.');
           }
         })
         .catch((error) => {
-          //show alert log error
           alert('Une erreur est survenue lors de la suppression du plat', error);
           console.error('Une erreur est survenue lors de la suppression du plat', error);
         });
@@ -56,7 +78,7 @@ const DashboardCatalogue = () => {
   };
 
   const renderForm = () => {
-    return <CatalogueForm />;
+    return <CatalogueForm onItemInsert={handleCatalogueItemInsert} />;
   };
 
   const renderCatalogueTable = () => {
@@ -75,11 +97,18 @@ const DashboardCatalogue = () => {
         <tbody>
           {catalogueItems.map((item) => (
             <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.description}</td>
-              <td>{item.price}€</td>
+              <td>{item.name === '' ? 'Pas de titre.' : item.name}</td>
+              <td>{item.description === '' ? 'Pas de description.' : item.description}</td>
+              <td>{item.price === null ? 'Pas de prix.' : `${item.price}€`}</td>
               <td>
-                <img src={process.env.REACT_APP_BACKEND_URL + item.image_url} alt={item.name} />
+                <img
+                  src={
+                    item.image_url
+                      ? process.env.REACT_APP_BACKEND_URL + item.image_url
+                      : process.env.REACT_APP_BACKEND_URL + 'default-image.jpeg'
+                  }
+                  alt={item.name}
+                />
               </td>
               <td>{item.category.charAt(0).toUpperCase() + item.category.slice(1, -1)}</td>
               <td>
@@ -112,7 +141,12 @@ const DashboardCatalogue = () => {
       {!isLoading && renderCatalogueTable()}
 
       {!isLoading && showModal && (
-        <CatalogueModal showModal={showModal} setShowModal={setShowModal} productId={selectedProductId} />
+        <CatalogueModal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          productId={selectedProductId}
+          onItemUpdate={handleCatalogueItemUpdate}
+        />
       )}
     </div>
   );

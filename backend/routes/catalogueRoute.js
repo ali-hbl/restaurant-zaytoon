@@ -20,7 +20,7 @@ router.get('/top-three', getTopThree);
 router.get('/:id', getById);
 
 // INSERT
-router.post('/insert-dish', postDish);
+router.post('/post-dish', postDish);
 
 // UPDATE
 router.put('/update-dish/:id', updateDish);

@@ -31,8 +31,9 @@ const getById = (req, res) => {
 };
 
 // INSERT
-const postDish = (req, res) => {
+const postDish = async (req, res) => {
   const { stripeID, name, description, price, image, category } = req.body;
+  const insertedItem = await req.body;
 
   connection.query(
     'INSERT INTO `catalogue`(`id`, `name`, `description`, `price`, `image_url`, `category`) VALUES (?, ?, ?, ?, ?, ?)',
@@ -41,23 +42,31 @@ const postDish = (req, res) => {
     function (err, result) {
       if (err) return res.json({ success: false, message: err });
 
-      res.json({ result });
+      // create an object that contains both the inserted item (for front-end) and the result
+      const responseObj = { insertedItem, result };
+
+      res.json(responseObj); // Send the combined response
     }
   );
 };
 
 // UPLOAD
-const updateDish = (req, res) => {
+const updateDish = async (req, res) => {
   const { productId, name, description, price, image, category } = req.body;
+  const updatedItem = await req.body;
+  const priceValue = price !== '' ? price : null;
 
   connection.query(
     'UPDATE `catalogue` SET `name` = ?, `description` = ?, `price` = ?, `image_url` = ?, `category` = ? WHERE `id` = ?',
-    [name, description, price, image, category, productId],
+    [name, description, priceValue, image, category, productId],
 
     function (err, result) {
       if (err) return res.json({ success: false, message: err });
 
-      res.json({ result });
+      // create an object that contains both the updated item (for front-end) and the result
+      const responseObj = { updatedItem, result };
+
+      res.json(responseObj);
     }
   );
 };

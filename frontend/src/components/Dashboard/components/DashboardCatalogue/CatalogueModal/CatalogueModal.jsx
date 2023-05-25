@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 import './styles.scss';
 
-const CatalogueModal = ({ showModal, setShowModal, productId }) => {
+const CatalogueModal = ({ showModal, setShowModal, productId, onItemUpdate }) => {
   const modalRef = useRef();
 
   const closeModal = (e) => {
@@ -34,7 +34,9 @@ const CatalogueModal = ({ showModal, setShowModal, productId }) => {
       });
 
       if (response.ok) {
-        // clear form inputs, show notification and close modal
+        const reqBody = await response.json();
+
+        // clear form inputs, update item, show notification and close modal
         form.reset();
 
         toast.error(`Plat modifié avec succès.`, {
@@ -50,6 +52,7 @@ const CatalogueModal = ({ showModal, setShowModal, productId }) => {
           bodyClassName: 'toastify-color-welcome',
         });
 
+        onItemUpdate(productId, reqBody.updatedItem);
         setShowModal(false);
       }
     } catch (error) {
@@ -81,17 +84,17 @@ const CatalogueModal = ({ showModal, setShowModal, productId }) => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Nom du plat:</label>
-            <input type="text" name="name" required />
+            <input type="text" name="name" />
           </div>
 
           <div className="form-group">
             <label htmlFor="description">Description:</label>
-            <textarea name="description" required />
+            <textarea name="description" />
           </div>
 
           <div className="form-group">
             <label htmlFor="price">Prix:</label>
-            <input type="number" name="price" required />
+            <input type="number" name="price" />
           </div>
 
           <div className="form-group">
@@ -101,7 +104,7 @@ const CatalogueModal = ({ showModal, setShowModal, productId }) => {
 
           <div className="form-group">
             <label htmlFor="category">Catégorie:</label>
-            <select name="category" required>
+            <select name="category">
               <option value="entrees">Entrée</option>
               <option value="plats">Plat</option>
               <option value="desserts">Dessert</option>

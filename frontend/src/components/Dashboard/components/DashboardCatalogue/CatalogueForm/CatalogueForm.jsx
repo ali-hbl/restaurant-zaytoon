@@ -1,11 +1,10 @@
+import React from 'react';
 import { Tooltip } from 'react-tooltip';
 import { BsFillQuestionSquareFill } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 import './styles.scss';
 
-const CatalogueForm = () => {
-  const tooltipContent = `Obtenez le Stripe ID en enregistrant d'abord votre produit sur Stripe.`;
-
+const CatalogueForm = ({ onItemInsert }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -23,7 +22,7 @@ const CatalogueForm = () => {
       const image = file.name;
 
       // POST dish to database
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/insert-dish`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/post-dish`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +31,9 @@ const CatalogueForm = () => {
       });
 
       if (response.ok) {
-        // clear form inputs and show notification
+        const reqBody = await response.json();
+
+        // clear form inputs, set new item and show notification
         form.reset();
 
         toast.error(`Nouveau plat ajouté dans la base de données.`, {
@@ -47,6 +48,9 @@ const CatalogueForm = () => {
           className: 'notification',
           bodyClassName: 'toastify-color-welcome',
         });
+
+        // update the catalogueItems state with the newly inserted data
+        onItemInsert(reqBody.insertedItem);
       }
     } catch (error) {
       alert('Une erreur est survenue. Veuillez réessayer svp.');
@@ -77,7 +81,10 @@ const CatalogueForm = () => {
         <div className="form-group">
           <label htmlFor="name" className="stripe-tooltip-container">
             Stripe ID&nbsp;&nbsp;
-            <BsFillQuestionSquareFill data-tooltip-id="stripe-tooltip" data-tooltip-content={tooltipContent} />
+            <BsFillQuestionSquareFill
+              data-tooltip-id="stripe-tooltip"
+              data-tooltip-content="Obtenez le Stripe ID en enregistrant d'abord votre produit sur Stripe."
+            />
           </label>
           <input type="text" name="stripe_id" required />
           <Tooltip id="stripe-tooltip" place="right" className="tooltip" />
