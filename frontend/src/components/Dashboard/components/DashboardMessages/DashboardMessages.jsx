@@ -13,8 +13,8 @@ const DashboardMessages = () => {
     setClientMessages(messagesData?.results ?? []);
   }, [messagesData]);
 
-  const handleMessageDelete = (id) => {
-    setClientMessages((prevItems) => prevItems.filter((item) => item.id !== id));
+  const handleDeleteMessage = (id) => {
+    setClientMessages((prevMessage) => prevMessage.filter((msg) => msg.id !== id));
   };
 
   const handleDelete = (id) => {
@@ -40,7 +40,7 @@ const DashboardMessages = () => {
               bodyClassName: 'toastify-color-welcome',
             });
 
-            handleMessageDelete(id); // remove the deleted item from the state
+            handleDeleteMessage(id);
           } else {
             alert('Erreur lors de la suppression du message, veuillez réessayer.');
           }
@@ -57,21 +57,25 @@ const DashboardMessages = () => {
       <div key={i} className="dashboard-messages-container">
         <p>
           <span>Date:</span>
-          {` Le ${new Date(message.created_at).toLocaleDateString()} à ${new Date(
+          {`Le ${new Date(message.created_at).toLocaleDateString()} à ${new Date(
             message.created_at
           ).toLocaleTimeString()}`}
         </p>
         <p>
-          <span>Utilisateur:</span> {message.name}
+          <span>Utilisateur:</span>
+          {message.name}
         </p>
         <p>
-          <span>Email:</span> {message.email}
+          <span>Email:</span>
+          {message.email}
         </p>
         <p>
-          <span>Téléphone:</span> {message.phone}
+          <span>Téléphone:</span>
+          {message.phone}
         </p>
         <p>
-          <span>Message:</span> {message.message}
+          <span>Message:</span>
+          {message.message}
         </p>
         <p>
           <Tooltip id="delete-msg-tooltip" place="left" />
@@ -88,8 +92,8 @@ const DashboardMessages = () => {
 
   return (
     <>
-      <h2>Récapitulatif des messages clients</h2>
-      <div className="dashboard-messages">{renderMessages()}</div>
+      <h2>Récapitulatif des messages clients ({clientMessages.length})</h2>
+      <div className="dashboard-messages">{clientMessages.length !== 0 ? renderMessages() : <p>Aucun message.</p>}</div>
     </>
   );
 };

@@ -66,8 +66,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 25/05 : back-office catalogue refactor to not refresh the page on new values
 - 30/05 : back-office catalogue refactor to not refresh the page on image change
 - 30/05 : back-office catalogue UI + messages backend + UI
+- 30/05 : back-office users backend + UI
 
 ### ToDo's/Bug's
+
+- FIXME: bug dans la console sur hover du btn delete dans le dashboard users/messages
 
 - TODO DashboardOrders: listing demander comment faire le group by pour regrouper les commandes effectuées en un coup.
 - TODO DashboardReservations: listing avec status modifiable + delete

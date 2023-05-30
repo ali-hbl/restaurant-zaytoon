@@ -1,5 +1,14 @@
 const connection = require('../db');
 
+// GET
+const getUsers = (req, res) => {
+  connection.query('SELECT * FROM `users`', function (err, results) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ results });
+  });
+};
+
 // GET by ID
 const getUserById = (req, res) => {
   const id = req.params.id;
@@ -38,4 +47,15 @@ const postUser = (req, res) => {
   );
 };
 
-module.exports = { getUserById, getUserRole, postUser };
+// DELETE
+const deleteUser = (req, res) => {
+  const id = req.params.id;
+
+  connection.query('DELETE FROM `users` WHERE id = ?', [id], function (err, result) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ result });
+  });
+};
+
+module.exports = { getUsers, getUserById, getUserRole, postUser, deleteUser };

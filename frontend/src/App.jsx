@@ -24,7 +24,10 @@ const DashboardCatalogue = lazy(() =>
   import('./components/Dashboard/components/DashboardCatalogue/DashboardCatalogue')
 );
 const DashboardOrders = lazy(() => import('./components/Dashboard/components/DashboardOrders/DashboardOrders'));
-const DashboardMessages = lazy(() => import('./components/Dashboard/components/DashboardMessages/DashboardMessages.jsx'));
+const DashboardMessages = lazy(() =>
+  import('./components/Dashboard/components/DashboardMessages/DashboardMessages.jsx')
+);
+const DashboardUsers = lazy(() => import('./components/Dashboard/components/DashboardUsers/DashboardUsers.jsx'));
 
 const App = () => {
   return (
@@ -44,6 +47,7 @@ const App = () => {
               <Route path="/back-office" element={<Dashboard />}>
                 <Route path="catalogue" element={<DashboardCatalogue />} />
                 <Route path="orders" element={<DashboardOrders />} />
+                <Route path="users" element={<DashboardUsers />} />
                 <Route path="messages" element={<DashboardMessages />} />
               </Route>
             </Route>
