@@ -1,0 +1,27 @@
+@use '../../../../App.scss' as main;
+
+/* BACK-OFFICE DASHBOARD ORDERS */
+.dashboard-orders {
+  display: flex;
+  flex-direction: column;
+
+  &-item {
+    background-color: main.$color-white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 25%;
+
+    p {
+      span {
+        color: main.$color-dark-grey;
+      }
+    }
+
+    &-id {
+      font-size: 1, 6rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  }
+}

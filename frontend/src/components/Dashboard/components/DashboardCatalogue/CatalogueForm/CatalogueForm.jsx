@@ -4,7 +4,7 @@ import { BsFillQuestionSquareFill } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 import './styles.scss';
 
-const CatalogueForm = ({ onItemInsert }) => {
+const CatalogueForm = ({ onItemInsert, setImage }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 

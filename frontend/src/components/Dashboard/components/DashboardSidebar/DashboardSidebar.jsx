@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHome, AiOutlineUser, AiOutlineCalendar, AiOutlineClockCircle } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineUser, AiOutlineCalendar, AiOutlineClockCircle, AiOutlineMail } from 'react-icons/ai';
 import { MdRestaurantMenu } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
@@ -36,6 +36,12 @@ const DashboardSidebar = () => {
           <AiOutlineUser />
           <NavLink to="/back-office/users">
             <span>Utilisateurs</span>
+          </NavLink>
+        </li>
+        <li>
+          <AiOutlineMail />
+          <NavLink to="/back-office/messages">
+            <span>Messages</span>
           </NavLink>
         </li>
       </ul>

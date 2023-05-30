@@ -23,6 +23,8 @@ const Dashboard = lazy(() => import('./components/Dashboard/Dashboard'));
 const DashboardCatalogue = lazy(() =>
   import('./components/Dashboard/components/DashboardCatalogue/DashboardCatalogue')
 );
+const DashboardOrders = lazy(() => import('./components/Dashboard/components/DashboardOrders/DashboardOrders'));
+const DashboardMessages = lazy(() => import('./components/Dashboard/components/DashboardMessages/DashboardMessages.jsx'));
 
 const App = () => {
   return (
@@ -41,6 +43,8 @@ const App = () => {
               <Route path="/reservations" element={<Reservations />} />
               <Route path="/back-office" element={<Dashboard />}>
                 <Route path="catalogue" element={<DashboardCatalogue />} />
+                <Route path="orders" element={<DashboardOrders />} />
+                <Route path="messages" element={<DashboardMessages />} />
               </Route>
             </Route>
             <Route path="/about" element={<About />} />

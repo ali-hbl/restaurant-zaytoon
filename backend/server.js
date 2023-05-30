@@ -20,7 +20,7 @@ app.use('/users', usersRoute);
 app.use('/catalogue', catalogueRoute);
 app.use('/reservations', reservationRoute);
 app.use('/messages', messagesRoute);
-app.use('/checkout', ordersRoutes);
+app.use('/orders', ordersRoutes);
 app.use('/profile', profileRoute);
 
 // start listening the server

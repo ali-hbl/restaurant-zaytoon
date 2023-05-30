@@ -3,6 +3,18 @@ const stripe = require('stripe')(
   'sk_test_51MyXBjLEZw1RbHzdnrTe44O4qYCRXW8rFW88qNXLO9AwUsMa0onRSQRLX9qIIBlziQchFSHWvGHcX8Qqx3oeaIGx00vACpmjTA'
 );
 
+// GET orders
+const getOrders = (req, res) => {
+  connection.query(
+    'SELECT orders.*, users.username FROM orders, users WHERE orders.user_id = users.uid',
+    function (err, results) {
+      if (err) return res.json({ success: false, message: err });
+
+      res.json({ results });
+    }
+  );
+};
+
 // POST order to Stripe and database
 const postOrder = async (req, res) => {
   const { uid } = req.body;
@@ -45,4 +57,4 @@ const postOrder = async (req, res) => {
   }
 };
 
-module.exports = { postOrder };
+module.exports = { postOrder, getOrders };

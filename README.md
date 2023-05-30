@@ -68,10 +68,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 ### ToDo's/Bug's
 
 ==> dernier petit truc : handleFileUpload doit aussi envoyer au state la nouvelle image pour un update sans refresh. Sinon tout est ok
+
 ==> PUSH + merge
 
+- TODO DashboardOrders: listing demander comment faire le group by pour regrouper les commandes effectuées en un coup.
 - TODO DashboardReservations: listing avec status modifiable + delete
-- TODO DashboardOrders: listing + delete
 - TODO DashboardUsers: listing
 - TODO DashboardMessages: listing
 
@@ -81,7 +82,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
   CSS pas cohérent notamment sur les headers
   Run le site sur grand ecran pour verifier le padding (a propos page)
 
-  - Check Profile.scss avec height 100vh, mais ca deborde sur Home par exemple
+  - Profile.scss avec height 100vh cata quand on ouvre la console
   - TOUTES les pages du site sur grand écran
   - Meme celles qu'on voit pas : loader, success/cancel, error, ...
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
