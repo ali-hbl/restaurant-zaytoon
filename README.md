@@ -64,14 +64,15 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 24/05 : UI for Back-office Catalogue
 - 25/05 : fix server crash on upload bug + handle image on UPDATE query
 - 25/05 : back-office catalogue refactor to not refresh the page on new values
+- 30/05 : back-office catalogue refactor to not refresh the page on image change
+- 30/05 : back-office catalogue UI + messages backend + UI
 
 ### ToDo's/Bug's
 
 - TODO DashboardOrders: listing demander comment faire le group by pour regrouper les commandes effectuées en un coup.
 - TODO DashboardReservations: listing avec status modifiable + delete
 - TODO DashboardUsers: listing
-- TODO DashboardMessages: listing
-- TODO DashboardCatalogueTable : refactor mobile version degeu + fonction de tri sur le tableau?
+- TODO DashboardCatalogueTable : fonction de tri sur le tableau?
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers

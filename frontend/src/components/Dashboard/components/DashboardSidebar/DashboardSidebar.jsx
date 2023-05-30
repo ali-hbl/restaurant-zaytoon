@@ -1,6 +1,7 @@
 import React from 'react';
-import { AiOutlineHome, AiOutlineUser, AiOutlineCalendar, AiOutlineClockCircle, AiOutlineMail } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineUser, AiOutlineCalendar, AiOutlineClockCircle } from 'react-icons/ai';
 import { MdRestaurantMenu } from 'react-icons/md';
+import { RiMessage2Line } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
@@ -39,7 +40,7 @@ const DashboardSidebar = () => {
           </NavLink>
         </li>
         <li>
-          <AiOutlineMail />
+          <RiMessage2Line />
           <NavLink to="/back-office/messages">
             <span>Messages</span>
           </NavLink>

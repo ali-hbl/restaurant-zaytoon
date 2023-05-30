@@ -12,10 +12,9 @@ table {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    border: none;
 
     tr {
-      flex-direction: column;
-
       td,
       th {
         width: 100%;
@@ -50,13 +49,8 @@ table {
         flex-direction: column;
         align-items: center;
         margin-bottom: 3rem;
-      }
-
-      tr {
-        @media (max-width: 768px) {
-          width: 100%;
-          text-align: center;
-        }
+        border: 1px solid main.$color-dark-grey;
+        border-radius: 5px;
       }
 
       td {
@@ -65,8 +59,19 @@ table {
         text-align: left;
         border-bottom: 1px solid main.$color-soft-grey;
 
+        &:first-child {
+          @media (max-width: 768px) {
+            font-weight: 650;
+          }
+        }
+
+        &:last-child {
+          @media (max-width: 768px) {
+            border-bottom: none;
+          }
+        }
+
         @media (max-width: 768px) {
-          width: 100%;
           text-align: center;
         }
 

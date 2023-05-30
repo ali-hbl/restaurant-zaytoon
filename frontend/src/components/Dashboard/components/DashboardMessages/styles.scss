@@ -1,3 +1,41 @@
 @use '../../../../App.scss' as main;
 
 /* BACK-OFFICE DASHBOARD MESSAGES */
+.dashboard-messages {
+  background-color: main.$color-white;
+  padding: 2rem;
+  border-radius: 5px;
+
+  h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  &-container {
+    position: relative;
+    background-color: main.$color-light-grey;
+    padding: 2rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+
+    p {
+      span {
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+
+      .delete-btn {
+        position: absolute !important;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+
+        &:hover {
+          color: main.$color-red;
+        }
+      }
+    }
+  }
+}
