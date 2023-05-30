@@ -67,16 +67,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-==> dernier petit truc : handleFileUpload doit aussi envoyer au state la nouvelle image pour un update sans refresh. Sinon tout est ok
-
-==> PUSH + merge
-
 - TODO DashboardOrders: listing demander comment faire le group by pour regrouper les commandes effectuées en un coup.
 - TODO DashboardReservations: listing avec status modifiable + delete
 - TODO DashboardUsers: listing
 - TODO DashboardMessages: listing
-
-- TODO DashboardCatalogueTable : fonction de tri sur le tableau?
+- TODO DashboardCatalogueTable : refactor mobile version degeu + fonction de tri sur le tableau?
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers

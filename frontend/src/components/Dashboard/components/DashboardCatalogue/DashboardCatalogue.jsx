@@ -42,6 +42,14 @@ const DashboardCatalogue = () => {
     });
   };
 
+  const handleFileChange = (id, fileName) => {
+    setCatalogueItems((prevItems) =>
+      prevItems.map((item) => {
+        return item.id === id ? { ...item, image_url: fileName } : item;
+      })
+    );
+  };
+
   const handleDelete = (id) => {
     const confirmDelete = window.confirm('Êtes-vous sûr de vouloir supprimer cet élément?');
 
@@ -146,6 +154,7 @@ const DashboardCatalogue = () => {
           setShowModal={setShowModal}
           productId={selectedProductId}
           onItemUpdate={handleCatalogueItemUpdate}
+          onFileChange={handleFileChange}
         />
       )}
     </div>

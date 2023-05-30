@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 import './styles.scss';
 
-const CatalogueModal = ({ showModal, setShowModal, productId, onItemUpdate }) => {
+const CatalogueModal = ({ showModal, setShowModal, productId, onItemUpdate, onFileChange }) => {
   const modalRef = useRef();
 
   const closeModal = (e) => {
@@ -65,6 +65,8 @@ const CatalogueModal = ({ showModal, setShowModal, productId, onItemUpdate }) =>
     const file = e.target.files[0];
 
     if (file) {
+      onFileChange(productId, file.name); // set new image on UI
+
       // UPLOAD image to folder
       const formData = new FormData();
       formData.append('image', file);
@@ -83,28 +85,28 @@ const CatalogueModal = ({ showModal, setShowModal, productId, onItemUpdate }) =>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Nom du plat:</label>
-            <input type="text" name="name" />
+            <label htmlFor="modal-name">Nom du plat:</label>
+            <input type="text" name="name" id="modal-name" />
           </div>
 
           <div className="form-group">
-            <label htmlFor="description">Description:</label>
-            <textarea name="description" />
+            <label htmlFor="modal-description">Description:</label>
+            <textarea name="description" id="modal-description" />
           </div>
 
           <div className="form-group">
-            <label htmlFor="price">Prix:</label>
-            <input type="number" name="price" />
+            <label htmlFor="modal-price">Prix:</label>
+            <input type="number" name="price" id="modal-price" />
           </div>
 
           <div className="form-group">
-            <label htmlFor="image">Image:</label>
-            <input type="file" name="image" accept="image/*" onChange={handleFileUpload} />
+            <label htmlFor="modal-image">Image:</label>
+            <input type="file" name="image" id="modal-image" accept="image/*" onChange={handleFileUpload} />
           </div>
 
           <div className="form-group">
-            <label htmlFor="category">Catégorie:</label>
-            <select name="category">
+            <label htmlFor="modal-category">Catégorie:</label>
+            <select name="category" id="modal-category">
               <option value="entrees">Entrée</option>
               <option value="plats">Plat</option>
               <option value="desserts">Dessert</option>

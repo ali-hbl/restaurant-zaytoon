@@ -4,7 +4,7 @@ import { BsFillQuestionSquareFill } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 import './styles.scss';
 
-const CatalogueForm = ({ onItemInsert, setImage }) => {
+const CatalogueForm = ({ onItemInsert }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -77,7 +77,7 @@ const CatalogueForm = ({ onItemInsert, setImage }) => {
 
   const renderForm = () => {
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div className="form-group">
           <label htmlFor="name" className="stripe-tooltip-container">
             Stripe ID&nbsp;&nbsp;
@@ -86,33 +86,33 @@ const CatalogueForm = ({ onItemInsert, setImage }) => {
               data-tooltip-content="Obtenez le Stripe ID en enregistrant d'abord votre produit sur Stripe."
             />
           </label>
-          <input type="text" name="stripe_id" required />
+          <input type="text" name="stripe_id" id="name" required />
           <Tooltip id="stripe-tooltip" place="right" className="tooltip" />
         </div>
 
         <div className="form-group">
           <label htmlFor="name">Nom du plat</label>
-          <input type="text" name="name" required />
+          <input type="text" name="name" id="name" required />
         </div>
 
         <div className="form-group">
           <label htmlFor="description">Description</label>
-          <textarea name="description" required />
+          <textarea name="description" id="description" required />
         </div>
 
         <div className="form-group">
           <label htmlFor="price">Prix</label>
-          <input type="number" name="price" required />
+          <input type="number" name="price" id="price" required />
         </div>
 
         <div className="form-group">
           <label htmlFor="image">Image</label>
-          <input type="file" name="image" accept="image/*" onChange={handleFileUpload} />
+          <input type="file" name="image" id="image" accept="image/*" onChange={handleFileUpload} />
         </div>
 
         <div className="form-group">
           <label htmlFor="category">Catégorie</label>
-          <select name="category" required>
+          <select name="category" id="category" required>
             <option value="entrees">Entrée</option>
             <option value="plats">Plat</option>
             <option value="desserts">Dessert</option>
