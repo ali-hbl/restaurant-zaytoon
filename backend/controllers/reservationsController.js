@@ -27,6 +27,22 @@ const postReservation = (req, res) => {
   );
 };
 
+// UPDATE
+const updateReservationStatus = (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+
+  connection.query(
+    'UPDATE `reservations` SET status = ? WHERE id = ?',
+    [data.updatedStatus, id],
+    function (err, result) {
+      if (err) return res.json({ success: false, message: err });
+
+      res.json({ result });
+    }
+  );
+};
+
 // DELETE
 const deleteReservation = (req, res) => {
   const id = req.params.id;
@@ -38,4 +54,4 @@ const deleteReservation = (req, res) => {
   });
 };
 
-module.exports = { getReservations, postReservation, deleteReservation };
+module.exports = { getReservations, postReservation, updateReservationStatus, deleteReservation };

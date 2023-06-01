@@ -68,12 +68,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 30/05 : back-office catalogue UI + messages backend + UI
 - 30/05 : back-office users backend + UI
 - 31/05 : back-office reservations backend + UI
+- 01/06 : back-office reservations UI big fixes and update query
 
 ### ToDo's/Bug's
 
-- TODO DashboardReservations:
-  position boutton + requete update
-  requetedelete
+- TODO DashboardReservations: requete update
 
 - TODO DashboardOrders: check query discord
 - TODO DashboardOrders: bouton delete.

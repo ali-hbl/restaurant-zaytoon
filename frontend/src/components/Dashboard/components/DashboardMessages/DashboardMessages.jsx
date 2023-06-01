@@ -26,6 +26,8 @@ const DashboardMessages = () => {
       })
         .then((response) => {
           if (response.ok) {
+            handleDeleteMessage(id);
+
             // show notification
             toast.error(`Message supprimé de la base de données.`, {
               position: 'top-right',
@@ -39,8 +41,6 @@ const DashboardMessages = () => {
               className: 'notification',
               bodyClassName: 'toastify-color-welcome',
             });
-
-            handleDeleteMessage(id);
           } else {
             alert('Erreur lors de la suppression du message, veuillez réessayer.');
           }

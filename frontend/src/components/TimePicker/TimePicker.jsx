@@ -3,6 +3,7 @@ import { setHours, setMinutes, getDay } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import fr from 'date-fns/locale/fr';
 import 'react-datepicker/dist/react-datepicker.css';
+import './styles.scss';
 
 const TimePicker = ({ onTimeChange }) => {
   const [startDate, setStartDate] = useState(null);
@@ -21,6 +22,7 @@ const TimePicker = ({ onTimeChange }) => {
   // Render the DatePicker component with the configured props
   return (
     <DatePicker
+      calendarClassName="datepicker"
       selected={startDate}
       showTimeSelect
       timeFormat="HH:mm"

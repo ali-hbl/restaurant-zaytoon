@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useFetch from '../../../../hooks/useFetch';
 import { FiDelete } from 'react-icons/fi';
-import { GiConfirmed, GiCancel } from 'react-icons/gi';
 import { Tooltip } from 'react-tooltip';
 import { toast } from 'react-toastify';
 import './styles.scss';
@@ -12,12 +11,55 @@ const DashboardReservations = () => {
 
   useEffect(() => {
     setReservations(reservationsData?.results ?? []);
-  }, [reservations]);
-
-  console.log(reservations);
+  }, [reservationsData?.results]);
 
   const handleDeleteReservation = (id) => {
     setReservations((prevReservation) => prevReservation.filter((res) => res.id !== id));
+  };
+
+  const handleUpdateReservation = (id, updatedStatus) => {
+    setReservations((prevReservations) => {
+      const updatedReservations = prevReservations.map((reservation) => {
+        return reservation.id === id ? { ...reservation, status: updatedStatus } : reservation;
+      });
+
+      return updatedReservations;
+    });
+  };
+
+  const handleUpdateStatus = (id) => {
+    const reservation = reservations.find((res) => res.id === id);
+    const updatedStatus = reservation.status === 'confirmed' ? 'cancelled' : 'confirmed';
+
+    fetch(`${process.env.REACT_APP_BACKEND_URL}reservations/update-reservation/${id}`, {
+      method: 'POST',
+      body: JSON.stringify({ updatedStatus }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (!response.ok) alert('Une erreur est survenue lors de la mise à jour du statut.');
+        handleUpdateReservation(id, updatedStatus);
+
+        // show notification
+        toast.error(`Mise à jour du statut effectuée.`, {
+          position: 'top-right',
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          progress: undefined,
+          theme: 'dark',
+          icon: false,
+          className: 'notification',
+          bodyClassName: 'toastify-color-welcome',
+        });
+      })
+      .catch((error) => {
+        alert('Une erreur est survenue lors de la mise à jour du statut.');
+        console.error('Une erreur est survenue lors de la mise à jour du statut.', error);
+      });
   };
 
   const handleDelete = (id) => {
@@ -79,16 +121,20 @@ const DashboardReservations = () => {
           <div>
             <span>Statut:&nbsp;</span>
             {reservation.status === 'confirmed' ? (
-              <GiConfirmed className="btn-confirmed" />
+              <p className="appt-booked">Confirmée</p>
             ) : (
-              <GiCancel className="btn-cancelled" />
+              <p className="appt-canceled">Annulée</p>
             )}
           </div>
           <div>
             {reservation.status === 'confirmed' ? (
-              <button className="btn-cancel-booking">Annuler la réservation</button>
+              <button className="btn-cancel-booking" onClick={() => handleUpdateStatus(reservation.id)}>
+                Annuler la réservation
+              </button>
             ) : (
-              <button className="btn-confirm-booking">Confirmer la réservation</button>
+              <button className="btn-confirm-booking" onClick={() => handleUpdateStatus(reservation.id)}>
+                Confirmer la réservation
+              </button>
             )}
           </div>
         </div>

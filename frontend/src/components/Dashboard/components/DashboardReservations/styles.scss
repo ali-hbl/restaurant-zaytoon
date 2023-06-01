@@ -17,6 +17,15 @@
     div {
       display: flex;
       align-items: center;
+      font-weight: bold;
+
+      .appt-booked {
+        color: main.$color-green;
+      }
+
+      .appt-canceled {
+        color: main.$color-red;
+      }
     }
 
     span {
