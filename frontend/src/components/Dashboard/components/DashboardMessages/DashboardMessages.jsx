@@ -56,36 +56,35 @@ const DashboardMessages = () => {
     return clientMessages.map((message, i) => (
       <div key={i} className="dashboard-messages-container">
         <p>
-          <span>Date:</span>
+          <span>Date: </span>
           {`Le ${new Date(message.created_at).toLocaleDateString()} à ${new Date(
             message.created_at
           ).toLocaleTimeString()}`}
         </p>
         <p>
-          <span>Utilisateur:</span>
+          <span>Utilisateur: </span>
           {message.name}
         </p>
         <p>
-          <span>Email:</span>
+          <span>Email: </span>
           {message.email}
         </p>
         <p>
-          <span>Téléphone:</span>
+          <span>Téléphone: </span>
           {message.phone}
         </p>
         <p>
-          <span>Message:</span>
+          <span>Message: </span>
           {message.message}
         </p>
-        <p>
-          <Tooltip id="delete-msg-tooltip" place="left" />
+        <span>
+          <Tooltip id="delete-msg-tooltip" place="left" className="tooltip" />
           <FiDelete
             data-tooltip-id="delete-msg-tooltip"
             data-tooltip-content="Supprimer ce message"
             onClick={() => handleDelete(message.id)}
-            className="delete-btn"
           />
-        </p>
+        </span>
       </div>
     ));
   };

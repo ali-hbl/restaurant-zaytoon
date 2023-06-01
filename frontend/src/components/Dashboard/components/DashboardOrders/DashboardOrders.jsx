@@ -5,12 +5,10 @@ const DashboardOrders = () => {
   const { data: ordersData } = useFetch('orders');
   const orders = ordersData?.results ?? [];
 
-  console.log(orders);
-
   const renderDashboardOrders = () => {
     return orders.map((order, i) => (
-      <div key={i} className="dashboard-orders-item">
-        <p className="dashboard-orders-item-id">Commande #{order.id}</p>
+      <div key={i} className="dashboard-orders-container">
+        <p className="dashboard-orders-container-id">Commande #{order.id}</p>
         <p>
           <span>Utilisateur:</span> {order.username}
         </p>
@@ -25,10 +23,10 @@ const DashboardOrders = () => {
   };
 
   return (
-    <div className="dashboard-orders">
-      <h2>Récapitulatif des commandes clients</h2>
-      {renderDashboardOrders()}
-    </div>
+    <>
+      <h2>Récapitulatif des commandes clients ({orders.length})</h2>
+      <div className="dashboard-orders">{orders.length !== 0 ? renderDashboardOrders() : <p>Aucune commande.</p>}</div>
+    </>
   );
 };
 

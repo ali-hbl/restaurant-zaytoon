@@ -42,12 +42,12 @@ const DashboardUsers = () => {
 
             handleDeleteUser(id);
           } else {
-            alert('Erreur lors de la suppression du message, veuillez réessayer.');
+            alert("Erreur lors de la suppression de l'utilisateur, veuillez réessayer.");
           }
         })
         .catch((error) => {
-          alert('Une erreur est survenue lors de la suppression du message', error);
-          console.error('Une erreur est survenue lors de la suppression du message', error);
+          alert("Une erreur est survenue lors de la suppression de l'utilisateur.", error);
+          console.error("Une erreur est survenue lors de la suppression de l'utilisateur.", error);
         });
     }
   };
@@ -55,23 +55,23 @@ const DashboardUsers = () => {
   const renderUsers = () => {
     return users.map((user, i) => (
       <div key={i} className="dashboard-users-container">
+        <p className="dashboard-users-container-id">Utilisateur #{user.id}</p>
         <p>
-          <span>Utilisateur: </span>
+          <span>Pseudo: </span>
           {user.username}
         </p>
         <p>
           <span>Email: </span>
           {user.email}
         </p>
-        <p>
-          <Tooltip id="delete-user-tooltip" place="left" />
+        <span>
+          <Tooltip id="delete-user-tooltip" place="left" className="tooltip" />
           <FiDelete
             data-tooltip-id="delete-user-tooltip"
             data-tooltip-content="Supprimer cet utilisateur"
             onClick={() => handleDelete(user.id)}
-            className="delete-btn"
           />
-        </p>
+        </span>
       </div>
     ));
   };

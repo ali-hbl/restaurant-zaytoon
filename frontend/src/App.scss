@@ -318,20 +318,25 @@ body {
     p {
       span {
         font-weight: bold;
-        margin-right: 0.5rem;
       }
+    }
 
-      .delete-btn {
-        position: absolute !important;
-        top: 1rem;
-        right: 1rem;
-        font-size: 1.8rem;
-        cursor: pointer;
+    svg {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
 
-        &:hover {
-          color: $color-red;
-        }
+      &:hover {
+        color: $color-red;
       }
+    }
+
+    &-id {
+      font-size: 1.8rem !important;
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
   }
 }

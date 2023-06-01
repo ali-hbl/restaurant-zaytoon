@@ -67,15 +67,20 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 30/05 : back-office catalogue refactor to not refresh the page on image change
 - 30/05 : back-office catalogue UI + messages backend + UI
 - 30/05 : back-office users backend + UI
+- 31/05 : back-office reservations backend + UI
 
 ### ToDo's/Bug's
 
-- FIXME: bug dans la console sur hover du btn delete dans le dashboard users/messages
+- TODO DashboardReservations:
+  position boutton + requete update
+  requetedelete
 
-- TODO DashboardOrders: listing demander comment faire le group by pour regrouper les commandes effectuées en un coup.
-- TODO DashboardReservations: listing avec status modifiable + delete
-- TODO DashboardUsers: listing
-- TODO DashboardCatalogueTable : fonction de tri sur le tableau?
+- TODO DashboardOrders: check query discord
+- TODO DashboardOrders: bouton delete.
+
+- TODO FrontEnd Catalogue : fonction de tri variés
+
+- TODO: refactor toast et en faire un composant?
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers
@@ -88,6 +93,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 - TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demander au prof ou reessaye pour generer un seul id par groupe de commandes
   !! l'id 12/13 venait de l'id utilisateur, donc il y a une jointure qui est mal faite, essaie de voir si tu peux pas regrouper les orders du coup avec un meme id géneré sur achat, et bien faire la jointure sur l'id de l'order et pas sur l'id de l'user. Si pas, laisse comme ca
+  ==> check query DashboardOrders
 
 - TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid

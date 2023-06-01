@@ -1,5 +1,14 @@
 const connection = require('../db');
 
+// GET orders
+const getReservations = (req, res) => {
+  connection.query('SELECT * FROM reservations', function (err, results) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ results });
+  });
+};
+
 // POST
 const postReservation = (req, res) => {
   const data = req.body;
@@ -18,4 +27,15 @@ const postReservation = (req, res) => {
   );
 };
 
-module.exports = { postReservation };
+// DELETE
+const deleteReservation = (req, res) => {
+  const id = req.params.id;
+
+  connection.query('DELETE FROM `reservations` WHERE id = ?', [id], function (err, result) {
+    if (err) return res.json({ success: false, message: err });
+
+    res.json({ result });
+  });
+};
+
+module.exports = { getReservations, postReservation, deleteReservation };
