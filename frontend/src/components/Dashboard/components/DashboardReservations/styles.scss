@@ -40,6 +40,24 @@
       border-radius: 5px;
       margin-top: 0.5rem;
     }
+
+    p {
+      @media (max-width: 768px) {
+        align-items: inherit;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      align-items: inherit;
+      flex-direction: column;
+    }
+  }
+
+  p {
+    @media (max-width: 768px) {
+      align-items: inherit;
+    }
   }
 
   // icons styling

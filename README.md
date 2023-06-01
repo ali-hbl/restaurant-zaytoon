@@ -72,8 +72,6 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO DashboardReservations: requete update
-
 - TODO DashboardOrders: check query discord
 - TODO DashboardOrders: bouton delete.
 
