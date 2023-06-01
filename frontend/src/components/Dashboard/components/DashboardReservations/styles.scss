@@ -1,0 +1,75 @@
+@use '../../../../App.scss' as main;
+
+/* BACK-OFFICE DASHBOARD RESERVATIONS */
+.dashboard-reservations {
+  @include main.dashboard-ui;
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+
+  .status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+
+      .appt-booked {
+        color: main.$color-green;
+      }
+
+      .appt-canceled {
+        color: main.$color-red;
+      }
+    }
+
+    span {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    button {
+      color: main.$color-white;
+      padding: 0 0.6rem;
+      font-size: 1.6rem;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  // icons styling
+  .btn-confirmed {
+    color: main.$color-green;
+    position: initial !important;
+    cursor: initial;
+  }
+
+  .btn-cancelled {
+    color: main.$color-red;
+    position: initial !important;
+    cursor: initial;
+  }
+
+  .btn-cancel-booking {
+    background-color: main.$color-red;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(main.$color-red, 10%);
+    }
+  }
+
+  .btn-confirm-booking {
+    background-color: #94ae63;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#94ae63, 10%);
+    }
+  }
+}

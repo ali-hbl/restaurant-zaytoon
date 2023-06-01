@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       };
 
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}checkout`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}orders/post-order`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -1,12 +1,13 @@
 {
   "name": "restaurant-zaytoon-backend",
   "version": "1.0.0",
-  "description": "Backend for TFE",
+  "description": "Backend for restaurant",
   "main": "server.js",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql2": "^3.2.0",
+    "sanitize-filename": "^1.6.3",
     "stripe": "^10.12.0"
   },
   "scripts": {
@@ -16,6 +17,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.20.2",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.22"
   }
 }

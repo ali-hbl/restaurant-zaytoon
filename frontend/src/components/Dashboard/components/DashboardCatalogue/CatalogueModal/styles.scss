@@ -1,0 +1,100 @@
+@use '../../../../../App.scss' as main;
+
+/* BACK OFFICE CATALOGUE MODAL */
+@include main.back-office-form;
+
+.catalogue-modal {
+  @include main.flex-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      color: main.$color-dark-grey;
+      line-height: 1.1;
+      font-size: 3rem;
+      font-weight: 370;
+    }
+
+    button {
+      color: main.$color-grey;
+      background: transparent;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: darken(main.$color-grey, 20%);
+      }
+    }
+  }
+
+  &-content {
+    position: relative;
+    color: main.$color-light-pink;
+    background-color: main.$color-white;
+    width: 30%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 30px main.$color-black;
+
+    @media (max-width: 991px) {
+      @include main.overflow-scroll;
+      width: 65%;
+    }
+
+    @media (max-width: 768px) {
+      @include main.overflow-scroll;
+      height: 85%;
+      width: 90%;
+    }
+
+    form {
+      @include main.form-inputs;
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+
+      input:not([type='submit']),
+      textarea {
+        color: main.$color-black;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        padding: 0.3rem;
+        font-size: 1.6rem;
+      }
+
+      button {
+        color: main.$color-white;
+        background-color: main.$color-orange;
+        width: 100%;
+        font-size: 1.7rem;
+        padding: 0.5rem 3rem;
+        margin-top: 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken(main.$color-orange, 5%);
+        }
+      }
+    }
+  }
+}

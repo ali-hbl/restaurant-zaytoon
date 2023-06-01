@@ -22,7 +22,7 @@ const Contact = () => {
 
     try {
       // POST message to database
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}messages`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}messages/post-message`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const Contact = () => {
 
         toast.error(`Votre message a été envoyé.`, {
           position: 'top-right',
-          autoClose: 2500,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,

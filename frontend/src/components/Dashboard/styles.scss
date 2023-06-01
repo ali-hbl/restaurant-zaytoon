@@ -1,0 +1,22 @@
+@use '../../App.scss' as main;
+
+/* DASHBOARD */
+.dashboard {
+  display: flex;
+  height: 100vh;
+
+  .main-content {
+    padding: 2rem;
+    width: 100%;
+    @include main.overflow-scroll;
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}

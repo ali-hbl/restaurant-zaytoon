@@ -26,7 +26,7 @@ const Reservations = () => {
 
     try {
       // POST reservation to database
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}reservations`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}reservations/post-reservation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

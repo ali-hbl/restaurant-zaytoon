@@ -1,0 +1,6 @@
+@use '../../../../App.scss' as main;
+
+/* BACK-OFFICE DASHBOARD MESSAGES */
+.dashboard-messages {
+  @include main.dashboard-ui;
+}

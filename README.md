@@ -51,24 +51,55 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 04/05 : Mes commandes et Mes réservations sur page de profil fetch et UI
 - 05/05 : ProfileComponent logique pour trier les commandes par dates et les afficher avec quantité + total
 - 09/05 : Pagination sur Mes Reservations/Mes Commandes
+- 10/05 : Création du back-office et de ses différentes routes
+- 11/05 : Back-office catalogue form + table UI
+- 12/05 : Back-office catalogue backend mais encore des bugs
+  - Indiquer dans le travail ecrit que le proprio du site doit rentrer manuellement son plat dans stripe en plus du formulaire, puis mettre le stripe_id dans la base de données s'il veut rajouter un plat convenablement, avec etapes et screenshots.
+- 13/05 : Back-office catalogue backend delete query
+- 13/05 : Back-office catalogue code refactoring
+- 14/05 : Back-office modal logic and ui
+- 17/05 : Back-office trying to fix image upload bug
+- 22/05 : Back-office Catalogue update query + responsive
+- 24/05 : Back-office Catalogue update file working!
+- 24/05 : UI for Back-office Catalogue
+- 25/05 : fix server crash on upload bug + handle image on UPDATE query
+- 25/05 : back-office catalogue refactor to not refresh the page on new values
+- 30/05 : back-office catalogue refactor to not refresh the page on image change
+- 30/05 : back-office catalogue UI + messages backend + UI
+- 30/05 : back-office users backend + UI
+- 31/05 : back-office reservations backend + UI
+- 01/06 : back-office reservations UI big fixes and update query
 
 ### ToDo's/Bug's
 
-- TODO !! run le site sur grand ecran pour verifier le padding (a propos page)
+- TODO DashboardReservations: requete update
 
+- TODO DashboardOrders: check query discord
+- TODO DashboardOrders: bouton delete.
+
+- TODO FrontEnd Catalogue : fonction de tri variés
+
+- TODO: refactor toast et en faire un composant?
+
+- TODO Probleme de CSS sur toutes les pages !!
+  CSS pas cohérent notamment sur les headers
+  Run le site sur grand ecran pour verifier le padding (a propos page)
+
+  - Profile.scss avec height 100vh cata quand on ouvre la console
   - TOUTES les pages du site sur grand écran
   - Meme celles qu'on voit pas : loader, success/cancel, error, ...
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
 
-- TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demande au prof ou reessaye pour generer un seul id par groupe de commandes
-- FIXME Profile Page responsive?
+- TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demander au prof ou reessaye pour generer un seul id par groupe de commandes
+  !! l'id 12/13 venait de l'id utilisateur, donc il y a une jointure qui est mal faite, essaie de voir si tu peux pas regrouper les orders du coup avec un meme id géneré sur achat, et bien faire la jointure sur l'id de l'order et pas sur l'id de l'user. Si pas, laisse comme ca
+  ==> check query DashboardOrders
 
 - TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
-- TODO Reservation : e-mail de confirmation et de rappel (idem ici).
+- TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
 
 - FIXME DatePicker minuscule
 
-- TODO clean backend code
+- TODO Sécuriser l'authentifiction/connexion coté back
 
 ### Créateur du projet
 

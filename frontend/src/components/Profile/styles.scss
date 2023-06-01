@@ -2,12 +2,11 @@
 
 /* PROFILE */
 
-// TODO: check responsive sass et rajoute le dedans
-
 .profile {
-  @include main.flex-center;
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  padding: 0 8% 15rem;
+  height: 100vh;
 
   h1 {
     margin: 4.5rem 0 0 0;
@@ -21,6 +20,16 @@
     justify-content: space-between;
     gap: 5rem;
     width: 75%;
+
+    @media (max-width: 991px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 
     .orders,
     .reservations {
