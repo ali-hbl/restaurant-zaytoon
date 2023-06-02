@@ -53,9 +53,15 @@ const DashboardOrders = () => {
   };
 
   const renderDashboardOrders = () => {
+    const vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+
     return orders.map((order, i) => (
       <div key={i} className="dashboard-orders-container">
-        <p className="dashboard-orders-container-id">Commande de {order.order_details.firstname}</p>
+        <p className="dashboard-orders-container-id">
+          {vowels.includes(order.order_details.firstname.charAt(0).toUpperCase())
+            ? `Commande d'${order.order_details.firstname}`
+            : `Commande de ${order.order_details.firstname}`}
+        </p>
         <p>
           <span>Date de commande: </span>
           {`Le ${new Date(order.created_at).toLocaleDateString('fr-FR')} à ${new Date(

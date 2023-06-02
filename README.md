@@ -70,10 +70,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 31/05 : back-office reservations backend + UI
 - 01/06 : back-office reservations UI big fixes and update query
 - 02/06 : back-office orders backend logic and UI
+- 02/06 : back-office messages UI refactoring
 
 ### ToDo's/Bug's
 
-- TODO DashboardMessages: UI sous forme de plusieurs boites
+- TODO DashboardUsers: better UI?
 
 - TODO FrontEnd Catalogue : fonction de tri variés
 
