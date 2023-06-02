@@ -69,15 +69,22 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 30/05 : back-office users backend + UI
 - 31/05 : back-office reservations backend + UI
 - 01/06 : back-office reservations UI big fixes and update query
+- 02/06 : back-office orders backend logic and UI
 
 ### ToDo's/Bug's
 
-- TODO DashboardOrders: check query discord
-- TODO DashboardOrders: bouton delete.
+- TODO DashboardMessages: UI sous forme de plusieurs boites
 
 - TODO FrontEnd Catalogue : fonction de tri variés
 
+- TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
+- TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
+
+- FIXME DatePicker minuscule
+
 - TODO: refactor toast et en faire un composant?
+
+- TODO Sécuriser la private route avec un React guard
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers
@@ -87,17 +94,6 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
   - TOUTES les pages du site sur grand écran
   - Meme celles qu'on voit pas : loader, success/cancel, error, ...
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
-
-- TODO Profile Page : trouve une solution pour les orders qui sont comptées sur leur champ de creation, demander au prof ou reessaye pour generer un seul id par groupe de commandes
-  !! l'id 12/13 venait de l'id utilisateur, donc il y a une jointure qui est mal faite, essaie de voir si tu peux pas regrouper les orders du coup avec un meme id géneré sur achat, et bien faire la jointure sur l'id de l'order et pas sur l'id de l'user. Si pas, laisse comme ca
-  ==> check query DashboardOrders
-
-- TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
-- TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
-
-- FIXME DatePicker minuscule
-
-- TODO Sécuriser l'authentifiction/connexion coté back
 
 ### Créateur du projet
 

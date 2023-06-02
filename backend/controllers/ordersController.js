@@ -3,14 +3,32 @@ const stripe = require('stripe')(
   'sk_test_51MyXBjLEZw1RbHzdnrTe44O4qYCRXW8rFW88qNXLO9AwUsMa0onRSQRLX9qIIBlziQchFSHWvGHcX8Qqx3oeaIGx00vACpmjTA'
 );
 
-// GET orders
+// GET orders grouped by created_at field
 const getOrders = (req, res) => {
   connection.query(
-    'SELECT orders.*, users.username FROM orders, users WHERE orders.user_id = users.uid',
+    "SELECT orders.created_at, JSON_OBJECT( 'email', users.email, 'firstname', users.username, 'dishes', JSON_ARRAYAGG( JSON_OBJECT( 'id', orders.id, 'title', orders.product_name, 'price', orders.price, 'quantity', orders.quantity ) ) ) AS order_details FROM orders JOIN users ON orders.user_id = users.uid GROUP BY orders.created_at, users.email, users.username",
     function (err, results) {
       if (err) return res.json({ success: false, message: err });
 
       res.json({ results });
+    }
+  );
+};
+
+// DELETE
+const deleteOrder = (req, res) => {
+  const timestamp = req.params.id;
+  const updatedTimestamp = new Date(timestamp); // Convert the timestamp to a JavaScript Date object
+  updatedTimestamp.setHours(updatedTimestamp.getHours() + 2); // Add 2 hours to the date because database is setted with 2h more
+  const formattedTimestamp = updatedTimestamp.toISOString();
+
+  connection.query(
+    "DELETE FROM `orders` WHERE created_at = STR_TO_DATE(?, '%Y-%m-%dT%H:%i:%s.000Z')",
+    [formattedTimestamp],
+    function (err, result) {
+      if (err) return res.json({ success: false, message: err });
+
+      res.json({ result });
     }
   );
 };
@@ -57,4 +75,4 @@ const postOrder = async (req, res) => {
   }
 };
 
-module.exports = { postOrder, getOrders };
+module.exports = { getOrders, postOrder, deleteOrder };

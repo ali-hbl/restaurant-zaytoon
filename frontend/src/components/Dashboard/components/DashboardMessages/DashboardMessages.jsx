@@ -74,8 +74,7 @@ const DashboardMessages = () => {
           {message.phone}
         </p>
         <p>
-          <span>Message: </span>
-          {message.message}
+          <span>Message: </span>« {message.message} »
         </p>
         <span>
           <Tooltip id="delete-msg-tooltip" place="left" className="tooltip" />
