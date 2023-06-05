@@ -74,14 +74,10 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO DashboardUsers: better UI?
-
 - TODO FrontEnd Catalogue : fonction de tri variés
 
 - TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
-
-- FIXME DatePicker minuscule
 
 - TODO: refactor toast et en faire un composant?
 
