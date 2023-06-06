@@ -10,6 +10,8 @@ const DashboardOrders = () => {
   const [orders, setOrders] = useState([]);
   const { data: ordersData } = useFetch('orders');
 
+  const vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+
   useEffect(() => {
     setOrders(ordersData?.results ?? []);
   }, [ordersData?.results]);
@@ -55,6 +57,14 @@ const DashboardOrders = () => {
     }
   };
 
+  const calculateTotalPrice = (dishes) => {
+    return dishes
+      .reduce((total, dish) => {
+        return total + dish.price;
+      }, 0)
+      .toFixed(2);
+  };
+
   const filterAndSortOrdersBy = (orders, filterValue) => {
     const filterOrders = (order) => {
       switch (filterValue) {
@@ -85,10 +95,9 @@ const DashboardOrders = () => {
     return orders.filter(filterOrders).sort(sortBy);
   };
 
-  const renderDashboardOrders = () => {
-    const vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
-    const filteredOrders = filterAndSortOrdersBy(orders, filterValue);
+  const filteredOrders = filterAndSortOrdersBy(orders, filterValue);
 
+  const renderDashboardOrders = () => {
     return filteredOrders.map((order, i) => (
       <div key={i} className="dashboard-orders-container">
         <p className="dashboard-orders-container-id">
@@ -106,16 +115,10 @@ const DashboardOrders = () => {
           <span>Produit(s): </span>
           {order.order_details.dishes.map((dish) => `${dish.title} (${dish.quantity}x)`).join(', ')}
         </p>
-        {order.order_details.dishes.length === 1 ? (
-          <p>
-            <span>Total: </span> {order.order_details.dishes[0].price.toFixed(2)}€
-          </p>
-        ) : (
-          <p>
-            <span>Total: </span>
-            {order.order_details.dishes.reduce((total, dish) => total + dish.price * dish.quantity, 0).toFixed(2)}€
-          </p>
-        )}
+        <p>
+          <span>Total: </span>
+          {calculateTotalPrice(order.order_details.dishes)}€
+        </p>
         <span>
           <Tooltip id="delete-order-tooltip" place="left" className="tooltip" />
           <FiDelete
