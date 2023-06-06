@@ -6,7 +6,7 @@ const stripe = require('stripe')(
 // GET orders grouped by created_at field
 const getOrders = (req, res) => {
   connection.query(
-    "SELECT orders.created_at, JSON_OBJECT( 'email', users.email, 'firstname', users.username, 'dishes', JSON_ARRAYAGG( JSON_OBJECT( 'id', orders.id, 'title', orders.product_name, 'price', orders.price, 'quantity', orders.quantity ) ) ) AS order_details FROM orders JOIN users ON orders.user_id = users.uid GROUP BY orders.created_at, users.email, users.username",
+    "SELECT orders.created_at, JSON_OBJECT( 'email', users.email, 'firstname', users.username, 'dishes', JSON_ARRAYAGG( JSON_OBJECT( 'id', orders.id, 'title', orders.product_name, 'price', orders.price, 'quantity', orders.quantity ) ) ) AS order_details FROM orders, users WHERE orders.user_id = users.uid GROUP BY orders.created_at, users.email, users.username",
     function (err, results) {
       if (err) return res.json({ success: false, message: err });
 

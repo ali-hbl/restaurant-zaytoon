@@ -6,16 +6,19 @@ import { toast } from 'react-toastify';
 import './styles.scss';
 
 const DashboardOrders = () => {
+  const [filterValue, setFilterValue] = useState('');
   const [orders, setOrders] = useState([]);
   const { data: ordersData } = useFetch('orders');
-
-  const handleDeleteOrder = (timestamp) => {
-    setOrders((prevOrders) => prevOrders.filter((order) => order.created_at !== timestamp));
-  };
 
   useEffect(() => {
     setOrders(ordersData?.results ?? []);
   }, [ordersData?.results]);
+
+  const handleFilterChange = (e) => setFilterValue(e.target.value);
+
+  const handleDeleteOrder = (timestamp) => {
+    setOrders((prevOrders) => prevOrders.filter((order) => order.created_at !== timestamp));
+  };
 
   const handleDelete = (timestamp) => {
     const confirmDelete = window.confirm('Êtes-vous sûr de vouloir supprimer ce message?');
@@ -52,10 +55,41 @@ const DashboardOrders = () => {
     }
   };
 
+  const filterAndSortOrdersBy = (orders, filterValue) => {
+    const filterOrders = (order) => {
+      switch (filterValue) {
+        case 'single-dish':
+          return order.order_details.dishes.length === 1;
+        case 'multiple-dishes':
+          return order.order_details.dishes.length > 1;
+        default:
+          return true;
+      }
+    };
+
+    const sortBy = (a, b) => {
+      switch (filterValue) {
+        case 'timestamp':
+          return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+        case 'total':
+          const aTotal = a.order_details.dishes.reduce((total, dish) => total + dish.price * dish.quantity, 0);
+          const bTotal = b.order_details.dishes.reduce((total, dish) => total + dish.price * dish.quantity, 0);
+          return aTotal - bTotal;
+        case 'alphabetical':
+          return a.order_details.firstname.localeCompare(b.order_details.firstname);
+        default:
+          return 0;
+      }
+    };
+
+    return orders.filter(filterOrders).sort(sortBy);
+  };
+
   const renderDashboardOrders = () => {
     const vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+    const filteredOrders = filterAndSortOrdersBy(orders, filterValue);
 
-    return orders.map((order, i) => (
+    return filteredOrders.map((order, i) => (
       <div key={i} className="dashboard-orders-container">
         <p className="dashboard-orders-container-id">
           {vowels.includes(order.order_details.firstname.charAt(0).toUpperCase())
@@ -98,6 +132,17 @@ const DashboardOrders = () => {
   return (
     <>
       <h2>Récapitulatif des commandes clients ({orders.length})</h2>
+      <div className="filter-container">
+        <span>Filtrer par: </span>
+        <select onChange={handleFilterChange}>
+          <option value="">Toutes les commandes</option>
+          <option value="timestamp">Date de commande</option>
+          <option value="single-dish">Plat unique</option>
+          <option value="multiple-dishes">Plats multiples</option>
+          <option value="alphabetical">Utilisateurs par ordre alphabétique</option>
+          <option value="total">Total</option>
+        </select>
+      </div>
       <div className="dashboard-orders">{orders.length !== 0 ? renderDashboardOrders() : <p>Aucune commande.</p>}</div>
     </>
   );

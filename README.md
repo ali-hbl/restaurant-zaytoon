@@ -71,10 +71,13 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 01/06 : back-office reservations UI big fixes and update query
 - 02/06 : back-office orders backend logic and UI
 - 02/06 : back-office messages UI refactoring
+- 06/06 : back-office orders filter function logic and UI
 
 ### ToDo's/Bug's
 
-- TODO FrontEnd Catalogue : fonction de tri variés
+- TODO Dashboard CatalogueOrders : UI sur champ select
+
+- FIXME: Profil + Dashboard Orders calcule mal les totaux, erreur dans le reducer.
 
 - TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
 - TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
