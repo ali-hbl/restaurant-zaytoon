@@ -72,11 +72,13 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 02/06 : back-office orders backend logic and UI
 - 02/06 : back-office messages UI refactoring
 - 06/06 : back-office orders filter function logic and UI
+- 08/06 : sengrid on order and resevation success
 
 ### ToDo's/Bug's
 
-- TODO Order Succes Stripe => Envoyer un mail de confirmation de commande. (change le message du succes par nous vous informerons par mail...)
-- TODO Reservation : e-mail de confirmation et de rappel (idem ici). ===> sendgrid
+- TODO Reservation : e-mail de confirmation et de rappel (idem ici).
+
+-FIXME: variables d'environnement pour stripe et sengrid
 
 - TODO: refactor toast et en faire un composant?
 

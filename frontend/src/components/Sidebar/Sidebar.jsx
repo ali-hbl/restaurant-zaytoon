@@ -15,6 +15,7 @@ const Sidebar = ({ isOpen, onClose }) => {
     if (currentUser !== null) {
       const dataToSend = {
         uid: currentUser.uid,
+        email: currentUser.email,
         productId: cart.items.product_id,
         name: cart.items.name,
         quantity: cart.items.quantity,
