@@ -76,8 +76,6 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
-- TODO Reservation : e-mail de confirmation et de rappel (idem ici).
-
 -FIXME: variables d'environnement pour stripe et sengrid
 
 - TODO: refactor toast et en faire un composant?

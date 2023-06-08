@@ -16,18 +16,10 @@ const postReservation = (req, res) => {
   const data = req.body;
   const selectedTime = new Date(data.selectedTime);
   const time = `${selectedTime.toISOString().split('T')[0]} ${selectedTime.toTimeString().split(' ')[0]}`;
-  const output = `<p>Your order is booked</p>
-  <ul>
-    <li>${data.name}</li>
-    <li>${data.email}</li>
-    <li>${data.phone}</li>
-    <li>${data.numGuests}</li>
-    <li>${time}</li>
-  </ul>
-  `;
+
   const to = data.email;
   const from = 'restozaytoon@gmail.com';
-  const subject = 'Votre réservation est en confirmée.';
+  const subject = 'Votre réservation est en confirmée!';
 
   connection.query(
     'INSERT INTO `reservations` (`user_id`, `name`, `email`, `phone`, `time`, `num_guests`) VALUES (?, ?, ?, ?, ?, ?)',
@@ -41,12 +33,13 @@ const postReservation = (req, res) => {
   );
 
   // Send email with Sendgrid
-  const sendEmail = (to, from, subject, text) => {
+  const sendEmail = (to, from, subject, templateId, dynamicData) => {
     const msg = {
       to,
       from,
       subject,
-      html: text,
+      templateId,
+      dynamic_template_data: dynamicData,
     };
 
     sgMail.send(msg, function (err, res) {
@@ -56,7 +49,15 @@ const postReservation = (req, res) => {
     });
   };
 
-  sendEmail(to, from, subject, output);
+  const templateId = 'd-7c4644d6cf5f41d7839998b23bd17556';
+  const dynamicData = {
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    numGuests: data.numGuests,
+    time: time,
+  };
+  sendEmail(to, from, subject, templateId, dynamicData);
 };
 
 // UPDATE
