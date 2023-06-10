@@ -79,14 +79,12 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 -FIXME: variables d'environnement pour stripe et sengrid
 
 - TODO: refactor toast et en faire un composant?
-
 - TODO Sécuriser la private route avec un React guard
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers
   Run le site sur grand ecran pour verifier le padding (a propos page)
 
-  - Profile.scss avec height 100vh cata quand on ouvre la console
   - TOUTES les pages du site sur grand écran
   - Meme celles qu'on voit pas : loader, success/cancel, error, ...
   - Adapter le CSS avec valeurs relatives (em, %, vh ?) pour adapter automatiquement
