@@ -73,6 +73,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 - 02/06 : back-office messages UI refactoring
 - 06/06 : back-office orders filter function logic and UI
 - 08/06 : sengrid on order and resevation success
+- 10/06 : clean About Component UI + protected stripe and sendgrid variables
 
 ### ToDo's/Bug's
 
