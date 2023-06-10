@@ -1,6 +1,7 @@
+require('dotenv').config(); // Load environment variables from .env file
 const connection = require('../db');
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
+sgMail.setApiKey(process.env.SENGRID_PRIVATE_KEY);
 
 // GET orders
 const getReservations = (req, res) => {
@@ -44,8 +45,6 @@ const postReservation = (req, res) => {
 
     sgMail.send(msg, function (err, res) {
       if (err) return res.json({ success: false, message: err });
-
-      console.log(res, 'Email was sent!');
     });
   };
 

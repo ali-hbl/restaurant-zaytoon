@@ -1,9 +1,8 @@
+require('dotenv').config(); // Load environment variables from .env file
 const connection = require('../db');
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 const sgMail = require('@sendgrid/mail');
-const stripe = require('stripe')(
-  'sk_test_51MyXBjLEZw1RbHzdnrTe44O4qYCRXW8rFW88qNXLO9AwUsMa0onRSQRLX9qIIBlziQchFSHWvGHcX8Qqx3oeaIGx00vACpmjTA'
-);
-sgMail.setApiKey('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');
+sgMail.setApiKey(process.env.SENGRID_PRIVATE_KEY);
 
 // GET orders grouped by created_at field
 const getOrders = (req, res) => {

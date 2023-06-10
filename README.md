@@ -76,10 +76,8 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
--FIXME: variables d'environnement pour stripe et sengrid
-
-- TODO: refactor toast et en faire un composant?
 - TODO Sécuriser la private route avec un React guard
+- TODO: refactor toast et en faire un composant?
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers
