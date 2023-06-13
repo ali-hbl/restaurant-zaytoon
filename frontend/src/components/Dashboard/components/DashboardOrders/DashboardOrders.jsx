@@ -81,10 +81,6 @@ const DashboardOrders = () => {
       switch (filterValue) {
         case 'timestamp':
           return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
-        case 'total':
-          const aTotal = a.order_details.dishes.reduce((total, dish) => total + dish.price * dish.quantity, 0);
-          const bTotal = b.order_details.dishes.reduce((total, dish) => total + dish.price * dish.quantity, 0);
-          return aTotal - bTotal;
         case 'alphabetical':
           return a.order_details.firstname.localeCompare(b.order_details.firstname);
         default:
@@ -143,7 +139,6 @@ const DashboardOrders = () => {
           <option value="single-dish">Plat unique</option>
           <option value="multiple-dishes">Plats multiples</option>
           <option value="alphabetical">Utilisateurs par ordre alphabétique</option>
-          <option value="total">Total</option>
         </select>
       </div>
       <div className="dashboard-orders">{orders.length !== 0 ? renderDashboardOrders() : <p>Aucune commande.</p>}</div>

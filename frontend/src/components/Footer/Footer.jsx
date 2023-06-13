@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <h3>HEURES D'OUVERTURE</h3>
             <p>
-              <u>Ouvert</u> : mardi à samedi de 13h00 à 23h00.
+              <u>Ouvert</u> : mardi à samedi de 12h00 à 23h00.
               <br />
               <u>Fermé</u> : dimanche et lundi.
             </p>

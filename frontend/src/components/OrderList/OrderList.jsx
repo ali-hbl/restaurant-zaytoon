@@ -18,13 +18,21 @@ const OrderList = ({ orders }) => {
 
   // calculate total for each order and generate order list items
   const orderListItems = Object.entries(ordersByTime).map(([time, orders]) => {
-    let total = 0;
+    // let total = 0;
     let date;
 
     const orderItems = orders
       .map((order) => {
         date = new Date(order.created_at).toLocaleDateString();
-        total += order.price * order.quantity;
+
+        // const totalPrice = orders
+        //   .reduce((total, order) => {
+        //     console.log('order', order);
+        //     return total + order.price * order.quantity;
+        //   }, 0)
+        //   .toFixed(2);
+
+        // console.log(totalPrice);
 
         return `${order.product_name} (${order.quantity}x)`;
       })
@@ -40,9 +48,9 @@ const OrderList = ({ orders }) => {
             <span>Commande:</span> {orderItems}
           </p>
 
-          <p>
+          {/* <p>
             <span>Total:</span> {total.toFixed(2)}€
-          </p>
+          </p> */}
         </div>
       </div>
     );

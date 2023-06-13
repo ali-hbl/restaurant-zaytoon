@@ -78,7 +78,7 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 ### ToDo's/Bug's
 
 - TODO Sécuriser la private route avec un React guard
-- TODO: refactor toast et en faire un composant?
+- FIXME OrderList map sur total bug a cause de total = order.price \* order.quantity, il faudrait modifier la requete et faire un group_by
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers
