@@ -77,8 +77,11 @@ Ce projet est développé en utilisant les technologies suivantes : React.js pou
 
 ### ToDo's/Bug's
 
+  accessibilite pour les textes => check googles pour les personnes aveugle
+  (http://web-accessibility.carnegiemuseums.org/design/color/)
+
+- FIXME image upload back-office bug?
 - TODO Sécuriser la private route avec un React guard
-- FIXME OrderList map sur total bug a cause de total = order.price \* order.quantity, il faudrait modifier la requete et faire un group_by
 
 - TODO Probleme de CSS sur toutes les pages !!
   CSS pas cohérent notamment sur les headers

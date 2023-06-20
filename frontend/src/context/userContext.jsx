@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { toast } from 'react-toastify';
 import { auth } from '../firebaseConfig';
 
 export const UserContext = createContext();
@@ -14,22 +13,9 @@ export const UserContextProvider = (props) => {
   const signIn = (email, pwd) => {
     signInWithEmailAndPassword(auth, email, pwd)
       .then((user) => {
-        // clear inputs, show notification and redirect
+        // clear inputs and redirect
         setValidation('');
         toggleModal('close');
-
-        toast.error(`Rebonjour!`, {
-          position: 'top-right',
-          autoClose: 700,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          progress: undefined,
-          theme: 'dark',
-          icon: false,
-          className: 'notification',
-          bodyClassName: 'toastify-color-welcome',
-        });
       })
       .catch((error) => {
         error.code === 'auth/user-not-found'
