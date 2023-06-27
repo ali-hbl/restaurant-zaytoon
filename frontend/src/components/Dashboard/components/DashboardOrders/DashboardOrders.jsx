@@ -30,25 +30,23 @@ const DashboardOrders = () => {
         method: 'DELETE',
       })
         .then((response) => {
-          if (response.ok) {
-            // show notification
-            toast.error(`Commande supprimée de la base de données.`, {
-              position: 'top-right',
-              autoClose: 1500,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              progress: undefined,
-              theme: 'dark',
-              icon: false,
-              className: 'notification',
-              bodyClassName: 'toastify-color-welcome',
-            });
+          if (!response.ok) alert('Erreur lors de la suppression de la commande, veuillez réessayer.');
 
-            handleDeleteOrder(timestamp);
-          } else {
-            alert('Erreur lors de la suppression de la commande, veuillez réessayer.');
-          }
+          // show notification
+          toast.error(`Commande supprimée de la base de données.`, {
+            position: 'top-right',
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined,
+            theme: 'dark',
+            icon: false,
+            className: 'notification',
+            bodyClassName: 'toastify-color-welcome',
+          });
+
+          handleDeleteOrder(timestamp);
         })
         .catch((error) => {
           alert('Une erreur est survenue lors de la suppression de la commande.', error);

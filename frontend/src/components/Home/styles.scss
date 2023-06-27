@@ -105,7 +105,7 @@ main {
           cursor: pointer;
 
           &:hover {
-            background-color: darken(main.$color-orange, 5%);
+            background-color: lighten(main.$color-orange, 5%);
           }
 
           @media (max-width: 991px) {

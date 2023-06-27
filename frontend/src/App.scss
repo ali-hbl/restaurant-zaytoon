@@ -4,11 +4,11 @@
 $color-black: #000;
 $color-white: #fff;
 
-$color-green: #64822b;
+$color-green: #2e8540;
 $color-yellow: #e9e672;
 $color-coral: #fd7c45;
-$color-orange: #c06515;
-$color-red: #d6463b;
+$color-orange: #c86e1f;
+$color-red: #cd2026;
 $color-light-brown: #af8563;
 
 $box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
@@ -24,7 +24,7 @@ $color-grey: #919598;
 $color-dark-grey: #443b38;
 $color-brown: #624238;
 $color-dark-brown: #2e2b2b;
-$color-soft-black: #181818;
+$color-soft-black: #212121;
 
 * {
   font-family: 'Cairo', sans-serif;
@@ -115,7 +115,7 @@ body {
   border-radius: 5px;
 
   &:hover {
-    background: lighten($color-orange, 15%)
+    background: lighten($color-orange, 7%)
   }
 }
 

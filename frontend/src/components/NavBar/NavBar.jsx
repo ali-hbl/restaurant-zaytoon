@@ -7,6 +7,7 @@ import { CgLogIn, CgLogOff, CgProfile } from 'react-icons/cg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
+import { ToastContainer } from 'react-toastify';
 import { Tooltip } from 'react-tooltip';
 import Sidebar from '../Sidebar/Sidebar';
 import Badge from '../../components/Badge/Badge';
@@ -60,6 +61,7 @@ const NavBar = () => {
 
   return (
     <header>
+      <ToastContainer />
       <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarToggle} />
 
       <div className="logo">
