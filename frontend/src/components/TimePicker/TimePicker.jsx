@@ -22,7 +22,8 @@ const TimePicker = ({ onTimeChange }) => {
   // Render the DatePicker component with the configured props
   return (
     <DatePicker
-      calendarClassName="datepicker"
+      // calendarClassName="datepicker"
+      popperClassName='datepicker'
       selected={startDate}
       showTimeSelect
       timeFormat="HH:mm"

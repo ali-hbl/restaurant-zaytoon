@@ -120,7 +120,12 @@ const DashboardCatalogue = () => {
               </td>
               <td>{item.category.charAt(0).toUpperCase() + item.category.slice(1, -1)}</td>
               <td>
-                <span onClick={() => openModal(item.id)}>
+                <span
+                  data-tooltip-id="edit-tooltip"
+                  data-tooltip-content="Modifier ce plat"
+                  onClick={() => openModal(item.id)}
+                >
+                  <Tooltip id="edit-tooltip" place="left" />
                   <FiEdit />
                 </span>
                 <span

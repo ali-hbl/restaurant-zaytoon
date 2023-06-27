@@ -7,7 +7,7 @@ import { CgLogIn, CgLogOff, CgProfile } from 'react-icons/cg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { Tooltip } from 'react-tooltip';
 import Sidebar from '../Sidebar/Sidebar';
 import Badge from '../../components/Badge/Badge';
@@ -45,19 +45,6 @@ const NavBar = () => {
     try {
       // logout, show notification and redirect
       await signOut(auth);
-
-      toast.error(`À bientôt!`, {
-        position: 'top-right',
-        autoClose: 700,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        progress: undefined,
-        theme: 'dark',
-        icon: false,
-        className: 'notification',
-        bodyClassName: 'toastify-color-welcome',
-      });
 
       navigate('/');
     } catch (error) {

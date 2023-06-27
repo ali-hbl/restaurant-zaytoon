@@ -26,8 +26,6 @@ const DashboardMessages = () => {
       })
         .then((response) => {
           if (response.ok) {
-            handleDeleteMessage(id);
-
             // show notification
             toast.error(`Message supprimé de la base de données.`, {
               position: 'top-right',
@@ -41,6 +39,8 @@ const DashboardMessages = () => {
               className: 'notification',
               bodyClassName: 'toastify-color-welcome',
             });
+
+            handleDeleteMessage(id);
           } else {
             alert('Erreur lors de la suppression du message, veuillez réessayer.');
           }
@@ -53,30 +53,19 @@ const DashboardMessages = () => {
   };
 
   const renderMessages = () => {
+    const vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+
     return clientMessages.map((message, i) => (
       <div key={i} className="dashboard-messages-container">
         <p>
-          <span>Date: </span>
-          {`Le ${new Date(message.created_at).toLocaleDateString()} à ${new Date(
-            message.created_at
-          ).toLocaleTimeString()}`}
+          <span>
+            {vowels.includes(message.name.charAt(0).toUpperCase())
+              ? `L'avis d'${message.name}`
+              : `L'avis de ${message.name}`}
+            , le {new Date(message.created_at).toLocaleDateString()}
+          </span>
         </p>
-        <p>
-          <span>Utilisateur: </span>
-          {message.name}
-        </p>
-        <p>
-          <span>Email: </span>
-          {message.email}
-        </p>
-        <p>
-          <span>Téléphone: </span>
-          {message.phone}
-        </p>
-        <p>
-          <span>Message: </span>
-          {message.message}
-        </p>
+        <p className='message'>« {message.message} »</p>
         <span>
           <Tooltip id="delete-msg-tooltip" place="left" className="tooltip" />
           <FiDelete

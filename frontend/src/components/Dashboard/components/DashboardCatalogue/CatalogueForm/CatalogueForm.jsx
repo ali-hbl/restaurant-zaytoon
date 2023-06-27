@@ -35,7 +35,6 @@ const CatalogueForm = ({ onItemInsert }) => {
 
         // clear form inputs, set new item and show notification
         form.reset();
-
         toast.error(`Nouveau plat ajouté dans la base de données.`, {
           position: 'top-right',
           autoClose: 1500,
@@ -61,23 +60,21 @@ const CatalogueForm = ({ onItemInsert }) => {
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
 
-    if (file) {
-      // UPLOAD image to folder
-      const formData = new FormData();
-      formData.append('image', file);
+    // UPLOAD image to folder
+    const formData = new FormData();
+    formData.append('image', file);
 
-      fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/upload`, {
-        method: 'POST',
-        body: formData,
-      }).then((response) => {
-        if (!response.ok) alert('Une erreur est survenue. Veuillez réessayer svp.');
-      });
-    }
+    fetch(`${process.env.REACT_APP_BACKEND_URL}catalogue/upload`, {
+      method: 'POST',
+      body: formData,
+    }).then((response) => {
+      if (!response.ok) alert('Une erreur est survenue. Veuillez réessayer svp.');
+    });
   };
 
   const renderForm = () => {
     return (
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name" className="stripe-tooltip-container">
             Stripe ID&nbsp;&nbsp;

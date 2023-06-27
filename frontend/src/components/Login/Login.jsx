@@ -1,8 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
 
 const Login = () => {
@@ -21,8 +19,6 @@ const Login = () => {
 
   return (
     <>
-      <ToastContainer />
-
       {loginModal && (
         <div className="modal">
           <div className="modal-overlay" onClick={() => toggleModal('close')}></div>

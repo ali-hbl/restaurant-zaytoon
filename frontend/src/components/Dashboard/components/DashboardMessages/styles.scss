@@ -3,4 +3,22 @@
 /* BACK-OFFICE DASHBOARD MESSAGES */
 .dashboard-messages {
   @include main.dashboard-ui;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-container {
+    margin: 0;
+  }
+}
+
+.message {
+  font-size: 1.5rem !important;
 }

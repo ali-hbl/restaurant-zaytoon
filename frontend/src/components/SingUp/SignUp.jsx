@@ -46,14 +46,14 @@ const SignUp = () => {
           // clear inputs, show notification and redirect
           setValidation('');
 
-          toast.error(`Bienvenue ${usernameRef.current.value}!`, {
+          toast.success(`Bienvenue ${usernameRef.current.value}!`, {
             position: 'top-right',
-            autoClose: 1000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
             progress: undefined,
-            theme: 'dark',
+            theme: 'colored',
             icon: false,
             className: 'notification',
             bodyClassName: 'toastify-color-welcome',

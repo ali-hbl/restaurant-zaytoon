@@ -38,7 +38,7 @@ const Reservations = () => {
         // clear inputs, show notification and redirect
         form.reset();
 
-        toast.error(`Votre réservation est confirmée!`, {
+        toast.error(`Votre réservation est confirmée. Un email de confirmation vous a été envoyé.`, {
           position: 'top-right',
           autoClose: 2500,
           hideProgressBar: false,
