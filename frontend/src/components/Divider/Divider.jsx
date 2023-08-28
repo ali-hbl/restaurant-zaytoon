@@ -2,7 +2,7 @@ import './styles.scss';
 
 const Divider = () => {
   return (
-    <div className="divider"><span></span></div>
+    <div className="divider"></div>
   );
 };
 
