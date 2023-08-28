@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getUsers, getUserById, getUserRole, postUser, deleteUser } = require('../controllers/usersController');
 
-//GET
+// GET
 router.get('/get-users', getUsers);
 
 // GET by ID
