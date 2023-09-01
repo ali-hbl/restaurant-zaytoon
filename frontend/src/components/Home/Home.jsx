@@ -81,7 +81,7 @@ const Home = () => {
           </div>
         </div>
 
-        <h1 className="header">Les plus appréciés</h1>
+        <h1 className="header">Notre choix</h1>
         <>
           {isLoading && <Loader />}
           {!isLoading && renderTopThree()}

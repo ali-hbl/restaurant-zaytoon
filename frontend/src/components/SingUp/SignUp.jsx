@@ -53,7 +53,7 @@ const SignUp = () => {
             closeOnClick: true,
             pauseOnHover: false,
             progress: undefined,
-            theme: 'colored',
+            theme: 'dark',
             icon: false,
             className: 'notification',
             bodyClassName: 'toastify-color-welcome',
