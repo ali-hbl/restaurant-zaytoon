@@ -2,8 +2,17 @@
 
 /* DIVIDER */
 .divider {
-  border-bottom: 2px solid main.$color-dark-brown;
-  width: 40%;
-  height: 1.5px;
-  margin: auto auto;
+  // border-bottom: 2px solid main.$color-dark-brown;
+  // width: 40%;
+  // height: 1.5px;
+  // margin: auto auto;
+  @include main.flex-center;
+
+  .circle {
+    margin: 0 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: main.$color-dark-brown;
+    border-radius: 50%;
+  }
 }
