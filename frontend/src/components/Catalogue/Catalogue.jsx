@@ -32,7 +32,7 @@ const Catalogue = () => {
 
   return (
     <div className="catalogue">
-      <h1 className="header">Notre catalogue</h1>
+      <h1 className="header">La carte</h1>
 
       {isLoading && <Loader />}
       {!isLoading && renderCatalogue()}

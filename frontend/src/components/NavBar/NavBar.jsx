@@ -91,7 +91,7 @@ const NavBar = () => {
               Accueil
             </NavLink>
             <NavLink to="/catalogue" style={handleNavbarStyle}>
-              Catalogue
+              La carte
             </NavLink>
             <NavLink to="/reservations" style={handleNavbarStyle}>
               Réservations
