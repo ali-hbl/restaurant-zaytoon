@@ -3,11 +3,61 @@
   "builds": [
     {
       "src": "frontend",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "backend/routes/catalogueRoutes.js",
       "use": "@vercel/node"
     },
     {
-      "src": "backend/server.js",
+      "src": "backend/routes/messagesRoutes.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "backend/routes/ordersRoute.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "backend/routes/profileRoutes.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "backend/routes/reservationsRoute.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "backend/routes/usersRoute.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/catalogue/(.*)",
+      "dest": "/backend/routes/catalogueRoutes.js"
+    },
+    {
+      "src": "/api/messages/(.*)",
+      "dest": "/backend/routes/messagesRoutes.js"
+    },
+    {
+      "src": "/api/orders/(.*)",
+      "dest": "/backend/routes/ordersRoute.js"
+    },
+    {
+      "src": "/api/profile/(.*)",
+      "dest": "/backend/routes/profileRoutes.js"
+    },
+    {
+      "src": "/api/reservations/(.*)",
+      "dest": "/backend/routes/reservationsRoute.js"
+    },
+    {
+      "src": "/api/users/(.*)",
+      "dest": "/backend/routes/usersRoute.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
     }
   ]
 }
