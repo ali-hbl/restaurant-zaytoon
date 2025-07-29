@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from 'context/UserContext';
 import { toast } from 'react-toastify';
 import TimePicker from '../TimePicker/TimePicker';
 import './styles.scss';
