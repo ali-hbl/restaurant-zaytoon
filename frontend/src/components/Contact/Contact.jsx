@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from 'context/usercontext';
+import { UserContext } from '../../context/usercontext.jsx';
 import { toast } from 'react-toastify';
 import './styles.scss';
 

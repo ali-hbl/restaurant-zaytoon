@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from 'context/usercontext';
+import { UserContext } from '../../context/usercontext.jsx';
 import useFetch from '../../hooks/useFetch';
 import ReservationList from '../ReservationList/ReservationList';
 import OrderList from '../OrderList/OrderList';

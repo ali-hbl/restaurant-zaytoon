@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import { UserContext } from 'context/usercontext';
+import { UserContext } from '../../context/usercontext.jsx';
 import { toast } from 'react-toastify';
 
 const PrivateRoutes = () => {

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
-import { UserContext } from 'context/usercontext';
+import { UserContext } from '../../context/usercontext.jsx';
 import { CartContext } from '../../context/CartContext';
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx';
 import { FaShoppingCart } from 'react-icons/fa';
