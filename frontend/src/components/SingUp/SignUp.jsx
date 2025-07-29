@@ -1,4 +1,4 @@
-import { UserContext } from 'context/UserContext';
+import { UserContext } from 'context/usercontext';
 import { useState, useRef, useContext } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';

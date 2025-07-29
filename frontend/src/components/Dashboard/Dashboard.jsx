@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react';
 import useFetch from '../../hooks/useFetch';
-import { UserContext } from 'context/UserContext';
+import { UserContext } from 'context/usercontext';
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import DashboardSidebar from './components/DashboardSidebar/DashboardSidebar';
 import './styles.scss';
