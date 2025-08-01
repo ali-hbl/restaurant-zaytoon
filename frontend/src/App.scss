@@ -27,7 +27,7 @@ $color-dark-brown: #2e2b2b;
 $color-soft-black: #212121;
 
 * {
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Cairo', sans-serif !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -154,7 +154,7 @@ body {
       }
 
       @media (max-width: 991px) {
-        height: 50rem;
+        height: 20rem;
       }
     }
 
