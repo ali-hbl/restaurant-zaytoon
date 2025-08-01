@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
 /* GLOBAL STYLING */
 
 // Primary colors
@@ -27,7 +29,7 @@ $color-dark-brown: #2e2b2b;
 $color-soft-black: #212121;
 
 * {
-  font-family: 'Cairo', sans-serif !important;
+  font-family: 'Cairo', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
