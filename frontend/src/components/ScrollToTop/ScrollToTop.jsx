@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaAngleUp } from 'react-icons/fa';
 import './styles.scss';
 

@@ -1,17 +1,34 @@
 @use '../../App.scss' as main;
 
 .btn-top {
-  cursor: pointer;
   position: fixed;
-  right: 2%;
-  bottom: 5%;
-  width: 25px;
-  height: 25px;
-  border-radius: 10%;
-  background: main.$color-beige;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  background-color: main.$color-beige;
   color: main.$color-white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background: darken(main.$color-beige, 10%);
+    background-color: darken(main.$color-beige, 10%);
+  }
+
+  &:focus {
+    outline: 2px solid main.$color-white;
+    outline-offset: 4px;
   }
 }
+

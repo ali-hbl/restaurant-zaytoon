@@ -21,6 +21,14 @@ footer {
   .footer-copyright {
     text-align: center;
     padding: 0.7rem;
+
+    a {
+      color: #b9d9eb;
+
+      &:hover {
+        color: darken(#b9d9eb, 25%);
+      }
+    }
   }
 
   .footer-container {

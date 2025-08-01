@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 
@@ -40,7 +39,14 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="footer-copyright">&copy;2022-2023 HABOULA Ali</p>
+      {/* <p className="footer-copyright">&copy; <a href="www.aely.dev">aely.dev</a></p> */}
+
+      <p className="footer-copyright">
+        &copy; {new Date().getFullYear()}{' '}
+        <a href="https://www.aely.dev" target="_blank" rel="noreferrer">
+          aely.dev
+        </a>
+      </p>
     </footer>
   );
 };
