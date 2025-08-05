@@ -41,12 +41,12 @@ const Footer = () => {
 
       {/* <p className="footer-copyright">&copy; <a href="www.aely.dev">aely.dev</a></p> */}
 
-      <p className="footer-copyright">
-        Copyright &copy; {new Date().getFullYear()}{' '}
-        <a href="https://www.aely.dev" target="_blank" rel="noreferrer">
-          aely.dev
-        </a>
-      </p>
+      <div className="footer-copyright">
+          Copyright <span>&copy;</span> {new Date().getFullYear()}{' '}
+          <a href="https://www.aely.dev" target="_blank" rel="noreferrer">
+            aely.dev
+          </a>
+      </div>
     </footer>
   );
 };
