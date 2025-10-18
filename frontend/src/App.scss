@@ -117,7 +117,7 @@ body {
   border-radius: 5px;
 
   &:hover {
-    background: lighten($color-orange, 7%)
+    background: lighten($color-orange, 7%);
   }
 }
 
@@ -131,7 +131,7 @@ body {
 
   .box {
     background: $color-black;
-    width: 35rem;
+    width: 30rem;
     text-align: center;
     box-shadow: $box-shadow;
 

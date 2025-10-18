@@ -24,6 +24,7 @@ app.use('/orders', ordersRoutes);
 app.use('/profile', profileRoute);
 
 // start listening the server
+// GOOD TO KNOW : retirer le '0.0.0.0' quand tu upgrades de plan railway
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port: ${PORT}`);
 });
