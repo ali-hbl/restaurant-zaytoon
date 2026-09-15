@@ -1,14 +1,13 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 import useFetch from '../../hooks/useFetch';
 import About from '../About/About';
+import CatalogueItem from '../CatalogueItem/CatalogueItem';
 import Divider from '../Divider/Divider';
 import Loader from '../Loader/Loader';
-import CatalogueItem from '../CatalogueItem/CatalogueItem';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper';
-import 'swiper/swiper-bundle.css';
-import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
 
 const Home = () => {
@@ -18,7 +17,7 @@ const Home = () => {
   const renderTopThree = () => {
     return (
       <div className="box-container">
-        {topThreePlates.map((item) => (
+        {topThreePlates?.map((item) => (
           <CatalogueItem key={item.id} item={item} />
         ))}
       </div>

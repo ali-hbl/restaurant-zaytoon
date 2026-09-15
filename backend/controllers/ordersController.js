@@ -12,7 +12,7 @@ const getOrders = (req, res) => {
       if (err) return res.json({ success: false, message: err });
 
       res.json({ results });
-    }
+    },
   );
 };
 
@@ -44,8 +44,10 @@ const postOrder = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: 'payment',
-      success_url: 'http://localhost:3000/success',
-      cancel_url: 'http://localhost:3000/cancel',
+      success_url: `${process.env.FRONTEND_URL}/success`,
+      cancel_url: `${process.env.FRONTEND_URL}/cancel`,
+      // success_url: 'http://localhost:3000/success',
+      // cancel_url: 'http://localhost:3000/cancel',
     });
 
     // loop over each item to store into the database
@@ -54,7 +56,7 @@ const postOrder = async (req, res) => {
 
       connection.query(
         'INSERT INTO `orders` (`user_id`, `product_id`, `product_name`, `quantity`, `price`) VALUES (?, ?, ?, ?, ?)',
-        [uid, id, name, quantity, formattedPrice]
+        [uid, id, name, quantity, formattedPrice],
       );
 
       // Add the item to the items list string
@@ -112,7 +114,7 @@ const deleteOrder = (req, res) => {
       if (err) return res.json({ success: false, message: err });
 
       res.json({ result });
-    }
+    },
   );
 };
 
