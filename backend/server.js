@@ -1,4 +1,5 @@
-const PORT = process.env.DB_PORT || 9999;
+// const PORT = process.env.DB_PORT || 9999;
+const PORT = process.env.PORT || 9999;
 const express = require('express');
 const cors = require('cors');
 const app = express();
