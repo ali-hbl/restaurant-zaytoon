@@ -161,8 +161,10 @@ body {
     }
 
     .catalogue-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       padding: 2rem;
-      padding-top: 2rem;
 
       h3 {
         color: $color-orange;
@@ -177,7 +179,7 @@ body {
         font-size: 1.6rem;
         font-weight: 100;
         padding: 0.5rem 0;
-        line-height: 1.5rem;
+        line-height: 1.5;
       }
 
       .item-price {
