@@ -135,8 +135,11 @@ body {
     text-align: center;
     box-shadow: $box-shadow;
 
+    display: flex;
+    flex-direction: column;
+
     .box-image {
-      height: 32rem;
+      height: 25rem;
       width: 100%;
       overflow: hidden;
       position: relative;
@@ -164,22 +167,23 @@ body {
       display: flex;
       flex-direction: column;
       height: 100%;
-      padding: 2rem;
+      flex-grow: 1;
+      padding: 1.2rem 1.5rem;
 
       h3 {
         color: $color-orange;
         text-transform: uppercase;
-        font-size: 2.2rem;
         font-weight: 400;
+        font-size: 2rem;
       }
 
       p {
         font-family: 'Montserrat', sans-serif;
         color: $color-white;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 100;
         padding: 0.5rem 0;
-        line-height: 1.5;
+        line-height: 1.6;
       }
 
       .item-price {
@@ -190,11 +194,15 @@ body {
       }
 
       .item-description {
-        margin: 1.3rem 0;
+        margin: 0.4rem 0 0.8rem 0;
 
         @media (max-width: 991px) {
           font-size: 1.6rem;
         }
+      }
+
+      .btn {
+        margin-top: auto;
       }
     }
 
